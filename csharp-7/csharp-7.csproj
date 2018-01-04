@@ -49,16 +49,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Discards\" />
-    <Folder Include="GeneralizedAsyncReturnTypes\" />
-    <Folder Include="LocalFunctions\" />
-    <Folder Include="MoreExpressionBodiedMembers\" />
-    <Folder Include="NumericLiteralImprovements\" />
-    <Folder Include="OutVariables\" />
-    <Folder Include="PatternMatching\" />
-    <Folder Include="RefLocalsAndReturns\" />
-    <Folder Include="ThrowExpressions\" />
-    <Folder Include="Tuples\" />
+    <Folder Include="R01.VariaveisOut\" />
+    <Folder Include="R02.Tuplas\" />
+    <Folder Include="R03.Discartes\" />
+    <Folder Include="R04.CorrespondenciaPadrao\" />
+    <Folder Include="R05.LocaisERetornosDeRef\" />
+    <Folder Include="R06.FuncoesLocais\" />
+    <Folder Include="R07.MaisMembrosComCorpoDeExpressao\" />
+    <Folder Include="R08.ExpressoesThrow\" />
+    <Folder Include="R09.TiposDeRetornoAssincronoGeneralizado\" />
+    <Folder Include="R10.AprimoramentosDaSintaxeDeLiteraisNuméricos\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
