@@ -47,18 +47,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="R01.VariaveisOut\Roteiro.md" />
+    <None Include="R02.Tuplas\Roteiro.md" />
+    <None Include="R03.Discartes\Roteiro.md" />
+    <None Include="R04.CorrespondenciaPadrao\Roteiro.md" />
+    <None Include="R05.LocaisERetornosDeRef\Roteiro.md" />
+    <None Include="R06.FuncoesLocais\Roteiro.md" />
+    <None Include="R07.MaisMembrosComCorpoDeExpressao\Roteiro.md" />
+    <None Include="R08.ExpressoesThrow\Roteiro.md" />
+    <None Include="R09.TiposDeRetornoAssincronoGeneralizado\Roteiro.md" />
+    <None Include="R10.AprimoramentosDaSintaxeDeLiteraisNuméricos\Roteiro.md" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="R01.VariaveisOut\" />
-    <Folder Include="R02.Tuplas\" />
-    <Folder Include="R03.Discartes\" />
-    <Folder Include="R04.CorrespondenciaPadrao\" />
-    <Folder Include="R05.LocaisERetornosDeRef\" />
-    <Folder Include="R06.FuncoesLocais\" />
-    <Folder Include="R07.MaisMembrosComCorpoDeExpressao\" />
-    <Folder Include="R08.ExpressoesThrow\" />
-    <Folder Include="R09.TiposDeRetornoAssincronoGeneralizado\" />
-    <Folder Include="R10.AprimoramentosDaSintaxeDeLiteraisNuméricos\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

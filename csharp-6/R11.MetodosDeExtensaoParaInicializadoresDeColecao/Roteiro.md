@@ -3,9 +3,10 @@ Outro recurso que facilita a inicialização de coleção é a capacidade de usa
 
 O recurso é mais útil quando você tem uma classe de coleção personalizada que tem um método com um nome diferente para adicionar novos itens semanticamente.
 Por exemplo, considere uma coleção de alunos como esta:
-C#
 
-Copiar
+
+
+```
 public class Enrollment : IEnumerable<Student>
 {
     private List<Student> allStudents = new List<Student>();
@@ -25,10 +26,12 @@ public class Enrollment : IEnumerable<Student>
         return ((IEnumerable<Student>)allStudents).GetEnumerator();
     }
 }
+```
 O método Enroll adiciona um aluno. Mas não segue o padrão Add. Nas versões anteriores do C#, você não podia usar os inicializadores de coleção com um objeto Enrollment:
-C#
 
-Copiar
+
+
+```
 var classList = new Enrollment()
 {
     new Student("Lessie", "Crosby"),
@@ -62,19 +65,23 @@ var classList = new Enrollment()
     new Student("Cary", "Totten"),
     new Student("Althea", "Goodwin")
 };
+```
 Agora você pode, mas apenas se você criar um método de extensão que mapeia Add para Enroll:
-C#
 
-Copiar
+
+
+```
 public static class StudentExtensions
 {
     public static void Add(this Enrollment e, Student s) => e.Enroll(s);
 }
+```
 O que você está fazendo com esse recurso é mapear qualquer método que adiciona itens a uma coleção, em um método chamado Add, criando um método de extensão:
 
-C#
 
-Copiar
+
+
+```
 public class Enrollment : IEnumerable<Student>
 {
     private List<Student> allStudents = new List<Student>();
@@ -94,9 +101,11 @@ public class Enrollment : IEnumerable<Student>
         return ((IEnumerable<Student>)allStudents).GetEnumerator();
     }
 }
-C#
+```
 
-Copiar
+
+
+```
 public class ClassList
 {
     public Enrollment CreateEnrollment()
@@ -142,3 +151,4 @@ public static class StudentExtensions
 {
     public static void Add(this Enrollment e, Student s) => e.Enroll(s);
 }
+```

@@ -1,22 +1,25 @@
-﻿Inicializadores de propriedade automática
-Os Inicializadores de propriedade automática permitem que você declare o valor inicial de uma propriedade automática como parte da declaração de propriedade. Em versões anteriores, essas propriedades precisariam de setters e você teria que usar esse setter para inicializar o armazenamento de dados usado pelo campo de suporte. Considere essa classe para um aluno que contém o nome e uma lista das notas do aluno:
-C#
+﻿# Inicializadores de propriedade automática
 
-Copiar
+Os Inicializadores de propriedade automática permitem que você declare o valor inicial de uma propriedade automática como parte da declaração de propriedade. Em versões anteriores, essas propriedades precisariam de setters e você teria que usar esse setter para inicializar o armazenamento de dados usado pelo campo de suporte. Considere essa classe para um aluno que contém o nome e uma lista das notas do aluno:
+
+```
 public Student(string firstName, string lastName)
 {
     FirstName = firstName;
     LastName = lastName;
 }
+```
+
 Conforme essa classe cresce, você pode incluir outros construtores. Cada construtor precisa inicializar este campo ou você introduzirá erros.
 O C# 6 permite que você atribua um valor inicial para o armazenamento usado por uma propriedade automática na declaração da propriedade automática:
-C#
 
-Copiar
+```
 public ICollection<double> Grades { get; } = new List<double>();
+```
+
 O membro Grades é inicializado no local em que é declarado. Isso facilita realizar a inicialização exatamente uma vez. A inicialização faz parte da declaração de propriedade, tornando mais fácil igualar a alocação de armazenamento com a interface pública para objetos Student.
 Inicializadores de propriedade podem ser usados com propriedades de leitura/gravação, bem como propriedades somente leitura, conforme mostrado aqui.
-C#
 
-Copiar
+```
 public Standing YearInSchool { get; set; } = Standing.Freshman;
+```
