@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp-6", "csharp-6e7-roteiro\csharp-6.csproj", "{CA47C6F9-3EF9-42DA-AB1F-81E51D0DC4AB}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp-7", "csharp-7\csharp-7.csproj", "{E2720588-100D-4FA9-82BE-58B732E0E7DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp-6", "csharp-6\csharp-6.csproj", "{CA47C6F9-3EF9-42DA-AB1F-81E51D0DC4AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CA47C6F9-3EF9-42DA-AB1F-81E51D0DC4AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CA47C6F9-3EF9-42DA-AB1F-81E51D0DC4AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CA47C6F9-3EF9-42DA-AB1F-81E51D0DC4AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CA47C6F9-3EF9-42DA-AB1F-81E51D0DC4AB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E2720588-100D-4FA9-82BE-58B732E0E7DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E2720588-100D-4FA9-82BE-58B732E0E7DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2720588-100D-4FA9-82BE-58B732E0E7DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E2720588-100D-4FA9-82BE-58B732E0E7DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA47C6F9-3EF9-42DA-AB1F-81E51D0DC4AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA47C6F9-3EF9-42DA-AB1F-81E51D0DC4AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA47C6F9-3EF9-42DA-AB1F-81E51D0DC4AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA47C6F9-3EF9-42DA-AB1F-81E51D0DC4AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

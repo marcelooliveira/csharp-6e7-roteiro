@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace csharp_6e7_roteiro
 {
+
     class Program
     {
         static void Main(string[] args)
