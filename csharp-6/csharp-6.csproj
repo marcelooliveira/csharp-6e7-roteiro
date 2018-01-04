@@ -47,20 +47,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="R01.PropriedadesAutomaticasSomenteLeitura\Roteiro.md" />
+    <None Include="R02.InicializadoresDePropriedadeAutomatica\Roteiro.md" />
+    <None Include="R03.MembrosComCorpoDeExpressao\Roteiro.md" />
+    <None Include="R04.UsingStatic\Roteiro.md" />
+    <None Include="R05.OperadoresNullCondicionais\Roteiro.md" />
+    <None Include="R06.InterpolacaoDeCadeiaDeCaracteres\Roteiro.md" />
+    <None Include="R07.FiltrosDeExcecao\Roteiro.md" />
+    <None Include="R08.ExpressoesNameOf\Roteiro.md" />
+    <None Include="R09.AwaitEmBlocosCatchEFinally\Roteiro.md" />
+    <None Include="R10.InicializadoresDeIndice\Roteiro.md" />
+    <None Include="R11.MetodosDeExtensaoParaInicializadoresDeColecao\Roteiro.md" />
+    <None Include="R12.ResolucaoDeSobrecargaAprimorada\Roteiro.md" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="R01.PropriedadesAutomaticasSomenteLeitura\" />
-    <Folder Include="R02.InicializadoresDePropriedadeAutomatica\" />
-    <Folder Include="R03.MembrosComCorpoDeExpressao\" />
-    <Folder Include="R04.UsingStatic\" />
-    <Folder Include="R05.OperadoresNullCondicionais\" />
-    <Folder Include="R06.InterpolacaoDeCadeiaDeCaracteres\" />
-    <Folder Include="R07.FiltrosDeExcecao\" />
-    <Folder Include="R08.ExpressoesNameOf\" />
-    <Folder Include="R09.AwaitEmBlocosCatchEFinally\" />
-    <Folder Include="R10.InicializadoresDeIndice\" />
-    <Folder Include="R11.MetodosDeExtensaoParaInicializadoresDeColecao\" />
-    <Folder Include="R12.ResolucaoDeSobrecargaAprimorada\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
