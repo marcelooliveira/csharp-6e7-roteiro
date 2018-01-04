@@ -3,9 +3,9 @@ Muitos designs para classes incluem métodos que são chamados de apenas um loca
 Para esses designs, as funções locais permitem que você declare métodos dentro do contexto de outro método. Isso faz com que seja mais fácil para os leitores da classe verem que o método local é chamado apenas do contexto em que ele está declarado.
 Há dois casos de uso muito comuns para funções locais: métodos iteradores públicos e métodos assíncronos públicos. Ambos os tipos de métodos de geram código que relata os erros mais tarde do que os programadores podem esperar. No caso de métodos iteradores, todas as exceções são observadas apenas ao chamar o código que enumera a sequência retornada. No caso de métodos assíncronos, todas as exceções são observadas apenas quando a Task retornada é aguardada.
 Vamos começar com um método iterador:
-C#
 
-Copiar
+
+
 public static IEnumerable<char> AlphabetSubset(char start, char end)
 {
     if (start < 'a' || start > 'z')
@@ -19,17 +19,17 @@ public static IEnumerable<char> AlphabetSubset(char start, char end)
         yield return c;
 }
 Examine o código abaixo que chama o método iterador incorretamente:
-C#
 
-Copiar
+
+
 var resultSet = Iterator.AlphabetSubset('f', 'a');
 Console.WriteLine("iterator created");
 foreach (var thing in resultSet)
     Console.Write($"{thing}, ");
 A exceção é lançada quando resultSet é iterado, não quando resultSet é criado. Neste exemplo independente, a maioria dos desenvolvedores pode diagnosticar o problema rapidamente. No entanto, em bases de código maiores, o código que cria um iterador geralmente não é tão próximo do código que enumera o resultado. Você pode refatorar o código para que o método público valide todos os argumentos e um método particular gere a enumeração:
-C#
 
-Copiar
+
+
 public static IEnumerable<char> AlphabetSubset2(char start, char end)
 {
     if (start < 'a' || start > 'z')
@@ -49,9 +49,9 @@ private static IEnumerable<char> alphabetSubsetImplementation(char start, char e
 }
 Esta versão refatorada lançará exceções imediatamente porque o método público não é um método iterador, apenas o método privado usa a sintaxe yield return. No entanto, existem problemas potenciais com a refatoração. O método privado deve ser chamado apenas do método de interface pública, pois, caso contrário, todas as validações de argumento são ignoradas. Os leitores da classe devem descobrir esse fato lendo a classe inteira e pesquisando por todas as outras referências ao método alphabetSubsetImplementation.
 Você pode tornar essa intenção de design mais clara declarando o alphabetSubsetImplementation como uma função local dentro do método de API pública:
-C#
 
-Copiar
+
+
 public static IEnumerable<char> AlphabetSubset3(char start, char end)
 {
     if (start < 'a' || start > 'z')
@@ -72,9 +72,9 @@ public static IEnumerable<char> AlphabetSubset3(char start, char end)
 }
 A versão acima deixa claro que o método local é referenciado somente no contexto do método externo. As regras para funções locais também garantem que um desenvolvedor não possa acidentalmente chamar a função local de outro local na classe e ignorar a validação de argumento.
 A mesma técnica pode ser empregada com métodos async para garantir que as exceções decorrentes da validação de argumento sejam lançadas antes de o trabalho assíncrono começar:
-C#
 
-Copiar
+
+
 public Task<string> PerformLongRunningWork(string address, int index, string name)
 {
     if (string.IsNullOrWhiteSpace(address))

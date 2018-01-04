@@ -1,4 +1,4 @@
-﻿Descartes
+﻿# Descartes
 
 Geralmente, ao desconstruir uma tupla ou chamar um método com parâmetros out, você é forçado a definir uma variável cujo valor não é importante e você não pretende usar. O C# adiciona suporte para descartes para lidar com esse cenário. Um descarte é uma variável de somente gravação cujo nome é _ (o caractere de sublinhado); você pode atribuir todos os valores que você pretende descartar à variável única. Um descarte é como uma variável não atribuída. Além da instrução de atribuição, o descarte não pode ser usado no código.
 Os descartes são compatíveis com os seguintes cenários:
@@ -7,9 +7,9 @@ Ao chamar métodos com parâmetros out.
 Em uma operação de correspondência de padrões com as instruções is e switch.
 Como um identificador autônomo quando você deseja identificar explicitamente o valor de uma atribuição como um descarte.
 O exemplo a seguir define um método QueryCityDataForYears que retorna uma tupla de 6 que contém dados de dois anos diferentes para uma cidade. A chamada do método no exemplo é relacionada somente com os dois valores de população retornados pelo método e, por isso, trata os valores restantes na tupla como descartes ao desconstruir a tupla.
-C#
 
-Copiar
+
+
 using System;
 using System.Collections.Generic;
 

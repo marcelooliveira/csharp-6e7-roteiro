@@ -1,21 +1,22 @@
-﻿Correspondência de padrões
+﻿# Correspondência de padrões
+
 Correspondência de padrões é um recurso que permite que você implemente a expedição do método em propriedades diferentes do tipo de um objeto. Você provavelmente já está familiarizado com a expedição de método com base no tipo de um objeto. Em programação orientada a objetos, os métodos de substituição e virtual fornecem a sintaxe da linguagem para implementar a expedição de método com base em um tipo de objeto. As classes base e derivada fornecem implementações diferentes. Expressões de correspondência de padrões estendem esse conceito para que você possa implementar facilmente padrões de expedição semelhantes para elementos de dados e tipos que não são relacionados por meio de uma hierarquia de herança.
 
 A correspondência de padrões tem suporte a expressões is e switch. Cada uma delas permite inspecionar um objeto e suas propriedades para determinar se esse objeto satisfaz o padrão procurado. Você usa a palavra-chave when para especificar regras adicionais para o padrão.
 Expressão is
 A expressão de padrão is estende o operador familiar is para consultar um objeto além de seu tipo.
 Vamos começar com um cenário simples. Vamos adicionar recursos a este cenário que demonstram como expressões de correspondência de padrões tornam algoritmos que funcionam com tipos não relacionados fáceis. Começaremos com um método que calcula a soma de uma série de rolagens de dado:
-C#
 
-Copiar
+
+
 public static int DiceSum(IEnumerable<int> values)
 {
     return values.Sum();
 }
 Você pode pensar rapidamente que precisa localizar a soma dos lançamentos de dado em que alguns dos lançamentos são feitos com vários dados (dados é plural de dado). Parte da sequência de entrada pode ser vários resultados, em vez de um único número:
-C#
 
-Copiar
+
+
 public static int DiceSum2(IEnumerable<object> values)
 {
     var sum = 0;
@@ -34,9 +35,9 @@ Conforme você continua a expandir esses cenários, pode descobrir que cria mais
 Atualizações da instrução switch
 A expressão de correspondência tem uma sintaxe familiar, com base na instrução switch que já faz parte da linguagem C#. Vamos converter o código existente para usar uma expressão de correspondência antes de adicionar novas expressões case:
 
-C#
 
-Copiar
+
+
 public static int DiceSum3(IEnumerable<object> values)
 {
     var sum = 0;
@@ -56,9 +57,9 @@ public static int DiceSum3(IEnumerable<object> values)
 }
 As expressões de correspondência têm uma sintaxe ligeiramente diferente das expressões is, em que você declara o tipo e a variável no início da expressão case.
 As expressões de correspondência também dão suporte a constantes. Isso pode poupar tempo ao fatorar expressões case simples:
-C#
 
-Copiar
+
+
 public static int DiceSum4(IEnumerable<object> values)
 {
     var sum = 0;
@@ -93,9 +94,9 @@ Observação
 
 Dois dados de percentil de 10 faces podem representar todos os números de 0 a 99. Um dado tem os lados rotulados como 00, 10, 20,... 90. O outro dado tem os lados rotulados como 0, 1, 2,... 9. Some os valores dos dois dados e você pode obter todos os números de 0 a 99.
 Para adicionar esse tipo de dado à sua coleção, primeiro defina um tipo para representar os dados do percentil. A propriedade TensDigit armazena valores 0, 10, 20, até 90:
-C#
 
-Copiar
+
+
 public struct PercentileDice
 {
     public int OnesDigit { get; }
@@ -108,9 +109,9 @@ public struct PercentileDice
     }
 }
 Em seguida, adicione uma expressão de correspondência case para o novo tipo:
-C#
 
-Copiar
+
+
 public static int DiceSum5(IEnumerable<object> values)
 {
     var sum = 0;

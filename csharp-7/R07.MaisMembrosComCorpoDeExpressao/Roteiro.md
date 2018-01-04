@@ -1,8 +1,8 @@
 ﻿Mais membros aptos para expressão
 O C# 6 introduziu membros aptos para expressão para funções de membro e propriedades somente leitura. O C# 7 expande os membros permitidos que podem ser implementados como expressões. No C# 7, você pode implementar construtores, finalizadores e acessadores get e set em propriedades e indexadores. O código a seguir mostra exemplos de cada um:
-C#
 
-Copiar
+
+
 // Expression-bodied constructor
 public ExpressionMembersExample(string label) => this.Label = label;
 
