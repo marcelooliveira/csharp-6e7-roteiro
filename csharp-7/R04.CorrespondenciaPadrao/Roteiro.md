@@ -9,14 +9,17 @@ Vamos começar com um cenário simples. Vamos adicionar recursos a este cenário
 
 
 
+```
 public static int DiceSum(IEnumerable<int> values)
 {
     return values.Sum();
 }
+```
 Você pode pensar rapidamente que precisa localizar a soma dos lançamentos de dado em que alguns dos lançamentos são feitos com vários dados (dados é plural de dado). Parte da sequência de entrada pode ser vários resultados, em vez de um único número:
 
 
 
+```
 public static int DiceSum2(IEnumerable<object> values)
 {
     var sum = 0;
@@ -29,6 +32,7 @@ public static int DiceSum2(IEnumerable<object> values)
     }
     return sum;
 }
+```
 A expressão padrão is funciona muito bem nesse cenário. Como parte da verificação de tipo, você escreve uma inicialização de variável. Isso cria uma nova variável do tipo de tempo de execução validado.
 Conforme você continua a expandir esses cenários, pode descobrir que cria mais instruções if e else if. Assim que isso se tornar complicado, provavelmente você desejará mudar para expressões padrão switch.
 
@@ -38,6 +42,7 @@ A expressão de correspondência tem uma sintaxe familiar, com base na instruç�
 
 
 
+```
 public static int DiceSum3(IEnumerable<object> values)
 {
     var sum = 0;
@@ -55,11 +60,13 @@ public static int DiceSum3(IEnumerable<object> values)
     }
     return sum;
 }
+```
 As expressões de correspondência têm uma sintaxe ligeiramente diferente das expressões is, em que você declara o tipo e a variável no início da expressão case.
 As expressões de correspondência também dão suporte a constantes. Isso pode poupar tempo ao fatorar expressões case simples:
 
 
 
+```
 public static int DiceSum4(IEnumerable<object> values)
 {
     var sum = 0;
@@ -85,6 +92,7 @@ public static int DiceSum4(IEnumerable<object> values)
     }
     return sum;
 }
+```
 O código acima adiciona expressões case de 0 como um case especial de int e null como um case especial quando não há nenhuma entrada. Isso demonstra um novo recurso importante em expressões de padrão switch: a ordem das expressões case agora importa. O case 0 deve aparecer antes do case int geral. Caso contrário, o primeiro padrão a ser correspondido seria o case int, mesmo quando o valor fosse 0. Se você acidentalmente ordenar expressões de correspondência de forma que uma expressão posterior já tenha sido tratada, o compilador sinalizará isso e gerará um erro.
 Esse mesmo comportamento habilita o case especial para uma sequência de entrada vazia. Você pode ver que o case de um item IEnumerable que tem elementos deve aparecer antes do case IEnumerable geral.
 Esta versão também adicionou um case default. O case default sempre é avaliado por último, independentemente da ordem em que ele aparece na origem. Por esse motivo, a convenção é colocar o case default por último.
@@ -97,6 +105,7 @@ Para adicionar esse tipo de dado à sua coleção, primeiro defina um tipo para 
 
 
 
+```
 public struct PercentileDice
 {
     public int OnesDigit { get; }
@@ -108,10 +117,12 @@ public struct PercentileDice
         this.TensDigit = tensDigit;
     }
 }
+```
 Em seguida, adicione uma expressão de correspondência case para o novo tipo:
 
 
 
+```
 public static int DiceSum5(IEnumerable<object> values)
 {
     var sum = 0;
@@ -140,5 +151,6 @@ public static int DiceSum5(IEnumerable<object> values)
     }
     return sum;
 }
+```
 A nova sintaxe para expressões de correspondência de padrões torna mais fácil criar algoritmos de expedição com base no tipo de um objeto ou outras propriedades, usando uma sintaxe clara e concisa. Expressões de correspondência de padrões permitem esses constructos em tipos de dados que não são relacionados por herança.
 Você pode aprender mais sobre a correspondência de padrões no tópico dedicado à correspondência de padrões no C#.

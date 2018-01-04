@@ -10,6 +10,7 @@ O exemplo a seguir define um método QueryCityDataForYears que retorna uma tupla
 
 
 
+```
 using System;
 using System.Collections.Generic;
 
@@ -43,4 +44,5 @@ public class Example
 }
 // The example displays the following output:
 //      Population change, 1960 to 2010: 393,149
+```
 Para obter mais informações, consulte Descartes.

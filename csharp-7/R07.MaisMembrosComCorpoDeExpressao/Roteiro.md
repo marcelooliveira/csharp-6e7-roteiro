@@ -3,6 +3,7 @@ O C# 6 introduziu membros aptos para expressão para funções de membro e propr
 
 
 
+```
 // Expression-bodied constructor
 public ExpressionMembersExample(string label) => this.Label = label;
 
@@ -17,6 +18,7 @@ public string Label
     get => label;
     set => this.label = value ?? "Default label";
 }
+```
 Observação
 
 Este exemplo não precisa de um finalizador, mas ele é mostrado para demonstrar a sintaxe. Você não deve implementar um finalizador em sua classe a menos que seja necessário para liberar recursos não gerenciados. Você também deve considerar o uso da classe SafeHandle em vez de gerenciar recursos não gerenciados diretamente.

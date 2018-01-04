@@ -5,11 +5,13 @@ O novo recurso de linguagem significa que os métodos assíncronos podem retorna
 
 
 
+```
 public async ValueTask<int> Func()
 {
     await Task.Delay(100);
     return 5;
 }
+```
 Observação
 
 Você precisa adicionar o pacote NuGet System.Threading.Tasks.Extensions para usar o tipo ValueTask<TResult>.
@@ -17,6 +19,7 @@ Uma otimização simples seria usar ValueTask em locais em que Task seria usado 
 
 
 
+```
 public ValueTask<int> CachedFunc()
 {
     return (cache) ? new ValueTask<int>(cacheResult) : new ValueTask<int>(LoadCache());
@@ -31,4 +34,5 @@ private async Task<int> LoadCache()
     cache = true;
     return cacheResult;
 }
+```
 Como com todas as recomendações de desempenho, você deve submeter a benchmark as duas versões antes de fazer alterações em grande escala em seu código.

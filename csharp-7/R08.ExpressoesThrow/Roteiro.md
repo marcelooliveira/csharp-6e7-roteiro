@@ -4,22 +4,27 @@ A sintaxe é a mesma que você sempre usou para instruções throw. A única dif
 
 
 
+```
 public string Name
 {
     get => name;
     set => name = value ?? 
         throw new ArgumentNullException(paramName: nameof(value), message: "New name must not be null");
 }
+```
 Esse recurso permite usar expressões throw em expressões de inicialização:
 
 
 
+```
 private ConfigResource loadedConfig = LoadConfigResourceOrDefault() ?? 
     throw new InvalidOperationException("Could not load config");
+```
 Anteriormente, essas inicializações precisavam estar em um construtor, com as instruções throw no corpo do construtor:
 
 
 
+```
 public ApplicationOptions()
 {
     loadedConfig = LoadConfigResourceOrDefault();
@@ -27,6 +32,7 @@ public ApplicationOptions()
         throw new InvalidOperationException("Could not load config");
 
 }
+```
 Observação
 
 Ambos os construtores acima farão com que exceções sejam geradas durante a construção de um objeto. Muitas vezes é difícil realizar a recuperação deles. Por esse motivo, os designs que lançam exceções durante a construção são desencorajados.
