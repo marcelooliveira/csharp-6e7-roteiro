@@ -21,7 +21,6 @@ namespace csharp_6.R02
         public ICollection<double> Grades { get; } = new List<double>();
         public Standing YearInSchool { get; set; } = Standing.Freshman;
 
-
         public Student(string firstName, string lastName)
         {
             if (string.IsNullOrWhiteSpace(lastName))
