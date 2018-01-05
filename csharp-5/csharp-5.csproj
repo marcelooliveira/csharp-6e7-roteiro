@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CA47C6F9-3EF9-42DA-AB1F-81E51D0DC4AB}</ProjectGuid>
+    <ProjectGuid>{A9C7D1BB-31CE-4CEC-9F57-6C96C08325D2}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>csharp_6e7_roteiro</RootNamespace>
-    <AssemblyName>csharp-6</AssemblyName>
+    <RootNamespace>csharp_5</RootNamespace>
+    <AssemblyName>csharp-5</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -21,7 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <LangVersion>6</LangVersion>
+    <LangVersion>5</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -43,50 +43,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\csharp-5\R01.PropriedadesAutomaticasSomenteLeitura\csharp-5.cs">
-      <Link>R01.PropriedadesAutomaticasSomenteLeitura\csharp-5.cs</Link>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="R01.PropriedadesAutomaticasSomenteLeitura\csharp-6.cs" />
+    <Compile Include="R01.PropriedadesAutomaticasSomenteLeitura\csharp-5.cs" />
     <Compile Include="R02.InicializadoresDePropriedadeAutomatica\csharp-5.cs" />
-    <Compile Include="R02.InicializadoresDePropriedadeAutomatica\csharp-6.cs" />
     <Compile Include="R03.MembrosComCorpoDeExpressao\csharp-5.cs" />
-    <Compile Include="R03.MembrosComCorpoDeExpressao\csharp-6.cs" />
     <Compile Include="R04.UsingStatic\csharp-5.cs" />
-    <Compile Include="R04.UsingStatic\csharp-6.cs" />
     <Compile Include="R05.OperadoresNullCondicionais\csharp-5.cs" />
-    <Compile Include="R05.OperadoresNullCondicionais\csharp-6.cs" />
     <Compile Include="R06.InterpolacaoDeCadeiaDeCaracteres\csharp-5.cs" />
-    <Compile Include="R06.InterpolacaoDeCadeiaDeCaracteres\csharp-6.cs" />
     <Compile Include="R07.FiltrosDeExcecao\csharp-5.cs" />
-    <Compile Include="R07.FiltrosDeExcecao\csharp-6.cs" />
     <Compile Include="R08.ExpressoesNameOf\csharp-5.cs" />
-    <Compile Include="R08.ExpressoesNameOf\csharp-6.cs" />
     <Compile Include="R09.AwaitEmBlocosCatchEFinally\csharp-5.cs" />
-    <Compile Include="R09.AwaitEmBlocosCatchEFinally\csharp-6.cs" />
     <Compile Include="R10.InicializadoresDeIndice\csharp-5.cs" />
-    <Compile Include="R10.InicializadoresDeIndice\csharp-6.cs" />
     <Compile Include="R11.MetodosDeExtensaoParaInicializadoresDeColecao\csharp-5.cs" />
-    <Compile Include="R11.MetodosDeExtensaoParaInicializadoresDeColecao\csharp-6.cs" />
     <Compile Include="R12.ResolucaoDeSobrecargaAprimorada\csharp-5.cs" />
-    <Compile Include="R12.ResolucaoDeSobrecargaAprimorada\csharp-6.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="R01.PropriedadesAutomaticasSomenteLeitura\Roteiro.md" />
-    <None Include="R02.InicializadoresDePropriedadeAutomatica\Roteiro.md" />
-    <None Include="R03.MembrosComCorpoDeExpressao\Roteiro.md" />
-    <None Include="R04.UsingStatic\Roteiro.md" />
-    <None Include="R05.OperadoresNullCondicionais\Roteiro.md" />
-    <None Include="R06.InterpolacaoDeCadeiaDeCaracteres\Roteiro.md" />
-    <None Include="R07.FiltrosDeExcecao\Roteiro.md" />
-    <None Include="R08.ExpressoesNameOf\Roteiro.md" />
-    <None Include="R09.AwaitEmBlocosCatchEFinally\Roteiro.md" />
-    <None Include="R10.InicializadoresDeIndice\Roteiro.md" />
-    <None Include="R11.MetodosDeExtensaoParaInicializadoresDeColecao\Roteiro.md" />
-    <None Include="R12.ResolucaoDeSobrecargaAprimorada\Roteiro.md" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
