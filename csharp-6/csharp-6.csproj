@@ -55,7 +55,6 @@
     <Compile Include="R02.InicializadoresDePropriedadeAutomatica\csharp-6.cs" />
     <Compile Include="R03.MembrosComCorpoDeExpressao\csharp-6.cs" />
     <Compile Include="R04.UsingStatic\csharp-6.cs" />
-    <Compile Include="R05.OperadoresNullCondicionais\csharp-5.cs" />
     <Compile Include="R05.OperadoresNullCondicionais\csharp-6.cs" />
     <Compile Include="R06.InterpolacaoDeCadeiaDeCaracteres\csharp-5.cs" />
     <Compile Include="R06.InterpolacaoDeCadeiaDeCaracteres\csharp-6.cs" />

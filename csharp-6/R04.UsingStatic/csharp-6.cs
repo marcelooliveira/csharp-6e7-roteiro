@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.String;
-using static System.Linq.Enumerable;
 
 namespace csharp_6.R04
 {
