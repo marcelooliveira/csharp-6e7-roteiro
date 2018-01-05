@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.String;
 
-namespace csharp_6.R04
+namespace CSharp6.R04
 {
     public enum Standing
     {

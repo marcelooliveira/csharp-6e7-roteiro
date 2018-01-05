@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace csharp_6e7_roteiro
+namespace CSharp6e7_roteiro
 {
 
     class Program

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace csharp_5.R08
+namespace CSharp5.R08
 {
-    class csharp_5
+    class CSharp5
     {
     }
 }

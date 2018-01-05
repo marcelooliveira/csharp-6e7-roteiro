@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.String;
 
-namespace csharp_6.R05
+namespace CSharp6.R05
 {
     class Program
     {

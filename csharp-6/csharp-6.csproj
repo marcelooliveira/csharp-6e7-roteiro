@@ -58,9 +58,7 @@
     <Compile Include="R05.OperadoresNullCondicionais\csharp-6.cs" />
     <Compile Include="R06.InterpolacaoDeCadeiaDeCaracteres\csharp-6.cs" />
     <Compile Include="R07.FiltrosDeExcecao\csharp-6.cs" />
-    <Compile Include="R08.ExpressoesNameOf\csharp-5.cs" />
     <Compile Include="R08.ExpressoesNameOf\csharp-6.cs" />
-    <Compile Include="R09.AwaitEmBlocosCatchEFinally\csharp-5.cs" />
     <Compile Include="R09.AwaitEmBlocosCatchEFinally\csharp-6.cs" />
     <Compile Include="R10.InicializadoresDeIndice\csharp-5.cs" />
     <Compile Include="R10.InicializadoresDeIndice\csharp-6.cs" />

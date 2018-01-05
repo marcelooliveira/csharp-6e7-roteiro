@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace csharp_6.R01
+namespace CSharp6.R01
 {
     public class Student
     {
