@@ -32,6 +32,7 @@ namespace csharp_5.R02
             Grades = new List<double>();
             YearInSchool = Standing.Freshman;
         }
+
         public void ChangeName(string newLastName)
         {
             // Generates CS0200: Property or indexer cannot be assigned to -- it is read only

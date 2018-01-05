@@ -1,5 +1,4 @@
-﻿using csharp_6e7_roteiro.R02.InicializadoresDePropriedadeAutomatica;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
