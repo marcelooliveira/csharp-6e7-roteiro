@@ -34,7 +34,8 @@ namespace csharp_6.R06
         public ICollection<double> Grades { get; } = new List<double>();
         public Standing YearInSchool { get; set; } = Standing.Freshman;
 
-        public string FullName => string.Format("{0} {1}", FirstName, LastName);
+        public string FullName => $"{FirstName} {LastName}";
+
 
         public Student(string firstName, string lastName)
         {
@@ -51,7 +52,20 @@ namespace csharp_6.R06
             //LastName = newLastName;
         }
 
-        public override string ToString() => string.Format("{0}, {1}", LastName, FirstName);
+        public override string ToString() => $"{LastName}, {FirstName}";
+
+        public string GetFormattedGradePoint() =>
+            $"Name: {LastName}, {FirstName}. G.P.A: {Grades.Average()}";
+
+        public string GetGradePointPercentage() =>
+            $"Name: {LastName}, {FirstName}. G.P.A: {Grades.Average():F2}";
+
+        public string GetGradePointPercentages() =>
+            $"Name: {LastName}, {FirstName}. G.P.A: {(Grades.Any() ? Grades.Average() : double.NaN):F2}";
+
+        public string GetAllGrades() =>
+            $@"All Grades: {Grades.OrderByDescending(g => g)
+            .Select(s => s.ToString("F2")).Aggregate((partial, element) => $"{partial}, {element}")}";
 
         public bool MakesDeansList()
         {
