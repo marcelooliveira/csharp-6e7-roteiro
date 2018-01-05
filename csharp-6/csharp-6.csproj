@@ -60,11 +60,8 @@
     <Compile Include="R07.FiltrosDeExcecao\csharp-6.cs" />
     <Compile Include="R08.ExpressoesNameOf\csharp-6.cs" />
     <Compile Include="R09.AwaitEmBlocosCatchEFinally\csharp-6.cs" />
-    <Compile Include="R10.InicializadoresDeIndice\csharp-5.cs" />
     <Compile Include="R10.InicializadoresDeIndice\csharp-6.cs" />
-    <Compile Include="R11.MetodosDeExtensaoParaInicializadoresDeColecao\csharp-5.cs" />
     <Compile Include="R11.MetodosDeExtensaoParaInicializadoresDeColecao\csharp-6.cs" />
-    <Compile Include="R12.ResolucaoDeSobrecargaAprimorada\csharp-5.cs" />
     <Compile Include="R12.ResolucaoDeSobrecargaAprimorada\csharp-6.cs" />
   </ItemGroup>
   <ItemGroup>
