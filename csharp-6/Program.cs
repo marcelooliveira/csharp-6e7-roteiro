@@ -11,18 +11,18 @@ namespace CSharp6e7_roteiro
         static void Main(string[] args)
         {
             string[] menus = new string[] {
-                "01.PropriedadesAutomaticasSomenteLeitura",
-                "02.InicializadoresDePropriedadeAutomatica",
-                "03.MembrosComCorpoDeExpressao",
-                "04.UsingStatic",
-                "05.OperadoresNullCondicionais",
-                "06.InterpolacaoDeCadeiaDeCaracteres",
-                "07.FiltrosDeExcecao",
-                "08.ExpressoesNameOf",
-                "09.AwaitEmBlocosCatchEFinally",
-                "10.InicializadoresDeIndice",
-                "11.MetodosDeExtensaoParaInicializadoresDeColecao",
-                "12.ResolucaoDeSobrecargaAprimorada"
+                "01. Propriedades Automáticas Somente-Leitura",
+                "02. Inicializadores De Propriedade Automática",
+                "03. Membros Com Corpo De Expressão",
+                "04. Using Static",
+                "05. Operadores Null-Condicionais",
+                "06. Interpolação De Cadeia De Caracteres",
+                "07. Filtros De Exceção",
+                "08. Expressões nameOf",
+                "09. Await Em Blocos Catch E Finally",
+                "10. Inicializadores De Índice",
+                "11. Metodos De Extensão Para Inicializadores De Coleção",
+                "12. Resolução De Sobrecarga Aprimorada"
             };
 
             Console.WriteLine("ÍNDICE DE PROGRAMAS");
