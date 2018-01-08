@@ -22,8 +22,9 @@ namespace CSharp5.R01
 
         public void MudarNome(string novoSobrenome)
         {
-            // Podemos modificar a propriedade dentro de um método, logo ela não é imutável!
+            // não gera erro, logo Sobrenome não é imutável
             Sobrenome = novoSobrenome;
         }
     }
+
 }
