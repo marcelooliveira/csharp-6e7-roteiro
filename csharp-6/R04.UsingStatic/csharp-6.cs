@@ -7,6 +7,14 @@ using static System.String;
 
 namespace CSharp6.R04
 {
+    class Programa
+    {
+        public void Main()
+        {
+            Console.WriteLine("Programa 4");
+        }
+    }
+
     public enum Ano
     {
         Primeiro,

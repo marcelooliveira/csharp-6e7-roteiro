@@ -8,6 +8,14 @@ using static System.String;
 
 namespace CSharp6.R11
 {
+    class Programa
+    {
+        public void Main()
+        {
+            Console.WriteLine("Programa 11");
+        }
+    }
+
     class CSharp6
     {
         public CSharp6()

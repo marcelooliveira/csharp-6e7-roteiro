@@ -6,6 +6,14 @@ using System.Threading.Tasks;
 
 namespace CSharp6.R01
 {
+    class Programa
+    {
+        public void Main()
+        {
+            Console.WriteLine("Programa 1");
+        }
+    }
+
     public class Aluno
     {
         public string Prenome { get; }

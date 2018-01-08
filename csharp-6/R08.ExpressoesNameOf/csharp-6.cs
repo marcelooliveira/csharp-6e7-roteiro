@@ -7,9 +7,9 @@ using static System.String;
 
 namespace CSharp6.R08
 {
-    class Program
+    class Programa
     {
-        void Main()
+        public void Main()
         {
             List<Aluno> alunos = new List<Aluno>();
             var student = alunos.FirstOrDefault();

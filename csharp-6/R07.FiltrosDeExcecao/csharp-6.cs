@@ -6,6 +6,14 @@ using System.Threading.Tasks;
 
 namespace CSharp6.R07
 {
+    class Programa
+    {
+        public void Main()
+        {
+            Console.WriteLine("Programa 7");
+        }
+    }
+
     class CSharp6
     {
         public static async Task<string> FazerRequisicao()

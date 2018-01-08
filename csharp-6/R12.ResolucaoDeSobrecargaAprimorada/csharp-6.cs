@@ -6,6 +6,14 @@ using System.Threading.Tasks;
 
 namespace CSharp6.R12
 {
+    class Programa
+    {
+        public void Main()
+        {
+            Console.WriteLine("Programa 12");
+        }
+    }
+
     class CSharp6
     {
         public CSharp6()

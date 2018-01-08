@@ -7,6 +7,14 @@ using System.Threading.Tasks;
 
 namespace CSharp6.R09
 {
+    class Programa
+    {
+        public void Main()
+        {
+            Console.WriteLine("Programa 9");
+        }
+    }
+
     class CSharp6
     {
         public static async Task<string> FazerRequisicaoELogarFalhas()

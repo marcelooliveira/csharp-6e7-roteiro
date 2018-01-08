@@ -8,6 +8,14 @@ using static System.String;
 
 namespace CSharp6.R10
 {
+    class Programa
+    {
+        public void Main()
+        {
+            Console.WriteLine("Programa 10");
+        }
+    }
+
     class CSharp6
     {
         private List<string> messages = new List<string>

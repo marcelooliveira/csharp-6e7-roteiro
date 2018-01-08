@@ -6,6 +6,14 @@ using System.Threading.Tasks;
 
 namespace CSharp6.R03
 {
+    class Programa
+    {
+        public void Main()
+        {
+            Console.WriteLine("Programa 3");
+        }
+    }
+
     public enum Ano
     {
         Primeiro,
