@@ -39,7 +39,7 @@ namespace CSharp6.R05
         public Aluno(string prenome, string sobrenome)
         {
             if (IsNullOrWhiteSpace(sobrenome))
-                throw new ArgumentException(message: "Não pode ser vazio", paramName: nameof(sobrenome));
+                throw new ArgumentException(message: "Não pode ser vazio", paramName: "sobrenome");
 
             Prenome = prenome;
             Sobrenome = sobrenome;
