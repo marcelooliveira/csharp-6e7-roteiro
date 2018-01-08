@@ -7,47 +7,47 @@ using static System.String;
 
 namespace CSharp6.R04
 {
-    public enum Standing
+    public enum Ano
     {
-        Freshman,
-        Sophomore,
-        Junior,
-        Senior
+        Primeiro,
+        Segundo,
+        Terceiro,
+        Quarto
     }
 
-    public class Student
+    public class Aluno
     {
-        public string FirstName { get; }
-        public string LastName { get; }
+        public string Prenome { get; }
+        public string Sobrenome { get; }
 
-        public ICollection<double> Grades { get; } = new List<double>();
-        public Standing YearInSchool { get; set; } = Standing.Freshman;
+        public ICollection<double> Notas { get; } = new List<double>();
+        public Ano AnoNaEscola { get; set; } = Ano.Primeiro;
 
-        public string FullName => string.Format("{0} {1}", FirstName, LastName);
+        public string NomeCompleto => string.Format("{0} {1}", Prenome, Sobrenome);
 
-        public Student(string firstName, string lastName)
+        public Aluno(string prenome, string sobrenome)
         {
-            if (IsNullOrWhiteSpace(lastName))
-                throw new ArgumentException(message: "Cannot be blank", paramName: nameof(lastName));
+            if (IsNullOrWhiteSpace(sobrenome))
+                throw new ArgumentException(message: "Não pode ser vazio", paramName: nameof(sobrenome));
 
-            FirstName = firstName;
-            LastName = lastName;
+            Prenome = prenome;
+            Sobrenome = sobrenome;
         }
 
-        public void ChangeName(string newLastName)
+        public void MudarNome(string novoSobrenome)
         {
-            // Generates CS0200: Property or indexer cannot be assigned to -- it is read only
-            //LastName = newLastName;
+            // Produz erro: CS0200: Property or indexer cannot be assigned to -- it is read only
+            //Sobrenome = novoSobrenome;
         }
 
-        public override string ToString() => string.Format("{0}, {1}", LastName, FirstName);
+        public override string ToString() => string.Format("{0}, {1}", Sobrenome, Prenome);
 
-        public bool MakesDeansList()
+        public bool EntrouNaListaDeHonra()
         {
-            return Grades.All(g => g > 3.5) && Grades.Any();
+            return Notas.All(g => g > 3.5) && Notas.Any();
             // Code below generates CS0103: 
             // The name 'All' does not exist in the current context.
-            //All(Grades, g => g > 3.5) && Grades.Any();
+            //All(Notas, g => g > 3.5) && Notas.Any();
         }
     }
 }

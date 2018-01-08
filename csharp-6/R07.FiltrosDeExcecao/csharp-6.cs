@@ -8,10 +8,10 @@ namespace CSharp6.R07
 {
     class CSharp6
     {
-        public static async Task<string> MakeRequest()
+        public static async Task<string> FazerRequisicao()
         {
-            var client = new System.Net.Http.HttpClient();
-            var streamTask = client.GetStringAsync("https://localHost:10000");
+            var cliente = new System.Net.Http.HttpClient();
+            var streamTask = cliente.GetStringAsync("https://localHost:10000");
             try
             {
                 var responseText = await streamTask;
@@ -19,15 +19,15 @@ namespace CSharp6.R07
             }
             catch (System.Net.Http.HttpRequestException e) when (e.Message.Contains("301"))
             {
-                return "Site Moved";
+                return "Site Mudou de Endereço";
             }
         }
 
-        public void MethodThatFailsSometimes()
+        public void MetodoQueFalhaAsVezes()
         {
             try
             {
-                PerformFailingOperation();
+                ExecutarOperacaoFalha();
             }
             catch (Exception e) when (e.LogException())
             {
@@ -35,16 +35,16 @@ namespace CSharp6.R07
             }
         }
 
-        private void PerformFailingOperation()
+        private void ExecutarOperacaoFalha()
         {
             throw new NotImplementedException();
         }
 
-        public void MethodThatFailsButHasRecoveryPath()
+        public void MetodoQueFalhaMasTemCaminhoDeRecuperacao()
         {
             try
             {
-                PerformFailingOperation();
+                ExecutarOperacaoFalha();
             }
             catch (Exception e) when (e.LogException())
             {
@@ -60,22 +60,22 @@ namespace CSharp6.R07
             }
         }
 
-        public static async Task<string> MakeRequestWithNotModifiedSupport()
+        public static async Task<string> FazerRequisicaoWithNotModifiedSupport()
         {
-            var client = new System.Net.Http.HttpClient();
-            var streamTask = client.GetStringAsync("https://localHost:10000");
+            var cliente = new System.Net.Http.HttpClient();
+            var streamTask = cliente.GetStringAsync("https://localHost:10000");
             try
             {
                 var responseText = await streamTask;
                 return responseText;
             }
             catch (System.Net.Http.HttpRequestException e) when (e.Message.Contains("301"))
-            {
-                return "Site Moved";
+            {   
+                return "Site Mudou de Endereço";
             }
             catch (System.Net.Http.HttpRequestException e) when (e.Message.Contains("304"))
             {
-                return "Use the Cache";
+                return "Usar o Cache";
             }
         }
 
@@ -83,7 +83,7 @@ namespace CSharp6.R07
         {
             try
             {
-                PerformFailingOperation();
+                ExecutarOperacaoFalha();
             }
             catch (Exception e) when (e.LogException())
             {
@@ -107,7 +107,7 @@ namespace CSharp6.R07
     {
         public static bool LogException(this Exception e)
         {
-            Console.Error.WriteLine($"Exceptions happen: {e}");
+            Console.Error.WriteLine($"Houve exceções: {e}");
             return false;
         }
     }

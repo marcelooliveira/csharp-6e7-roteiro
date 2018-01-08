@@ -3,42 +3,42 @@
 As Propriedades automáticas somente leitura fornecem uma sintaxe mais concisa para criar tipos imutáveis. O mais próximo você chegava em relação a tipos imutáveis nas versões anteriores do C# era para declarar setters particulares:
 
 ```
-public string FirstName { get; private set; }
-public string LastName { get; private set; }
+public string Prenome { get; private set; }
+public string Sobrenome { get; private set; }
 ```
 
-Ao usar esta sintaxe, o compilador não garante que o tipo é realmente imutável. Ele somente impõe que as propriedades FirstName e LastName não são modificadas de qualquer código fora da classe.
+Ao usar esta sintaxe, o compilador não garante que o tipo é realmente imutável. Ele somente impõe que as propriedades Prenome e Sobrenome não são modificadas de qualquer código fora da classe.
 As propriedades automáticas somente leitura habilitam o verdadeiro comportamento somente leitura. Você declara a propriedade automática apenas com um acessador get:
 
 ```
-public string FirstName { get; }
-public string LastName { get;  }
+public string Prenome { get; }
+public string Sobrenome { get;  }
 ```
 
-As propriedades FirstName e LastName só podem ser definidas no corpo de um construtor:
+As propriedades Prenome e Sobrenome só podem ser definidas no corpo de um construtor:
 
 ```
-public Student(string firstName, string lastName)
+public Student(string prenome, string sobrenome)
 {
-    if (IsNullOrWhiteSpace(lastName))
-        throw new ArgumentException(message: "Cannot be blank", paramName: nameof(lastName));
-    FirstName = firstName;
-    LastName = lastName;
+    if (IsNullOrWhiteSpace(sobrenome))
+        throw new ArgumentException(message: "Não pode ser vazio", paramName: nameof(sobrenome));
+    Prenome = prenome;
+    Sobrenome = sobrenome;
 }
 
 ```
 
-A tentativa de definir LastName em outro método gera um erro de compilação CS0200:
+A tentativa de definir Sobrenome em outro método gera um erro de compilação CS0200:
 
 ```
 public class Student
 {
-    public string LastName { get;  }
+    public string Sobrenome { get;  }
 
-    public void ChangeName(string newLastName)
+    public void MudarNome(string novoSobrenome)
     {
-        // Generates CS0200: Property or indexer cannot be assigned to -- it is read only
-        LastName = newLastName;
+        // Produz erro: CS0200: Property or indexer cannot be assigned to -- it is read only
+        Sobrenome = novoSobrenome;
     }
 }
 ```

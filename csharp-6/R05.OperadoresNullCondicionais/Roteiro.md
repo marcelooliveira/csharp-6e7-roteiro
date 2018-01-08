@@ -3,14 +3,14 @@ Os valores null complicam o código. É necessário verificar cada acesso de var
 Basta substituir o acesso de membro . por ?.:
 
 ```
-var first = person?.FirstName; 
+var primeiro = person?.Prenome; 
 ```
-No exemplo anterior, a variável first é atribuída como null se o objeto person é null. Caso contrário, ela é atribuída com o valor da propriedade FirstName. Mais importante, o ?. significa que essa linha de código não gerará um NullReferenceException quando a variável person for null. Em vez disso, ela encurta o caminho e produz null.
+No exemplo anterior, a variável primeiro é atribuída como null se o objeto person é null. Caso contrário, ela é atribuída com o valor da propriedade Prenome. Mais importante, o ?. significa que essa linha de código não gerará um NullReferenceException quando a variável person for null. Em vez disso, ela encurta o caminho e produz null.
 Além disso, observe que essa expressão retorna uma string, independentemente do valor de person. No caso de encurtar o caminho, o valor null retornado é tipado para corresponder à expressão completa.
 Você também pode usar esse constructo com o operador null coalescing para atribuir valores padrão quando uma das propriedades é null:
 
 ```
-first = person?.FirstName ?? "Unspecified";
+primeiro = person?.Prenome ?? "Unspecified";
 ```
 O operando do lado direito do operador ?. não está limitado a campos ou propriedades. Você também pode usá-lo para invocar métodos de maneira condicional. O uso mais comum de funções membro com o operador condicional null é para invocar delegados com segurança (ou manipuladores de eventos) que podem ser null. Você fará isso chamando o método Invoke do delegado, usando o operador ?. para acessar o membro. Você pode ver um exemplo no
 tópico padrões delegados.

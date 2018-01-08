@@ -7,32 +7,32 @@ Por exemplo, considere uma coleção de alunos como esta:
 
 
 ```
-public class Enrollment : IEnumerable<Student>
+public class ListaDeMatricula : IEnumerable<Student>
 {
-    private List<Student> allStudents = new List<Student>();
+    private List<Student> todosAlunos = new List<Student>();
 
-    public void Enroll(Student s)
+    public void Matricular(Student s)
     {
-        allStudents.Add(s);
+        todosAlunos.Add(s);
     }
 
     public IEnumerator<Student> GetEnumerator()
     {
-        return ((IEnumerable<Student>)allStudents).GetEnumerator();
+        return ((IEnumerable<Student>)todosAlunos).GetEnumerator();
     }
 
     IEnumerator IEnumerable.GetEnumerator()
     {
-        return ((IEnumerable<Student>)allStudents).GetEnumerator();
+        return ((IEnumerable<Student>)todosAlunos).GetEnumerator();
     }
 }
 ```
-O método Enroll adiciona um aluno. Mas não segue o padrão Add. Nas versões anteriores do C#, você não podia usar os inicializadores de coleção com um objeto Enrollment:
+O método Matricular adiciona um aluno. Mas não segue o padrão Add. Nas versões anteriores do C#, você não podia usar os inicializadores de coleção com um objeto ListaDeMatricula:
 
 
 
 ```
-var classList = new Enrollment()
+var classList = new ListaDeMatricula()
 {
     new Student("Lessie", "Crosby"),
     new Student("Vicki", "Petty"),
@@ -66,14 +66,14 @@ var classList = new Enrollment()
     new Student("Althea", "Goodwin")
 };
 ```
-Agora você pode, mas apenas se você criar um método de extensão que mapeia Add para Enroll:
+Agora você pode, mas apenas se você criar um método de extensão que mapeia Add para Matricular:
 
 
 
 ```
-public static class StudentExtensions
+public static class AlunoExtensions
 {
-    public static void Add(this Enrollment e, Student s) => e.Enroll(s);
+    public static void Add(this ListaDeMatricula e, Student s) => e.Matricular(s);
 }
 ```
 O que você está fazendo com esse recurso é mapear qualquer método que adiciona itens a uma coleção, em um método chamado Add, criando um método de extensão:
@@ -82,23 +82,23 @@ O que você está fazendo com esse recurso é mapear qualquer método que adicio
 
 
 ```
-public class Enrollment : IEnumerable<Student>
+public class ListaDeMatricula : IEnumerable<Student>
 {
-    private List<Student> allStudents = new List<Student>();
+    private List<Student> todosAlunos = new List<Student>();
 
-    public void Enroll(Student s)
+    public void Matricular(Student s)
     {
-        allStudents.Add(s);
+        todosAlunos.Add(s);
     }
 
     public IEnumerator<Student> GetEnumerator()
     {
-        return ((IEnumerable<Student>)allStudents).GetEnumerator();
+        return ((IEnumerable<Student>)todosAlunos).GetEnumerator();
     }
 
     IEnumerator IEnumerable.GetEnumerator()
     {
-        return ((IEnumerable<Student>)allStudents).GetEnumerator();
+        return ((IEnumerable<Student>)todosAlunos).GetEnumerator();
     }
 }
 ```
@@ -108,9 +108,9 @@ public class Enrollment : IEnumerable<Student>
 ```
 public class ClassList
 {
-    public Enrollment CreateEnrollment()
+    public ListaDeMatricula CreateListaDeMatricula()
     {
-        var classList = new Enrollment()
+        var classList = new ListaDeMatricula()
         {
             new Student("Lessie", "Crosby"),
             new Student("Vicki", "Petty"),
@@ -147,8 +147,8 @@ public class ClassList
     }           
 }
 
-public static class StudentExtensions
+public static class AlunoExtensions
 {
-    public static void Add(this Enrollment e, Student s) => e.Enroll(s);
+    public static void Add(this ListaDeMatricula e, Student s) => e.Matricular(s);
 }
 ```

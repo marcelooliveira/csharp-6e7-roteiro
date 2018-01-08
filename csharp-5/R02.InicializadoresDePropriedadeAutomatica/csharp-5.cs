@@ -6,37 +6,37 @@ using System.Threading.Tasks;
 
 namespace CSharp5.R02
 {
-    public enum Standing
+    public enum Ano
     {
-        Freshman,
-        Sophomore,
-        Junior,
-        Senior
+        Primeiro,
+        Segundo,
+        Terceiro,
+        Quarto
     }
 
-    public class Student
+    public class Aluno
     {
-        public string FirstName { get; private set; }
-        public string LastName { get; private set; }
-        public ICollection<double> Grades { get; private set; }
-        public Standing YearInSchool { get; set; }
+        public string Prenome { get; private set; }
+        public string Sobrenome { get; private set; }
+        public ICollection<double> Notas { get; private set; }
+        public Ano AnoNaEscola { get; set; }
 
 
-        public Student(string firstName, string lastName)
+        public Aluno(string prenome, string sobrenome)
         {
-            if (string.IsNullOrWhiteSpace(lastName))
-                throw new ArgumentException(message: "Cannot be blank", paramName: "lastName");
+            if (string.IsNullOrWhiteSpace(sobrenome))
+                throw new ArgumentException(message: "Não pode ser vazio", paramName: "sobrenome");
 
-            FirstName = firstName;
-            LastName = lastName;
-            Grades = new List<double>();
-            YearInSchool = Standing.Freshman;
+            Prenome = prenome;
+            Sobrenome = sobrenome;
+            Notas = new List<double>();
+            AnoNaEscola = Ano.Primeiro;
         }
 
-        public void ChangeName(string newLastName)
+        public void MudarNome(string novoSobrenome)
         {
-            // Generates CS0200: Property or indexer cannot be assigned to -- it is read only
-            //LastName = newLastName;
+            // Produz erro: CS0200: Property or indexer cannot be assigned to -- it is read only
+            //Sobrenome = novoSobrenome;
         }
     }
 }

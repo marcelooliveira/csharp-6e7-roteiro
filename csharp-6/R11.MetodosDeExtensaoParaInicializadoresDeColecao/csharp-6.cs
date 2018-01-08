@@ -12,122 +12,122 @@ namespace CSharp6.R11
     {
         public CSharp6()
         {
-            var classList = new Enrollment()
+            var classList = new ListaDeMatricula()
             {
-                new Student("Lessie", "Crosby"),
-                new Student("Vicki", "Petty"),
-                new Student("Ofelia", "Hobbs"),
-                new Student("Leah", "Kinney"),
-                new Student("Alton", "Stoker"),
-                new Student("Luella", "Ferrell"),
-                new Student("Marcy", "Riggs"),
-                new Student("Ida", "Bean"),
-                new Student("Ollie", "Cottle"),
-                new Student("Tommy", "Broadnax"),
-                new Student("Jody", "Yates"),
-                new Student("Marguerite", "Dawson"),
-                new Student("Francisca", "Barnett"),
-                new Student("Arlene", "Velasquez"),
-                new Student("Jodi", "Green"),
-                new Student("Fran", "Mosley"),
-                new Student("Taylor", "Nesmith"),
-                new Student("Ernesto", "Greathouse"),
-                new Student("Margret", "Albert"),
-                new Student("Pansy", "House"),
-                new Student("Sharon", "Byrd"),
-                new Student("Keith", "Roldan"),
-                new Student("Martha", "Miranda"),
-                new Student("Kari", "Campos"),
-                new Student("Muriel", "Middleton"),
-                new Student("Georgette", "Jarvis"),
-                new Student("Pam", "Boyle"),
-                new Student("Deena", "Travis"),
-                new Student("Cary", "Totten"),
-                new Student("Althea", "Goodwin")
+                new Aluno("Lessie", "Crosby"),
+                new Aluno("Vicki", "Petty"),
+                new Aluno("Ofelia", "Hobbs"),
+                new Aluno("Leah", "Kinney"),
+                new Aluno("Alton", "Stoker"),
+                new Aluno("Luella", "Ferrell"),
+                new Aluno("Marcy", "Riggs"),
+                new Aluno("Ida", "Bean"),
+                new Aluno("Ollie", "Cottle"),
+                new Aluno("Tommy", "Broadnax"),
+                new Aluno("Jody", "Yates"),
+                new Aluno("Marguerite", "Dawson"),
+                new Aluno("Francisca", "Barnett"),
+                new Aluno("Arlene", "Velasquez"),
+                new Aluno("Jodi", "Green"),
+                new Aluno("Fran", "Mosley"),
+                new Aluno("Taylor", "Nesmith"),
+                new Aluno("Ernesto", "Greathouse"),
+                new Aluno("Margret", "Albert"),
+                new Aluno("Pansy", "House"),
+                new Aluno("Sharon", "Byrd"),
+                new Aluno("Keith", "Roldan"),
+                new Aluno("Martha", "Miranda"),
+                new Aluno("Kari", "Campos"),
+                new Aluno("Muriel", "Middleton"),
+                new Aluno("Georgette", "Jarvis"),
+                new Aluno("Pam", "Boyle"),
+                new Aluno("Deena", "Travis"),
+                new Aluno("Cary", "Totten"),
+                new Aluno("Althea", "Goodwin")
             };
         }
     }
 
-    public class Enrollment : IEnumerable<Student>
+    public class ListaDeMatricula : IEnumerable<Aluno>
     {
-        private List<Student> allStudents = new List<Student>();
+        private List<Aluno> todosAlunos = new List<Aluno>();
 
-        public void Enroll(Student s)
+        public void Matricular(Aluno s)
         {
-            allStudents.Add(s);
+            todosAlunos.Add(s);
         }
 
-        public IEnumerator<Student> GetEnumerator()
+        public IEnumerator<Aluno> GetEnumerator()
         {
-            return ((IEnumerable<Student>)allStudents).GetEnumerator();
+            return ((IEnumerable<Aluno>)todosAlunos).GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return ((IEnumerable<Student>)allStudents).GetEnumerator();
+            return ((IEnumerable<Aluno>)todosAlunos).GetEnumerator();
         }
     }
 
-    public static class StudentExtensions
+    public static class AlunoExtensions
     {
-        public static void Add(this Enrollment e, Student s) => e.Enroll(s);
+        public static void Add(this ListaDeMatricula e, Aluno s) => e.Matricular(s);
     }
 
-    public enum Standing
+    public enum Ano
     {
-        Freshman,
-        Sophomore,
-        Junior,
-        Senior
+        Primeiro,
+        Segundo,
+        Terceiro,
+        Quarto
     }
 
-    public class Student
+    public class Aluno
     {
-        public string FirstName { get; }
-        public string LastName { get; }
+        public string Prenome { get; }
+        public string Sobrenome { get; }
 
-        public ICollection<double> Grades { get; } = new List<double>();
-        public Standing YearInSchool { get; set; } = Standing.Freshman;
+        public ICollection<double> Notas { get; } = new List<double>();
+        public Ano AnoNaEscola { get; set; } = Ano.Primeiro;
 
-        public string FullName => $"{FirstName} {LastName}";
+        public string NomeCompleto => $"{Prenome} {Sobrenome}";
 
 
-        public Student(string firstName, string lastName)
+        public Aluno(string prenome, string sobrenome)
         {
-            if (IsNullOrWhiteSpace(lastName))
-                throw new ArgumentException(message: "Cannot be blank", paramName: nameof(lastName));
+            if (IsNullOrWhiteSpace(sobrenome))
+                throw new ArgumentException(message: "Não pode ser vazio", paramName: nameof(sobrenome));
 
-            FirstName = firstName;
-            LastName = lastName;
+            Prenome = prenome;
+            Sobrenome = sobrenome;
         }
 
-        public void ChangeName(string newLastName)
+        public void MudarNome(string novoSobrenome)
         {
-            // Generates CS0200: Property or indexer cannot be assigned to -- it is read only
-            //LastName = newLastName;
+            // Produz erro: CS0200: Property or indexer cannot be assigned to -- it is read only
+            //Sobrenome = novoSobrenome;
         }
 
-        public override string ToString() => $"{LastName}, {FirstName}";
+        public override string ToString() => $"{Sobrenome}, {Prenome}";
 
-        public string GetFormattedGradePoint() =>
-            $"Name: {LastName}, {FirstName}. G.P.A: {Grades.Average()}";
+        public string GetNotaMedia() =>
+            $"Name: {Sobrenome}, {Prenome}. G.P.A: {Notas.Average()}";
 
-        public string GetGradePointPercentage() =>
-            $"Name: {LastName}, {FirstName}. G.P.A: {Grades.Average():F2}";
+        public string GetPorcentagemNotaMedia() =>
+            $"Name: {Sobrenome}, {Prenome}. G.P.A: {Notas.Average():F2}";
 
-        public string GetGradePointPercentages() =>
-            $"Name: {LastName}, {FirstName}. G.P.A: {(Grades.Any() ? Grades.Average() : double.NaN):F2}";
+        public string GetPorcentagemNotaMedias() =>
+            $"Name: {Sobrenome}, {Prenome}. G.P.A: {(Notas.Any() ? Notas.Average() : double.NaN):F2}";
 
-        public string GetAllGrades() =>
-            $@"All Grades: {Grades.OrderByDescending(g => g)
-            .Select(s => s.ToString("F2")).Aggregate((partial, element) => $"{partial}, {element}")}";
+        public string GetTodasNotas() =>
+            $@"All Notas: {Notas.OrderByDescending(g => g)
+            .Select(s => s.ToString("F2")).Aggregate((parcial, elemento) => $"{parcial}, {elemento}")}";
 
-        public bool MakesDeansList()
+        public bool EntrouNaListaDeHonra()
         {
-            return Grades.All(g => g > 3.5) && Grades.Any();
+            return Notas.All(g => g > 3.5) && Notas.Any();
             // Code below generates CS0103: 
             // The name 'All' does not exist in the current context.
-            //All(Grades, g => g > 3.5) && Grades.Any();
+            //All(Notas, g => g > 3.5) && Notas.Any();
         }
     }
 }

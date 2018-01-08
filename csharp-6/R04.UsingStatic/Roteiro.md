@@ -19,8 +19,8 @@ Você deve usar o nome de classe totalmente qualificado System.String em uma ins
 Agora você pode chamar métodos estáticos definidos na classe String sem qualificar esses métodos como membros dessa classe:
 
 ```
-if (IsNullOrWhiteSpace(lastName))
-    throw new ArgumentException(message: "Cannot be blank", paramName: nameof(lastName));
+if (IsNullOrWhiteSpace(sobrenome))
+    throw new ArgumentException(message: "Não pode ser vazio", paramName: nameof(sobrenome));
 O recurso static using e os métodos de extensão interagem de maneiras interessantes e o design de linguagem incluiu algumas regras que tratam especificamente dessas interações. A meta é minimizar qualquer possibilidade de alterações significativas nas bases de código existentes, incluindo a sua.
 ```
 Os métodos de extensão só estão no escopo quando chamados usando a sintaxe de invocação do método de extensão e não quando chamados como um método estático. Você verá isso com frequência em consultas LINQ. Você pode importar o padrão LINQ importando Enumerable.
@@ -31,12 +31,12 @@ using static System.Linq.Enumerable;
 Isso importa todos os métodos na classe Enumerable. No entanto, os métodos de extensão somente estão no escopo quando chamados como métodos de extensão. Eles não estão no escopo se chamados usando a sintaxe de método estático:
 
 ```
-public bool MakesDeansList()
+public bool EntrouNaListaDeHonra()
 {
-    return Grades.All(g => g > 3.5) && Grades.Any();
+    return Notas.All(g => g > 3.5) && Notas.Any();
     // Code below generates CS0103: 
     // The name 'All' does not exist in the current context.
-    //return All(Grades, g => g > 3.5) && Grades.Any();
+    //return All(Notas, g => g > 3.5) && Notas.Any();
 }
 ```
 

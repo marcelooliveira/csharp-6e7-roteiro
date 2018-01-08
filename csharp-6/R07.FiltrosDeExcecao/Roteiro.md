@@ -6,16 +6,16 @@ Um uso é examinar informações sobre uma exceção para determinar se uma clá
 
 
 ```
-public static async Task<string> MakeRequest()
+public static async Task<string> FazerRequisicao()
 { 
-    var client = new System.Net.Http.HttpClient();
-    var streamTask = client.GetStringAsync("https://localHost:10000");
+    var cliente = new System.Net.Http.HttpClient();
+    var streamTask = cliente.GetStringAsync("https://localHost:10000");
     try {
         var responseText = await streamTask;
         return responseText;
     } catch (System.Net.Http.HttpRequestException e) when (e.Message.Contains("301"))
     {
-        return "Site Moved";
+        return "Site Mudou de Endereço";
     }
 }
 ```
@@ -24,17 +24,17 @@ O código gerado pelos filtros de exceção fornece melhores informações sobre
 
 
 ```
-public static async Task<string> MakeRequest()
+public static async Task<string> FazerRequisicao()
 { 
-    var client = new System.Net.Http.HttpClient();
-    var streamTask = client.GetStringAsync("https://localHost:10000");
+    var cliente = new System.Net.Http.HttpClient();
+    var streamTask = cliente.GetStringAsync("https://localHost:10000");
     try {
         var responseText = await streamTask;
         return responseText;
     } catch (System.Net.Http.HttpRequestException e)
     {
         if (e.Message.Contains("301"))
-            return "Site Moved";
+            return "Site Mudou de Endereço";
         else
             throw;
     }
@@ -52,7 +52,7 @@ Um método de registro em log seria um método cujo argumento é a exceção que
 ```
 public static bool LogException(this Exception e)
 {
-    Console.Error.WriteLine($"Exceptions happen: {e}");
+    Console.Error.WriteLine($"Houve exceções: {e}");
     return false;
 } 
 ```
@@ -61,10 +61,10 @@ Sempre que você desejar registrar uma exceção, você pode adicionar uma cláu
 
 
 ```
-public void MethodThatFailsSometimes()
+public void MetodoQueFalhaAsVezes()
 {
     try {
-        PerformFailingOperation();
+        ExecutarOperacaoFalha();
     } catch (Exception e) when (e.LogException())
     {
         // This is never reached!
@@ -76,10 +76,10 @@ As exceções nunca são capturadas, porque o método LogException sempre retorn
 
 
 ```
-public void MethodThatFailsButHasRecoveryPath()
+public void MetodoQueFalhaMasTemCaminhoDeRecuperacao()
 {
     try {
-        PerformFailingOperation();
+        ExecutarOperacaoFalha();
     } catch (Exception e) when (e.LogException())
     {
         // This is never reached!
@@ -99,19 +99,19 @@ O exemplo anterior destaca uma faceta muito importante dos filtros de exceção.
 
 
 ```
-public static async Task<string> MakeRequestWithNotModifiedSupport()
+public static async Task<string> FazerRequisicaoWithNotModifiedSupport()
 { 
-    var client = new System.Net.Http.HttpClient();
-    var streamTask = client.GetStringAsync("https://localHost:10000");
+    var cliente = new System.Net.Http.HttpClient();
+    var streamTask = cliente.GetStringAsync("https://localHost:10000");
     try {
         var responseText = await streamTask;
         return responseText;
     } catch (System.Net.Http.HttpRequestException e) when (e.Message.Contains("301"))
     {
-        return "Site Moved";
+        return "Site Mudou de Endereço";
     } catch (System.Net.Http.HttpRequestException e) when (e.Message.Contains("304"))
     {
-        return "Use the Cache";
+        return "Usar o Cache";
     }
 }
 ```
@@ -124,7 +124,7 @@ No seu código, adicione um filtro de exceção para que qualquer código de rec
 public void MethodThatFailsWhenDebuggerIsNotAttached()
 {
     try {
-        PerformFailingOperation();
+        ExecutarOperacaoFalha();
     } catch (Exception e) when (e.LogException())
     {
         // This is never reached!
@@ -137,4 +137,4 @@ public void MethodThatFailsWhenDebuggerIsNotAttached()
     }
 }
 ```
-Depois de adicionar isso no código, você deve definir o depurador para interromper em todas as exceções sem tratamento. Execute o programa no depurador e o depurador interromperá sempre que PerformFailingOperation() lançar uma RecoverableException. O depurador interrompe o programa, porque a cláusula catch não será executada devido ao filtro de exceção que retorna false.
+Depois de adicionar isso no código, você deve definir o depurador para interromper em todas as exceções sem tratamento. Execute o programa no depurador e o depurador interromperá sempre que ExecutarOperacaoFalha() lançar uma RecoverableException. O depurador interrompe o programa, porque a cláusula catch não será executada devido ao filtro de exceção que retorna false.

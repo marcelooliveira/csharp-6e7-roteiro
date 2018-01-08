@@ -26,81 +26,81 @@ namespace CSharp6.R10
 
     }
 
-    public class Enrollment : IEnumerable<Student>
+    public class ListaDeMatricula : IEnumerable<Aluno>
     {
-        private List<Student> allStudents = new List<Student>();
+        private List<Aluno> todosAlunos = new List<Aluno>();
 
-        public void Enroll(Student s)
+        public void Matricular(Aluno s)
         {
-            allStudents.Add(s);
+            todosAlunos.Add(s);
         }
 
-        public IEnumerator<Student> GetEnumerator()
+        public IEnumerator<Aluno> GetEnumerator()
         {
-            return ((IEnumerable<Student>)allStudents).GetEnumerator();
+            return ((IEnumerable<Aluno>)todosAlunos).GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return ((IEnumerable<Student>)allStudents).GetEnumerator();
+            return ((IEnumerable<Aluno>)todosAlunos).GetEnumerator();
         }
     }
 
-    public enum Standing
+    public enum Ano
     {
-        Freshman,
-        Sophomore,
-        Junior,
-        Senior
+        Primeiro,
+        Segundo,
+        Terceiro,
+        Quarto
     }
 
-    public class Student
+    public class Aluno
     {
-        public string FirstName { get; }
-        public string LastName { get; }
+        public string Prenome { get; }
+        public string Sobrenome { get; }
 
-        public ICollection<double> Grades { get; } = new List<double>();
-        public Standing YearInSchool { get; set; } = Standing.Freshman;
+        public ICollection<double> Notas { get; } = new List<double>();
+        public Ano AnoNaEscola { get; set; } = Ano.Primeiro;
 
-        public string FullName => $"{FirstName} {LastName}";
+        public string NomeCompleto => $"{Prenome} {Sobrenome}";
 
 
-        public Student(string firstName, string lastName)
+        public Aluno(string prenome, string sobrenome)
         {
-            if (IsNullOrWhiteSpace(lastName))
-                throw new ArgumentException(message: "Cannot be blank", paramName: nameof(lastName));
+            if (IsNullOrWhiteSpace(sobrenome))
+                throw new ArgumentException(message: "Não pode ser vazio", paramName: nameof(sobrenome));
 
-            FirstName = firstName;
-            LastName = lastName;
+            Prenome = prenome;
+            Sobrenome = sobrenome;
         }
 
-        public void ChangeName(string newLastName)
+        public void MudarNome(string novoSobrenome)
         {
-            // Generates CS0200: Property or indexer cannot be assigned to -- it is read only
-            //LastName = newLastName;
+            // Produz erro: CS0200: Property or indexer cannot be assigned to -- it is read only
+            //Sobrenome = novoSobrenome;
         }
 
-        public override string ToString() => $"{LastName}, {FirstName}";
+        public override string ToString() => $"{Sobrenome}, {Prenome}";
 
-        public string GetFormattedGradePoint() =>
-            $"Name: {LastName}, {FirstName}. G.P.A: {Grades.Average()}";
+        public string GetNotaMedia() =>
+            $"Name: {Sobrenome}, {Prenome}. G.P.A: {Notas.Average()}";
 
-        public string GetGradePointPercentage() =>
-            $"Name: {LastName}, {FirstName}. G.P.A: {Grades.Average():F2}";
+        public string GetPorcentagemNotaMedia() =>
+            $"Name: {Sobrenome}, {Prenome}. G.P.A: {Notas.Average():F2}";
 
-        public string GetGradePointPercentages() =>
-            $"Name: {LastName}, {FirstName}. G.P.A: {(Grades.Any() ? Grades.Average() : double.NaN):F2}";
+        public string GetPorcentagemNotaMedias() =>
+            $"Name: {Sobrenome}, {Prenome}. G.P.A: {(Notas.Any() ? Notas.Average() : double.NaN):F2}";
 
-        public string GetAllGrades() =>
-            $@"All Grades: {Grades.OrderByDescending(g => g)
-            .Select(s => s.ToString("F2")).Aggregate((partial, element) => $"{partial}, {element}")}";
+        public string GetTodasNotas() =>
+            $@"All Notas: {Notas.OrderByDescending(g => g)
+            .Select(s => s.ToString("F2")).Aggregate((parcial, elemento) => $"{parcial}, {elemento}")}";
 
-        public bool MakesDeansList()
+        public bool EntrouNaListaDeHonra()
         {
-            return Grades.All(g => g > 3.5) && Grades.Any();
+            return Notas.All(g => g > 3.5) && Notas.Any();
             // Code below generates CS0103: 
             // The name 'All' does not exist in the current context.
-            //All(Grades, g => g > 3.5) && Grades.Any();
+            //All(Notas, g => g > 3.5) && Notas.Any();
         }
     }
 }

@@ -6,24 +6,24 @@ using System.Threading.Tasks;
 
 namespace CSharp5.R01
 {
-    public class Student
+    public class Aluno
     {
-        public string FirstName { get; private set; }
-        public string LastName { get; private set; }
+        public string Prenome { get; private set; }
+        public string Sobrenome { get; private set; }
 
-        public Student(string firstName, string lastName)
+        public Aluno(string prenome, string sobrenome)
         {
-            if (string.IsNullOrWhiteSpace(lastName))
-                throw new ArgumentException(message: "Cannot be blank", paramName: "lastName");
+            if (string.IsNullOrWhiteSpace(sobrenome))
+                throw new ArgumentException(message: "Não pode ser vazio", paramName: "sobrenome");
 
-            FirstName = firstName;
-            LastName = lastName;
+            Prenome = prenome;
+            Sobrenome = sobrenome;
         }
 
-        public void ChangeName(string newLastName)
+        public void MudarNome(string novoSobrenome)
         {
             // Podemos modificar a propriedade dentro de um método, logo ela não é imutável!
-            LastName = newLastName;
+            Sobrenome = novoSobrenome;
         }
     }
 }

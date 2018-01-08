@@ -6,24 +6,24 @@ using System.Threading.Tasks;
 
 namespace CSharp6.R01
 {
-    public class Student
+    public class Aluno
     {
-        public string FirstName { get; }
-        public string LastName { get; }
+        public string Prenome { get; }
+        public string Sobrenome { get; }
 
-        public Student(string firstName, string lastName)
+        public Aluno(string prenome, string sobrenome)
         {
-            if (string.IsNullOrWhiteSpace(lastName))
-                throw new ArgumentException(message: "Cannot be blank", paramName: nameof(lastName));
+            if (string.IsNullOrWhiteSpace(sobrenome))
+                throw new ArgumentException(message: "Não pode ser vazio", paramName: nameof(sobrenome));
 
-            FirstName = firstName;
-            LastName = lastName;
+            Prenome = prenome;
+            Sobrenome = sobrenome;
         }
 
-        public void ChangeName(string newLastName)
+        public void MudarNome(string novoSobrenome)
         {
-            // Generates CS0200: Property or indexer cannot be assigned to -- it is read only
-            //LastName = newLastName;
+            // Produz erro: CS0200: Property or indexer cannot be assigned to -- it is read only
+            //Sobrenome = novoSobrenome;
         }
     }
 

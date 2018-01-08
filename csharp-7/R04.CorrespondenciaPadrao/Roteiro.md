@@ -1,6 +1,6 @@
 ﻿# Correspondência de padrões
 
-Correspondência de padrões é um recurso que permite que você implemente a expedição do método em propriedades diferentes do tipo de um objeto. Você provavelmente já está familiarizado com a expedição de método com base no tipo de um objeto. Em programação orientada a objetos, os métodos de substituição e virtual fornecem a sintaxe da linguagem para implementar a expedição de método com base em um tipo de objeto. As classes base e derivada fornecem implementações diferentes. Expressões de correspondência de padrões estendem esse conceito para que você possa implementar facilmente padrões de expedição semelhantes para elementos de dados e tipos que não são relacionados por meio de uma hierarquia de herança.
+Correspondência de padrões é um recurso que permite que você implemente a expedição do método em propriedades diferentes do tipo de um objeto. Você provavelmente já está familiarizado com a expedição de método com base no tipo de um objeto. Em programação orientada a objetos, os métodos de substituição e virtual fornecem a sintaxe da linguagem para implementar a expedição de método com base em um tipo de objeto. As classes base e derivada fornecem implementações diferentes. Expressões de correspondência de padrões estendem esse conceito para que você possa implementar facilmente padrões de expedição semelhantes para elementoos de dados e tipos que não são relacionados por meio de uma hierarquia de herança.
 
 A correspondência de padrões tem suporte a expressões is e switch. Cada uma delas permite inspecionar um objeto e suas propriedades para determinar se esse objeto satisfaz o padrão procurado. Você usa a palavra-chave when para especificar regras adicionais para o padrão.
 Expressão is
@@ -94,7 +94,7 @@ public static int DiceSum4(IEnumerable<object> values)
 }
 ```
 O código acima adiciona expressões case de 0 como um case especial de int e null como um case especial quando não há nenhuma entrada. Isso demonstra um novo recurso importante em expressões de padrão switch: a ordem das expressões case agora importa. O case 0 deve aparecer antes do case int geral. Caso contrário, o primeiro padrão a ser correspondido seria o case int, mesmo quando o valor fosse 0. Se você acidentalmente ordenar expressões de correspondência de forma que uma expressão posterior já tenha sido tratada, o compilador sinalizará isso e gerará um erro.
-Esse mesmo comportamento habilita o case especial para uma sequência de entrada vazia. Você pode ver que o case de um item IEnumerable que tem elementos deve aparecer antes do case IEnumerable geral.
+Esse mesmo comportamento habilita o case especial para uma sequência de entrada vazia. Você pode ver que o case de um item IEnumerable que tem elementoos deve aparecer antes do case IEnumerable geral.
 Esta versão também adicionou um case default. O case default sempre é avaliado por último, independentemente da ordem em que ele aparece na origem. Por esse motivo, a convenção é colocar o case default por último.
 Por fim, vamos adicionar um último case para um novo estilo de dado. Alguns jogos usam dados de percentil para representar intervalos maiores de números.
 

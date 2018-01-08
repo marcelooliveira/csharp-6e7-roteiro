@@ -4,10 +4,10 @@ Observação
 
 Os novos recursos de tuplas exigem os tipos ValueTuple. Você deve adicionar o pacote NuGet System.ValueTuple para usá-lo em plataformas que não incluem os tipos.
 Isso é semelhante a outros recursos de linguagem que dependem de tipos entregues no framework. Os exemplos incluem async e await que dependem da interface INotifyCompletion, além do LINQ que depende de IEnumerable<T>. No entanto, o mecanismo de entrega está mudando conforme o .NET se torna mais independente de plataforma. O .NET Framework pode não ser enviados sempre na mesma cadência que o compilador de linguagem. Quando novos recursos de linguagem dependerem de novos tipos, esses tipos estarão disponíveis como pacotes do NuGet quando os recursos de linguagem forem enviados. Conforme esses novos tipos são adicionados à API padrão do .NET e fornecidos como parte do framework, o requisito de pacote do NuGet será removido.
-O C# fornece uma sintaxe avançada para classes e structs que são usados para explicar a intenção do design. Mas, às vezes, essa sintaxe avançada requer trabalho adicional com poucas vantagens. Geralmente, você pode escrever métodos que precisam de uma estrutura simples que contém mais de um elemento de dados. Para dar suporte a esses cenários foram adicionadas tuplas ao C#. As tuplas são estruturas de dados leves que contêm vários campos para representar os membros de dados. Os campos não são validados e você não pode definir seus próprios métodos
+O C# fornece uma sintaxe avançada para classes e structs que são usados para explicar a intenção do design. Mas, às vezes, essa sintaxe avançada requer trabalho adicional com poucas vantagens. Geralmente, você pode escrever métodos que precisam de uma estrutura simples que contém mais de um elementoo de dados. Para dar suporte a esses cenários foram adicionadas tuplas ao C#. As tuplas são estruturas de dados leves que contêm vários campos para representar os membros de dados. Os campos não são validados e você não pode definir seus próprios métodos
 Observação
 
-As tuplas estavam disponíveis antes do C# 7, mas elas eram ineficientes e não tinham nenhum suporte de linguagem. Isso significava que os elementos de tupla só podiam ser referenciados como Item1, Item2 e assim por diante. O C# 7 introduz o suporte de linguagem para tuplas, que permite nomes semânticos para os campos de uma tupla, usando tipos de tupla novos e mais eficientes.
+As tuplas estavam disponíveis antes do C# 7, mas elas eram ineficientes e não tinham nenhum suporte de linguagem. Isso significava que os elementoos de tupla só podiam ser referenciados como Item1, Item2 e assim por diante. O C# 7 introduz o suporte de linguagem para tuplas, que permite nomes semânticos para os campos de uma tupla, usando tipos de tupla novos e mais eficientes.
 Você pode criar uma tupla atribuindo cada membro a um valor:
 
 
@@ -35,7 +35,7 @@ Você pode especificar nomes para os campos no lado esquerdo e direito da atribu
 
 
 ```
-(string First, string Second) firstLetters = (Alpha: "a", Beta: "b");
+(string First, string Second) primeiroLetters = (Alpha: "a", Beta: "b");
 ```
 A linha acima gera um aviso, CS8123, informando que os nomes no lado direito da atribuição, Alpha e Beta, são ignorados porque eles estão em conflito com os nomes no lado esquerdo, First e Second.
 Os exemplos acima mostram a sintaxe básica para declarar tuplas. As tuplas são mais úteis como tipos de retorno para os métodos private e internal. As tuplas fornecem uma sintaxe simples para esses métodos retornarem vários valores distintos: salve o trabalho de criação de um class ou um struct que define o tipo retornado. Não é necessário criar um novo tipo.

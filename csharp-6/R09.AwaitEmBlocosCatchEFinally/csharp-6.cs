@@ -9,11 +9,11 @@ namespace CSharp6.R09
 {
     class CSharp6
     {
-        public static async Task<string> MakeRequestAndLogFailures()
+        public static async Task<string> FazerRequisicaoELogarFalhas()
         {
-            await logMethodEntrance();
-            var client = new System.Net.Http.HttpClient();
-            var streamTask = client.GetStringAsync("https://localHost:10000");
+            await logarEntradaNoMetodo();
+            var cliente = new System.Net.Http.HttpClient();
+            var streamTask = cliente.GetStringAsync("https://localHost:10000");
             try
             {
                 var responseText = await streamTask;
@@ -21,27 +21,27 @@ namespace CSharp6.R09
             }
             catch (System.Net.Http.HttpRequestException e) when (e.Message.Contains("301"))
             {
-                await logError("Recovered from redirect", e);
-                return "Site Moved";
+                await logarErro("Recuperado da redireção", e);
+                return "Site Mudou de Endereço";
             }
             finally
             {
-                await logMethodExit();
-                client.Dispose();
+                await logarSaidaDoMetodo();
+                cliente.Dispose();
             }
         }
 
-        private static Task logMethodExit()
+        private static Task logarSaidaDoMetodo()
         {
             throw new NotImplementedException();
         }
 
-        private static Task logError(string v, HttpRequestException e)
+        private static Task logarErro(string v, HttpRequestException e)
         {
             throw new NotImplementedException();
         }
 
-        private static Task logMethodEntrance()
+        private static Task logarEntradaNoMetodo()
         {
             throw new NotImplementedException();
         }

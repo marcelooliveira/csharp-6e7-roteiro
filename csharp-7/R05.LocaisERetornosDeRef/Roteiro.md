@@ -14,7 +14,7 @@ public static (int i, int j) Find(int[,] matrix, Func<int, bool> predicate)
 }
 ```
 Há muitos problemas com esse código. Em primeiro lugar, ele é um método público que está retornando uma tupla. A linguagem dá suporte a isso, mas tipos definidos pelo usuário (classes ou estruturas) são preferenciais para APIs públicas.
-Em segundo lugar, esse método está retornando os índices para o item na matriz. Isso leva os chamadores a escreverem um código que usa esses índices para desreferenciar a matriz e modificar um único elemento:
+Em segundo lugar, esse método está retornando os índices para o item na matriz. Isso leva os chamadores a escreverem um código que usa esses índices para desreferenciar a matriz e modificar um único elementoo:
 
 
 
@@ -23,7 +23,7 @@ var indices = MatrixSearch.Find(matrix, (val) => val == 42);
 Console.WriteLine(indices);
 matrix[indices.i, indices.j] = 24;
 ```
-Você prefere escrever um método que retorna uma referência para o elemento da matriz que deseja alterar. Você apenas poderia fazer isso usando código não seguro e retornando um ponteiro para um int em versões anteriores.
+Você prefere escrever um método que retorna uma referência para o elementoo da matriz que deseja alterar. Você apenas poderia fazer isso usando código não seguro e retornando um ponteiro para um int em versões anteriores.
 Vamos examinar uma série de alterações para demonstrar o recurso local de ref e mostrar como criar um método que retorna uma referência ao armazenamento interno. Ao longo do caminho, você aprenderá as regras do recurso de retorno de ref e local de ref que impedem que você acidentalmente o use de maneira indevida.
 Comece modificando a declaração do método Find para que ele retorne um ref int em vez de uma tupla. Em seguida, modifique a instrução return para que ela retorne o valor armazenado na matriz em vez de dois índices:
 

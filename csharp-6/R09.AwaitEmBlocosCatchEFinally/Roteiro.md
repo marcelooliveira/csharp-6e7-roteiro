@@ -6,23 +6,23 @@ A adição de expressões await em blocos catch e finally pode parecer complicar
 Com o C# 6, você também pode aguardar em expressões catch. Isso geralmente é usado com cenários de registro em log:
 
 ```
-public static async Task<string> MakeRequestAndLogFailures()
+public static async Task<string> FazerRequisicaoELogarFalhas()
 { 
-    await logMethodEntrance();
-    var client = new System.Net.Http.HttpClient();
-    var streamTask = client.GetStringAsync("https://localHost:10000");
+    await logarEntradaNoMetodo();
+    var cliente = new System.Net.Http.HttpClient();
+    var streamTask = cliente.GetStringAsync("https://localHost:10000");
     try {
         var responseText = await streamTask;
         return responseText;
     } catch (System.Net.Http.HttpRequestException e) when (e.Message.Contains("301"))
     {
-        await logError("Recovered from redirect", e);
-        return "Site Moved";
+        await logarErro("Recuperado da redireção", e);
+        return "Site Mudou de Endereço";
     }
     finally
     {
-        await logMethodExit();
-        client.Dispose();
+        await logarSaidaDoMetodo();
+        cliente.Dispose();
     }
 }
 ```
