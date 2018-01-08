@@ -1,7 +1,11 @@
 ﻿# Métodos Add de extensão em inicializadores de coleção
-Outro recurso que facilita a inicialização de coleção é a capacidade de usar um método de extensão para o método Add. Esse recurso foi adicionado para a paridade com o Visual Basic.
 
-O recurso é mais útil quando você tem uma classe de coleção personalizada que tem um método com um nome diferente para adicionar novos itens semanticamente.
+Outro recurso que facilita a inicialização de coleção é a capacidade de usar um
+ método de extensão para o método Add. Esse recurso foi adicionado para a paridade 
+com o Visual Basic.
+
+O recurso é mais útil quando você tem uma classe de coleção personalizada que tem 
+um método com um nome diferente para adicionar novos itens semanticamente.
 Por exemplo, considere uma coleção de alunos como esta:
 
 
@@ -27,9 +31,10 @@ public class ListaDeMatricula : IEnumerable<Student>
     }
 }
 ```
-O método Matricular adiciona um aluno. Mas não segue o padrão Add. Nas versões anteriores do C#, você não podia usar os inicializadores de coleção com um objeto ListaDeMatricula:
 
-
+O método `Matricular` adiciona um aluno. Mas não segue o padrão `Add`. Nas versões 
+anteriores do C#, você não podia usar os inicializadores de coleção com um objeto 
+`ListaDeMatricula`:
 
 ```
 var classList = new ListaDeMatricula()
@@ -66,9 +71,8 @@ var classList = new ListaDeMatricula()
     new Student("Althea", "Goodwin")
 };
 ```
-Agora você pode, mas apenas se você criar um método de extensão que mapeia Add para Matricular:
-
-
+Agora você pode, mas apenas se você criar um método de extensão que mapeia `Add` 
+para `Matricular`:
 
 ```
 public static class AlunoExtensions
@@ -76,10 +80,9 @@ public static class AlunoExtensions
     public static void Add(this ListaDeMatricula e, Student s) => e.Matricular(s);
 }
 ```
-O que você está fazendo com esse recurso é mapear qualquer método que adiciona itens a uma coleção, em um método chamado Add, criando um método de extensão:
 
-
-
+O que você está fazendo com esse recurso é mapear qualquer método que adiciona 
+itens a uma coleção, em um método chamado `Add`, criando um método de extensão:
 
 ```
 public class ListaDeMatricula : IEnumerable<Student>
@@ -102,7 +105,6 @@ public class ListaDeMatricula : IEnumerable<Student>
     }
 }
 ```
-
 
 
 ```

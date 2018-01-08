@@ -56,7 +56,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="R01.PropriedadesAutomaticasSomenteLeitura\csharp-6.cs" />
     <Compile Include="R02.InicializadoresDePropriedadeAutomatica\csharp-6.cs" />
-    <Compile Include="R03.MembrosComCorpoDeExpressao\csharp-6.cs" />
+    <Compile Include="R03.MembrosComExpressaoLambda\csharp-6.cs" />
     <Compile Include="R04.UsingStatic\csharp-6.cs" />
     <Compile Include="R05.OperadoresNullCondicionais\csharp-6.cs" />
     <Compile Include="R06.InterpolacaoDeCadeiaDeCaracteres\csharp-6.cs" />
@@ -71,7 +71,7 @@
     <None Include="App.config" />
     <None Include="R01.PropriedadesAutomaticasSomenteLeitura\Roteiro.md" />
     <None Include="R02.InicializadoresDePropriedadeAutomatica\Roteiro.md" />
-    <None Include="R03.MembrosComCorpoDeExpressao\Roteiro.md" />
+    <None Include="R03.MembrosComExpressaoLambda\Roteiro.md" />
     <None Include="R04.UsingStatic\Roteiro.md" />
     <None Include="R05.OperadoresNullCondicionais\Roteiro.md" />
     <None Include="R06.InterpolacaoDeCadeiaDeCaracteres\Roteiro.md" />
