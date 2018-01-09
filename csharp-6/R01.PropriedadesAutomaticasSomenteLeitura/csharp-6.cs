@@ -10,7 +10,18 @@ namespace CSharp6.R01
     {
         public void Main()
         {
-            Console.WriteLine("Programa 1");
+            Console.WriteLine("1. Propriedades Automáticas Somente-Leitura");
+
+            try
+            {
+                var aluno = new Aluno("Ferris", "Bueller");
+                Console.WriteLine(aluno.Prenome);
+                Console.WriteLine(aluno.Sobrenome);
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.ToString());
+            }
         }
     }
 

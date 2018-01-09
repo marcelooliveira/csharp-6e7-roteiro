@@ -11,15 +11,15 @@ namespace CSharp6e7_roteiro
         static void Main(string[] args)
         {
             string[] menus = new string[] {
-                "01. Propriedades Automáticas Somente-Leitura",
-                "02. Inicializadores De Propriedade Automática",
-                "03. Membros Com Corpo De Expressão",
-                "04. Using Static",
-                "05. Operadores Null-Condicionais",
-                "06. Interpolação De Cadeia De Caracteres",
-                "07. Filtros De Exceção",
-                "08. Expressões nameOf",
-                "09. Await Em Blocos Catch E Finally",
+                "1. Propriedades Automáticas Somente-Leitura",
+                "2. Inicializadores De Propriedade Automática",
+                "3. Membros Com Corpo De Expressão",
+                "4. Using Static",
+                "5. Operadores Null-Condicionais",
+                "6. Interpolação De Cadeia De Caracteres",
+                "7. Filtros De Exceção",
+                "8. Expressões nameOf",
+                "9. Await Em Blocos Catch E Finally",
                 "10. Inicializadores De Índice",
                 "11. Metodos De Extensão Para Inicializadores De Coleção",
                 "12. Resolução De Sobrecarga Aprimorada"
@@ -28,18 +28,19 @@ namespace CSharp6e7_roteiro
             Console.WriteLine("ÍNDICE DE PROGRAMAS");
             Console.WriteLine("===================");
 
-            foreach (var menu in menus)
-            {
-                Console.WriteLine(menu);
-            }
-
-            Console.WriteLine();
-            Console.WriteLine("Escolha um programa:");
 
             int programa = 0;
             string line;
             do
             {
+                foreach (var menu in menus)
+                {
+                    Console.WriteLine(menu);
+                }
+
+                Console.WriteLine();
+                Console.WriteLine("Escolha um programa:");
+
                 line = Console.ReadLine();
                 Int32.TryParse(line, out programa);
                 switch (programa)
@@ -84,6 +85,10 @@ namespace CSharp6e7_roteiro
                         break;
                 }
 
+                Console.WriteLine();
+                Console.WriteLine("PRESSIONE UMA TECLA PARA CONTINUAR...");
+                Console.ReadKey();
+                Console.Clear();
             } while (line.Length > 0);
         }
     }

@@ -1,6 +1,6 @@
 ﻿# Operadores null condicionais
 
-Os valores null complicam o código. É necessário verificar cada acesso de variáveis 
+Os valores **null** complicam o código. É necessário verificar cada acesso de variáveis 
 para garantir que você não está desreferenciando null. O operador condicional null 
 torna essas verificações muito mais fáceis e fluidas.
 Basta substituir o acesso de membro . por ?.:

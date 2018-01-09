@@ -1,6 +1,16 @@
 ﻿# Propriedades automáticas somente-leitura
 
-As Propriedades automáticas somente leitura fornecem uma sintaxe mais concisa 
+Antes de conhecermos o recurso de **propriedades automáticas somente-leitura** do C# 6, precisamos
+esclarecer o que é **imutabilidade** em programação.
+
+> **Objeto imutável**
+>
+>
+> *Origem: Wikipédia, a enciclopédia livre*.
+> 
+> Em programação orientada a objetos e funcional, um objeto imutável é um objeto no qual seu estado não pode ser modificado após ser criado. Ele é um contraste com um objeto mutável, que pode ser modificado após sua criação.
+
+As propriedades automáticas somente-leitura fornecem uma sintaxe mais concisa 
 para criar tipos imutáveis. O mais próximo você chegava em relação a tipos 
 imutáveis nas versões anteriores do C# era para declarar setters particulares:
 
@@ -9,12 +19,12 @@ public string Prenome { get; private set; }
 public string Sobrenome { get; private set; }
 ```
 
-Ao usar esta sintaxe, o compilador não garante que o tipo é realmente imutável. 
+Ao usar esta sintaxe, **o compilador não garante que o tipo é realmente imutável**. 
 Ele somente impõe que as propriedades `Prenome` e `Sobrenome` não são modificadas 
 de qualquer código fora da classe.
 As propriedades automáticas somente leitura habilitam o verdadeiro comportamento 
 somente leitura. Você declara a propriedade automática apenas com um acessador
- get:
+ **get**:
 
 ```
 public string Prenome { get; }
@@ -51,5 +61,5 @@ public class Aluno
 }
 ```
 
-Esse recurso habilita o suporte real à linguagem para criar tipos imutáveis e 
+Esse recurso habilita o suporte real à linguagem para criar **tipos imutáveis** e 
 usar a sintaxe de propriedade automática mais concisa e conveniente.

@@ -60,14 +60,14 @@ de método estático:
 public bool EntrouNaListaDeHonra()
 {
     return Notas.All(g => g > 3.5) && Notas.Any();
-    // Code below generates CS0103: 
-    // The name 'All' does not exist in the current context.
+    // O códito abaixo gera o erro CS0103: 
+    // O método 'All' não existe no contexto atual.
     //return All(Notas, g => g > 3.5) && Notas.Any();
 }
 ```
 
 Essa decisão foi tomada porque os métodos de extensão são geralmente chamados 
-usando **expressões de invocação** de método de extensão. No caso raro em que eles 
+usando **expressões de chamada** de método de extensão. No caso raro em que eles 
 são chamados usando a sintaxe de chamada ao método estático, é para resolver a 
 ambiguidade. Parece prudente exigir o nome de classe como parte da invocação.
 Há um último recurso de **using static**. A diretiva `using static` também importa 

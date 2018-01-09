@@ -4,7 +4,7 @@ Os Inicializadores de propriedade automática permitem
 que você declare o valor inicial de uma propriedade 
 automática como parte da declaração de propriedade. 
 Em versões anteriores, essas propriedades precisariam 
-de setters e você teria que usar esse setter para 
+de **setters** e você teria que usar esse **setter** para 
 inicializar o armazenamento de dados usado pelo campo 
 de suporte. Considere essa classe para um aluno que contém o 
 nome e uma lista das notas do aluno:

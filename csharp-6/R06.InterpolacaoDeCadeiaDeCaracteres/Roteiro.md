@@ -6,8 +6,6 @@ outros valores de cadeia de caracteres.
 Tradicionalmente, você precisava usar parâmetros posicionais em um método como 
 `string.Format`:
 
-
-
 ```
 public string NomeCompleto
 {

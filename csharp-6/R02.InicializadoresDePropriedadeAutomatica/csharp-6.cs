@@ -10,7 +10,33 @@ namespace CSharp6.R02
     {
         public void Main()
         {
-            Console.WriteLine("Programa 2");
+            Console.WriteLine("2. Inicializadores De Propriedade Automática");
+
+            try
+            {
+                var aluno = new Aluno("Ferris", "Bueller");
+                Console.WriteLine(aluno.Prenome);
+                Console.WriteLine(aluno.Sobrenome);
+
+                aluno.Notas.Add(3.5);
+                aluno.Notas.Add(4.5);
+                aluno.Notas.Add(3);
+                aluno.Notas.Add(5);
+
+
+                Console.WriteLine();
+                Console.WriteLine("NOTAS");
+                Console.WriteLine("=====");
+
+                foreach (var nota in aluno.Notas)
+                {
+                    Console.WriteLine(nota);
+                }
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.ToString());
+            }
         }
     }
 
