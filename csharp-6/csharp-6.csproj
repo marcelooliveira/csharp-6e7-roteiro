@@ -84,6 +84,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Aula1\R01.PropriedadesAutomaticasSomenteLeitura\diff.htm" />
+    <Content Include="Aula1\R02.InicializadoresDePropriedadeAutomatica\diff.htm" />
+    <Content Include="Aula1\R03.MembrosComExpressaoLambda\diff.htm" />
+    <Content Include="Aula2\R04.UsingStatic\diff.htm" />
+    <Content Include="Aula2\R05.OperadoresNullCondicionais\diff.htm" />
+    <Content Include="Aula3\R06.InterpolacaoDeCadeiaDeCaracteres\diff.htm" />
+    <Content Include="Aula3\R07.ExpressoesNameOf\diff.htm" />
+    <Content Include="Aula4\R08.FiltrosDeExcecao\diff.htm" />
+    <Content Include="Aula4\R09.AwaitEmBlocosCatchEFinally\diff.htm" />
+    <Content Include="Aula5\R10.InicializadoresDeIndice\diff.htm" />
+    <Content Include="Aula5\R11.MetodosDeExtensaoParaInicializadoresDeColecao\diff.htm" />
+    <Content Include="Aula5\R12.ResolucaoDeSobrecargaAprimorada\diff.htm" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -72,7 +72,8 @@ namespace CSharp6.R11
 
     public static class AlunoExtensions
     {
-        public static void Add(this ListaDeMatricula e, Aluno s) => e.Matricular(s);
+        public static void Add(this ListaDeMatricula e, Aluno s) 
+            => e.Matricular(s);
     }
 
     public enum Ano
