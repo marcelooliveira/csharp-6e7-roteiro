@@ -102,8 +102,8 @@ td,th {font-size: 12pt;}
 <td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
 </tr>
 <tr valign="top">
-<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">namespace </span><span class="sf17b16">CSharp6.R06</span>&nbsp;</code></td>
 <td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">namespace </span><span class="sf17b16">CSharp6.R07</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">namespace </span><span class="sf17b16">CSharp6.R08</span>&nbsp;</code></td>
 </tr>
 <tr valign="top">
 <td class="ln"></td><td class="sf3b2"><code><span class="sf3b2">{</span></code></td>
@@ -126,8 +126,8 @@ td,th {font-size: 12pt;}
 <td class="ln"></td><td class="sf3b2"><code><span class="sf3b2"> &nbsp; &nbsp; &nbsp; &nbsp;{</span></code></td>
 </tr>
 <tr valign="top">
-<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; "> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="sf17b16">Console.WriteLine("6. Interpolação De Cadeia De Caracteres");</span>&nbsp;</code></td>
 <td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; "> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="sf17b16">Console.WriteLine("7. Expressões nameOf");</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; "> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="sf17b16">Console.WriteLine("8. Filtros De Exceção");</span>&nbsp;</code></td>
 </tr>
 <tr valign="top">
 <td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
@@ -254,8 +254,24 @@ td,th {font-size: 12pt;}
 <td class="ln"></td><td class="sf3b2"><code><span class="sf3b2"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></code></td>
 </tr>
 <tr valign="top">
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; "> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;catch (Exception exc) when (exc.Message.Contains("vazio"))</span></code></td>
+</tr>
+<tr valign="top">
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; "> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></code></td>
+</tr>
+<tr valign="top">
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; "> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Console.WriteLine($"algum campo está vazio: {exc.ToString()}");</span></code></td>
+</tr>
+<tr valign="top">
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; "> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</span></code></td>
+</tr>
+<tr valign="top">
 <td class="ln"></td><td class="sf3b2"><code><span class="sf3b2"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;catch (Exception exc)</span></code></td>
-<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;catch (Exception exc)</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf3b2"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;catch (Exception exc) </span></code></td>
 </tr>
 <tr valign="top">
 <td class="ln"></td><td class="sf3b2"><code><span class="sf3b2"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</span></code></td>
@@ -370,8 +386,8 @@ td,th {font-size: 12pt;}
 <td class="ln"></td><td class="sf3b2"><code><span class="sf3b2"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (IsNullOrWhiteSpace(sobrenome))</span></code></td>
 </tr>
 <tr valign="top">
-<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; "> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;throw new ArgumentException(message: "Não pode ser vazio", paramName: </span><span class="sf17b16">"sobrenome");</span>&nbsp;</code></td>
 <td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; "> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;throw new ArgumentException(message: "Não pode ser vazio", paramName: </span><span class="sf17b16">nameof(sobrenome));</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; "> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;throw new ArgumentException(message: "Não pode ser vazio", paramName: </span><span class="sf17b16">"sobrenome");</span>&nbsp;</code></td>
 </tr>
 <tr valign="top">
 <td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
