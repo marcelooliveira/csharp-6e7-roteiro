@@ -6,9 +6,33 @@ using System.Threading.Tasks;
 
 namespace CSharp5.R01
 {
+    class Programa
+    {
+        public void Main()
+        {
+
+            try
+            {
+                var aluno = new Aluno("Ferris", "Bueller");
+                Console.WriteLine(aluno.Prenome);
+                Console.WriteLine(aluno.Sobrenome);
+
+                Console.WriteLine();
+
+                var cameron = new Aluno("Cameron", "");
+                Console.WriteLine(cameron.Prenome);
+                Console.WriteLine(cameron.Sobrenome);
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.ToString());
+            }
+        }
+    }
+
     public class Aluno
     {
-        public string Prenome { get; private set; }
+        public string Prenome { get; private set;  }
         public string Sobrenome { get; private set; }
 
         public Aluno(string prenome, string sobrenome)
@@ -22,7 +46,8 @@ namespace CSharp5.R01
 
         public void MudarNome(string novoSobrenome)
         {
-            // não gera erro, logo Sobrenome não é imutável
+            // A próxima linha permite mudar valor da propriedade
+            //logo a propriedade não é imutável!
             Sobrenome = novoSobrenome;
         }
     }

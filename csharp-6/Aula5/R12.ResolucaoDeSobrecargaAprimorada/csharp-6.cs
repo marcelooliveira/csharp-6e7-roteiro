@@ -16,6 +16,10 @@ namespace CSharp6.R12
         public Programa()
         {
             Task.Run(() => DoThings());
+
+            //Com a Sobrecarga Aprimorada, agora também é permitida a sintaxe abaixo:
+
+            Task.Run(DoThings);
         }
 
         static Task DoThings()

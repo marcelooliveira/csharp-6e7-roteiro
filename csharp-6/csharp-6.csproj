@@ -82,6 +82,8 @@
     <None Include="Aula5\R11.MetodosDeExtensaoParaInicializadoresDeColecao\Roteiro.md" />
     <None Include="Aula5\R12.ResolucaoDeSobrecargaAprimorada\Roteiro.md" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Aula1\R01.PropriedadesAutomaticasSomenteLeitura\diff.htm" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
