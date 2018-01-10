@@ -10,13 +10,10 @@ namespace CSharp6.R12
     {
         public void Main()
         {
-            Console.WriteLine("Programa 12");
+            Console.WriteLine("12. Resolução De Sobrecarga Aprimorada");
         }
-    }
 
-    class CSharp6
-    {
-        public CSharp6()
+        public Programa()
         {
             Task.Run(() => DoThings());
         }

@@ -54,33 +54,33 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="R01.PropriedadesAutomaticasSomenteLeitura\csharp-6.cs" />
-    <Compile Include="R02.InicializadoresDePropriedadeAutomatica\csharp-6.cs" />
-    <Compile Include="R03.MembrosComExpressaoLambda\csharp-6.cs" />
-    <Compile Include="R04.UsingStatic\csharp-6.cs" />
-    <Compile Include="R05.OperadoresNullCondicionais\csharp-6.cs" />
-    <Compile Include="R06.InterpolacaoDeCadeiaDeCaracteres\csharp-6.cs" />
-    <Compile Include="R07.FiltrosDeExcecao\csharp-6.cs" />
-    <Compile Include="R08.ExpressoesNameOf\csharp-6.cs" />
-    <Compile Include="R09.AwaitEmBlocosCatchEFinally\csharp-6.cs" />
-    <Compile Include="R10.InicializadoresDeIndice\csharp-6.cs" />
-    <Compile Include="R11.MetodosDeExtensaoParaInicializadoresDeColecao\csharp-6.cs" />
-    <Compile Include="R12.ResolucaoDeSobrecargaAprimorada\csharp-6.cs" />
+    <Compile Include="Aula1\R01.PropriedadesAutomaticasSomenteLeitura\csharp-6.cs" />
+    <Compile Include="Aula1\R02.InicializadoresDePropriedadeAutomatica\csharp-6.cs" />
+    <Compile Include="Aula1\R03.MembrosComExpressaoLambda\csharp-6.cs" />
+    <Compile Include="Aula2\R04.UsingStatic\csharp-6.cs" />
+    <Compile Include="Aula2\R05.OperadoresNullCondicionais\csharp-6.cs" />
+    <Compile Include="Aula3\R06.InterpolacaoDeCadeiaDeCaracteres\csharp-6.cs" />
+    <Compile Include="Aula4\R08.FiltrosDeExcecao\csharp-6.cs" />
+    <Compile Include="Aula3\R07.ExpressoesNameOf\csharp-6.cs" />
+    <Compile Include="Aula4\R09.AwaitEmBlocosCatchEFinally\csharp-6.cs" />
+    <Compile Include="Aula5\R10.InicializadoresDeIndice\csharp-6.cs" />
+    <Compile Include="Aula5\R11.MetodosDeExtensaoParaInicializadoresDeColecao\csharp-6.cs" />
+    <Compile Include="Aula5\R12.ResolucaoDeSobrecargaAprimorada\csharp-6.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="R01.PropriedadesAutomaticasSomenteLeitura\Roteiro.md" />
-    <None Include="R02.InicializadoresDePropriedadeAutomatica\Roteiro.md" />
-    <None Include="R03.MembrosComExpressaoLambda\Roteiro.md" />
-    <None Include="R04.UsingStatic\Roteiro.md" />
-    <None Include="R05.OperadoresNullCondicionais\Roteiro.md" />
-    <None Include="R06.InterpolacaoDeCadeiaDeCaracteres\Roteiro.md" />
-    <None Include="R07.FiltrosDeExcecao\Roteiro.md" />
-    <None Include="R08.ExpressoesNameOf\Roteiro.md" />
-    <None Include="R09.AwaitEmBlocosCatchEFinally\Roteiro.md" />
-    <None Include="R10.InicializadoresDeIndice\Roteiro.md" />
-    <None Include="R11.MetodosDeExtensaoParaInicializadoresDeColecao\Roteiro.md" />
-    <None Include="R12.ResolucaoDeSobrecargaAprimorada\Roteiro.md" />
+    <None Include="Aula1\R01.PropriedadesAutomaticasSomenteLeitura\Roteiro.md" />
+    <None Include="Aula1\R02.InicializadoresDePropriedadeAutomatica\Roteiro.md" />
+    <None Include="Aula1\R03.MembrosComExpressaoLambda\Roteiro.md" />
+    <None Include="Aula2\R04.UsingStatic\Roteiro.md" />
+    <None Include="Aula2\R05.OperadoresNullCondicionais\Roteiro.md" />
+    <None Include="Aula3\R06.InterpolacaoDeCadeiaDeCaracteres\Roteiro.md" />
+    <None Include="Aula4\R08.FiltrosDeExcecao\Roteiro.md" />
+    <None Include="Aula3\R07.ExpressoesNameOf\Roteiro.md" />
+    <None Include="Aula4\R09.AwaitEmBlocosCatchEFinally\Roteiro.md" />
+    <None Include="Aula5\R10.InicializadoresDeIndice\Roteiro.md" />
+    <None Include="Aula5\R11.MetodosDeExtensaoParaInicializadoresDeColecao\Roteiro.md" />
+    <None Include="Aula5\R12.ResolucaoDeSobrecargaAprimorada\Roteiro.md" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

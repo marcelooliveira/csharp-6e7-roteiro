@@ -5,24 +5,52 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.String;
 
-namespace CSharp6.R06
+namespace CSharp6.R08
 {
     class Programa
     {
         public void Main()
         {
-            Console.WriteLine("Programa 6");
-        }
-    }
+            Console.WriteLine("7. Filtros De Exceção");
 
-    class Program
-    {
-        void Main()
-        {
-            List<Aluno> alunos = new List<Aluno>();
-            var student = alunos.FirstOrDefault();
+            try
+            {
+                var aluno = new Aluno("Ferris", "Bueller");
+                Console.WriteLine(aluno.Prenome);
+                Console.WriteLine(aluno.Sobrenome);
 
-            var primeiro = student?.Prenome;
+                aluno.Notas.Add(3.5);
+                aluno.Notas.Add(4.5);
+                aluno.Notas.Add(3);
+                aluno.Notas.Add(5);
+
+                Console.WriteLine();
+                Console.WriteLine("NOTAS");
+                Console.WriteLine("=====");
+
+                foreach (var nota in aluno.Notas)
+                {
+                    Console.WriteLine(nota);
+                }
+
+                Console.WriteLine();
+                Console.WriteLine($"Entrou na lista de honra? {aluno.EntrouNaListaDeHonra()}");
+
+                List<Aluno> alunos = new List<Aluno>();
+                var student = alunos.FirstOrDefault();
+
+                var primeiro = student?.Prenome;
+                Console.WriteLine();
+                Console.WriteLine($"Primeiro aluno: {primeiro}");
+            }
+            catch (Exception exc) when (exc.Message.Contains("vazio"))
+            {
+                Console.WriteLine($"algum campo está vazio: {exc.ToString()}");
+            }
+            catch (Exception exc) 
+            {
+                Console.WriteLine(exc.ToString());
+            }
         }
     }
 

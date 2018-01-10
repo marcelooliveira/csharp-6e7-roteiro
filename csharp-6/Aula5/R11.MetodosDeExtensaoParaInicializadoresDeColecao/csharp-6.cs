@@ -12,14 +12,8 @@ namespace CSharp6.R11
     {
         public void Main()
         {
-            Console.WriteLine("Programa 11");
-        }
-    }
+            Console.WriteLine("11. Metodos De Extensão Para Inicializadores De Coleção");
 
-    class CSharp6
-    {
-        public CSharp6()
-        {
             var classList = new ListaDeMatricula()
             {
                 new Aluno("Lessie", "Crosby"),
@@ -103,7 +97,7 @@ namespace CSharp6.R11
         public Aluno(string prenome, string sobrenome)
         {
             if (IsNullOrWhiteSpace(sobrenome))
-                throw new ArgumentException(message: "Não pode ser vazio", paramName: nameof(sobrenome));
+                throw new ArgumentException(message: "Não pode ser vazio", paramName: "sobrenome");
 
             Prenome = prenome;
             Sobrenome = sobrenome;
@@ -138,4 +132,5 @@ namespace CSharp6.R11
             //All(Notas, g => g > 3.5) && Notas.Any();
         }
     }
+
 }

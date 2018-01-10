@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.String;
 
-namespace CSharp6.R04
+namespace CSharp6.R05
 {
     class Programa
     {
         public void Main()
         {
-            Console.WriteLine("4. Using Static");
+            Console.WriteLine("5. Operadores Null-Condicionais");
 
             try
             {
@@ -32,6 +32,16 @@ namespace CSharp6.R04
                 {
                     Console.WriteLine(nota);
                 }
+
+                Console.WriteLine();
+                Console.WriteLine(Format("Entrou na lista de honra? {0}", aluno.EntrouNaListaDeHonra()));
+
+                List<Aluno> alunos = new List<Aluno>();
+                var student = alunos.FirstOrDefault();
+
+                var primeiro = student?.Prenome;
+                Console.WriteLine();
+                Console.WriteLine(Format("Primeiro aluno: {0}", primeiro));
             }
             catch (Exception exc)
             {
@@ -56,7 +66,7 @@ namespace CSharp6.R04
         public ICollection<double> Notas { get; } = new List<double>();
         public Ano AnoNaEscola { get; set; } = Ano.Primeiro;
 
-        public string NomeCompleto => string.Format("{0} {1}", Prenome, Sobrenome);
+        public string NomeCompleto => Format("{0} {1}", Prenome, Sobrenome);
 
         public Aluno(string prenome, string sobrenome)
         {
@@ -73,7 +83,7 @@ namespace CSharp6.R04
             //Sobrenome = novoSobrenome;
         }
 
-        public override string ToString() => string.Format("{0}, {1}", Sobrenome, Prenome);
+        public override string ToString() => Format("{0}, {1}", Sobrenome, Prenome);
 
         public bool EntrouNaListaDeHonra()
         {

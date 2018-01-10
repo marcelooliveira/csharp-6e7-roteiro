@@ -12,7 +12,7 @@ namespace CSharp6.R10
     {
         public void Main()
         {
-            Console.WriteLine("Programa 10");
+            Console.WriteLine("10. Inicializadores De Índice");
         }
     }
 

@@ -17,6 +17,12 @@ namespace CSharp6.R01
                 var aluno = new Aluno("Ferris", "Bueller");
                 Console.WriteLine(aluno.Prenome);
                 Console.WriteLine(aluno.Sobrenome);
+
+                Console.WriteLine();
+
+                var cameron = new Aluno("Cameron", "");
+                Console.WriteLine(cameron.Prenome);
+                Console.WriteLine(cameron.Sobrenome);
             }
             catch (Exception exc)
             {

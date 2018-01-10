@@ -5,16 +5,48 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.String;
 
-namespace CSharp6.R08
+namespace CSharp6.R07
 {
     class Programa
     {
         public void Main()
         {
-            List<Aluno> alunos = new List<Aluno>();
-            var student = alunos.FirstOrDefault();
+            Console.WriteLine("7. Expressões nameOf");
 
-            var primeiro = student?.Prenome;
+            try
+            {
+                var aluno = new Aluno("Ferris", "Bueller");
+                Console.WriteLine(aluno.Prenome);
+                Console.WriteLine(aluno.Sobrenome);
+
+                aluno.Notas.Add(3.5);
+                aluno.Notas.Add(4.5);
+                aluno.Notas.Add(3);
+                aluno.Notas.Add(5);
+
+                Console.WriteLine();
+                Console.WriteLine("NOTAS");
+                Console.WriteLine("=====");
+
+                foreach (var nota in aluno.Notas)
+                {
+                    Console.WriteLine(nota);
+                }
+
+                Console.WriteLine();
+                Console.WriteLine($"Entrou na lista de honra? {aluno.EntrouNaListaDeHonra()}");
+
+                List<Aluno> alunos = new List<Aluno>();
+                var student = alunos.FirstOrDefault();
+
+                var primeiro = student?.Prenome;
+                Console.WriteLine();
+                Console.WriteLine($"Primeiro aluno: {primeiro}");
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.ToString());
+            }
         }
     }
 

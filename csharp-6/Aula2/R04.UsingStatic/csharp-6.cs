@@ -5,24 +5,41 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.String;
 
-namespace CSharp6.R05
+namespace CSharp6.R04
 {
     class Programa
     {
         public void Main()
         {
-            Console.WriteLine("Programa 5");
-        }
-    }
+            Console.WriteLine("4. Using Static");
 
-    class Program
-    {
-        void Main()
-        {
-            List<Aluno> alunos = new List<Aluno>();
-            var student = alunos.FirstOrDefault();
+            try
+            {
+                var aluno = new Aluno("Ferris", "Bueller");
+                Console.WriteLine(aluno.Prenome);
+                Console.WriteLine(aluno.Sobrenome);
 
-            var primeiro = student?.Prenome;
+                aluno.Notas.Add(3.5);
+                aluno.Notas.Add(4.5);
+                aluno.Notas.Add(3);
+                aluno.Notas.Add(5);
+
+                Console.WriteLine();
+                Console.WriteLine("NOTAS");
+                Console.WriteLine("=====");
+
+                foreach (var nota in aluno.Notas)
+                {
+                    Console.WriteLine(nota);
+                }
+
+                Console.WriteLine();
+                Console.WriteLine(Format("Entrou na lista de honra? {0}", aluno.EntrouNaListaDeHonra()));
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.ToString());
+            }
         }
     }
 
@@ -42,7 +59,7 @@ namespace CSharp6.R05
         public ICollection<double> Notas { get; } = new List<double>();
         public Ano AnoNaEscola { get; set; } = Ano.Primeiro;
 
-        public string NomeCompleto => string.Format("{0} {1}", Prenome, Sobrenome);
+        public string NomeCompleto => Format("{0} {1}", Prenome, Sobrenome);
 
         public Aluno(string prenome, string sobrenome)
         {
@@ -59,7 +76,7 @@ namespace CSharp6.R05
             //Sobrenome = novoSobrenome;
         }
 
-        public override string ToString() => string.Format("{0}, {1}", Sobrenome, Prenome);
+        public override string ToString() => Format("{0}, {1}", Sobrenome, Prenome);
 
         public bool EntrouNaListaDeHonra()
         {
