@@ -15,14 +15,14 @@ namespace CSharp6.R12
 
         public Programa()
         {
-            Task.Run(() => DoThings());
+            Task.Run(() => FazerAlgo());
 
             //Com a Sobrecarga Aprimorada, agora também é permitida a sintaxe abaixo:
 
-            Task.Run(DoThings);
+            Task.Run(FazerAlgo);
         }
 
-        static Task DoThings()
+        static Task FazerAlgo()
         {
             return Task.FromResult(0);
         }
