@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.String;
+using static System.DateTime;
+using static CSharp6.R05.Ano;
+using System.Collections.ObjectModel;
 
 namespace CSharp6.R05
 {
@@ -13,40 +16,30 @@ namespace CSharp6.R05
         {
             Console.WriteLine("5. Operadores Null-Condicionais");
 
-            try
+            Aluno marty = new Aluno("Marty", "McFly", new DateTime(1968, 06, 12))
             {
-                var aluno = new Aluno("Ferris", "Bueller");
-                Console.WriteLine(aluno.Prenome);
-                Console.WriteLine(aluno.Sobrenome);
+                Endereco = "9303 Lyon Drive Hill Valley CA",
+                Telefone = "555-4385"
+            };
 
-                aluno.Notas.Add(3.5);
-                aluno.Notas.Add(4.5);
-                aluno.Notas.Add(3);
-                aluno.Notas.Add(5);
+            Console.WriteLine(marty.Nome);
+            Console.WriteLine(marty.Sobrenome);
+            Console.WriteLine(marty.DadosPessoais);
 
-                Console.WriteLine();
-                Console.WriteLine("NOTAS");
-                Console.WriteLine("=====");
 
-                foreach (var nota in aluno.Notas)
-                {
-                    Console.WriteLine(nota);
-                }
+            var melhorAvaliacao =
+                marty.Avaliacoes
+                .OrderByDescending(a => a.Nota)
+                .FirstOrDefault();
 
-                Console.WriteLine();
-                Console.WriteLine(Format("Entrou na lista de honra? {0}", aluno.EntrouNaListaDeHonra()));
+            Console.WriteLine("Melhor Nota: {0}", melhorAvaliacao?.Nota);
 
-                List<Aluno> alunos = new List<Aluno>();
-                var student = alunos.FirstOrDefault();
+            marty.AdicionarAvaliacao(new Avaliacao(1, "Geografia", 8));
+            marty.AdicionarAvaliacao(new Avaliacao(1, "Matemática", 6));
+            marty.AdicionarAvaliacao(new Avaliacao(1, "História", 7));
 
-                var primeiro = student?.Prenome;
-                Console.WriteLine();
-                Console.WriteLine(Format("Primeiro aluno: {0}", primeiro));
-            }
-            catch (Exception exc)
-            {
-                Console.WriteLine(exc.ToString());
-            }
+            var geografia = marty.Avaliacoes.Where(a => a.Materia == "Geografia").FirstOrDefault();
+
         }
     }
 
@@ -58,39 +51,77 @@ namespace CSharp6.R05
         Quarto
     }
 
-    public class Aluno
+    class Aluno
     {
-        public string Prenome { get; }
+        public string Nome { get; }
         public string Sobrenome { get; }
+        public string Endereco { get; set; }
+        public string Telefone { get; set; }
 
-        public ICollection<double> Notas { get; } = new List<double>();
-        public Ano AnoNaEscola { get; set; } = Ano.Primeiro;
+        public DateTime DataNascimento { get; } = new DateTime(1990, 1, 1);
 
-        public string NomeCompleto => Format("{0} {1}", Prenome, Sobrenome);
+        public Ano AnoNaEscola { get; set; } = Primeiro;
 
-        public Aluno(string prenome, string sobrenome)
+        public int PontosDeExperiencia()
         {
-            if (IsNullOrWhiteSpace(sobrenome))
-                throw new ArgumentException(message: "Não pode ser vazio", paramName: "sobrenome");
-
-            Prenome = prenome;
-            Sobrenome = sobrenome;
+            switch (AnoNaEscola)
+            {
+                case Primeiro:
+                    return 0;
+                case Segundo:
+                    return 15;
+                case Terceiro:
+                    return 65;
+                case Quarto:
+                    return 80;
+                default:
+                    return 0;
+            }
         }
 
-        public void MudarNome(string novoSobrenome)
+        public Aluno(string nome, string sobrenome)
         {
-            // Produz erro: CS0200: Property or indexer cannot be assigned to -- it is read only
-            //Sobrenome = novoSobrenome;
+            this.Nome = nome;
+            this.Sobrenome = sobrenome;
         }
 
-        public override string ToString() => Format("{0}, {1}", Sobrenome, Prenome);
-
-        public bool EntrouNaListaDeHonra()
+        public Aluno(string nome, string sobrenome, DateTime dataNascimento) : this(nome, sobrenome)
         {
-            return Notas.All(g => g > 3.5) && Notas.Any();
-            // Code below generates CS0103: 
-            // The name 'All' does not exist in the current context.
-            //All(Notas, g => g > 3.5) && Notas.Any();
+            this.DataNascimento = dataNascimento;
         }
+
+        public string NomeCompleto => Format("{0} {1}", Nome, Sobrenome);
+
+        public int GetIdade()
+            => (int)((Now - DataNascimento).TotalDays / 365.242199);
+
+        public string DadosPessoais =>
+            Format("Nome: {0}, " +
+                "Endereço: {1}, " +
+                "Telefone: {2}", NomeCompleto, Endereco, Telefone);
+
+
+        private IList<Avaliacao> avaliacoes = new List<Avaliacao>();
+        public IReadOnlyCollection<Avaliacao> Avaliacoes 
+            => new ReadOnlyCollection<Avaliacao>(avaliacoes);
+
+        public void AdicionarAvaliacao(Avaliacao avaliacao)
+        {
+            avaliacoes.Add(avaliacao);
+        }
+    }
+
+    class Avaliacao
+    {
+        public Avaliacao(int bimestre, string materia, double nota)
+        {
+            Bimestre = bimestre;
+            Materia = materia;
+            Nota = nota;
+        }
+
+        public int Bimestre { get; }
+        public string Materia { get; }
+        public double Nota { get; }
     }
 }

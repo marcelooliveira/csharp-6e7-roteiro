@@ -15,10 +15,11 @@ namespace CSharp6.R04
         {
             Console.WriteLine("4. Using Static");
 
-            Aluno marty = new Aluno("Marty", "McFly", new DateTime(1968, 06, 12));
-            //{ Nome = "Biff", Sobrenome = "Tannen" };
-            marty.Endereco = "9303 Lyon Drive Hill Valley CA";
-            marty.Telefone = "555-4385";
+            Aluno marty = new Aluno("Marty", "McFly", new DateTime(1968, 06, 12))
+            {
+                Endereco = "9303 Lyon Drive Hill Valley CA",
+                Telefone = "555-4385"
+            };
 
             Console.WriteLine(marty.Nome);
             Console.WriteLine(marty.Sobrenome);
