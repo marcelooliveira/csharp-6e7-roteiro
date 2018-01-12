@@ -25,12 +25,7 @@ namespace CSharp6.R05
             Console.WriteLine(marty.Nome);
             Console.WriteLine(marty.Sobrenome);
             Console.WriteLine(marty.DadosPessoais);
-
-
-            var melhorAvaliacao =
-                marty.Avaliacoes
-                .OrderByDescending(a => a.Nota)
-                .FirstOrDefault();
+            Avaliacao melhorAvaliacao = GetMelhorNota(marty);
 
             Console.WriteLine("Melhor Nota: {0}", melhorAvaliacao?.Nota);
 
@@ -38,8 +33,17 @@ namespace CSharp6.R05
             marty.AdicionarAvaliacao(new Avaliacao(1, "Matemática", 6));
             marty.AdicionarAvaliacao(new Avaliacao(1, "História", 7));
 
-            var geografia = marty.Avaliacoes.Where(a => a.Materia == "Geografia").FirstOrDefault();
+            melhorAvaliacao = GetMelhorNota(marty);
 
+            Console.WriteLine("Melhor Nota: {0}", melhorAvaliacao?.Nota);
+
+        }
+
+        private static Avaliacao GetMelhorNota(Aluno marty)
+        {
+            return marty.Avaliacoes
+                .OrderByDescending(a => a.Nota)
+                .FirstOrDefault();
         }
     }
 
