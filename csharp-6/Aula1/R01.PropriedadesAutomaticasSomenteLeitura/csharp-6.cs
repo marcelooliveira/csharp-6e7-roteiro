@@ -12,43 +12,47 @@ namespace CSharp6.R01
         {
             Console.WriteLine("1. Propriedades Automáticas Somente-Leitura");
 
-            try
-            {
-                var aluno = new Aluno("Ferris", "Bueller");
-                Console.WriteLine(aluno.Prenome);
-                Console.WriteLine(aluno.Sobrenome);
+            Aluno marty = new Aluno("Marty", "McFly", new DateTime(1968, 06, 12))
+                { Nome = "Biff", Sobrenome = "Tannen" };
 
-                Console.WriteLine();
-
-                var cameron = new Aluno("Cameron", "");
-                Console.WriteLine(cameron.Prenome);
-                Console.WriteLine(cameron.Sobrenome);
-            }
-            catch (Exception exc)
-            {
-                Console.WriteLine(exc.ToString());
-            }
+            Console.WriteLine(marty.Nome);
+            Console.WriteLine(marty.Sobrenome);
         }
     }
 
-    public class Aluno
+    //1. SOMENTE CAMPOS, SEM PROPRIEDADES
+    //class Aluno
+    //{
+    //    private string nome;
+    //    private string sobrenome;
+    //    private DateTime dataNascimento;
+
+    //    public Aluno(string nome, string sobrenome, DateTime dataNascimento)
+    //    {
+    //        this.nome = nome;
+    //        this.sobrenome = sobrenome;
+    //        this.dataNascimento = dataNascimento;
+    //    }
+    //}
+
+    //2. DE CAMPOS PARA PROPRIEDADES AUTOMÁTICAS
+
+    class Aluno
     {
-        public string Prenome { get; }
-        public string Sobrenome { get; }
+        public string Nome { get; set; }
+        public string Sobrenome { get; set; }
+        public DateTime DataNascimento { get; set; }
 
-        public Aluno(string prenome, string sobrenome)
+        public Aluno(string nome, string sobrenome, DateTime dataNascimento)
         {
-            if (string.IsNullOrWhiteSpace(sobrenome))
-                throw new ArgumentException(message: "Não pode ser vazio", paramName: "sobrenome");
-
-            Prenome = prenome;
-            Sobrenome = sobrenome;
-        }
-
-        public void MudarNome(string novoSobrenome)
-        {
-            // Produz erro: CS0200: Property or indexer cannot be assigned to -- it is read only
-            //Sobrenome = novoSobrenome;
+            this.Nome = nome;
+            this.Sobrenome = sobrenome;
+            this.DataNascimento = dataNascimento;
         }
     }
+
+    //Mas isso permitiria modificar o nome após a criação, o que não é nada bom,
+    //pois a propriedade não é imutável!
+    //Aluno marty = new Aluno("Marty", "McFly", new DateTime(1968, 06, 12))
+    //        { Nome = "Biff", Sobrenome = "Tannen" };
 }
