@@ -12,62 +12,66 @@ namespace CSharp6.R02
         {
             Console.WriteLine("2. Inicializadores De Propriedade Automática");
 
-            try
-            {
-                var aluno = new Aluno("Ferris", "Bueller");
-                Console.WriteLine(aluno.Prenome);
-                Console.WriteLine(aluno.Sobrenome);
+            Aluno marty = new Aluno("Marty", "McFly", new DateTime(1968, 06, 12));
+            //{ Nome = "Biff", Sobrenome = "Tannen" };
 
-                aluno.Notas.Add(3.5);
-                aluno.Notas.Add(4.5);
-                aluno.Notas.Add(3);
-                aluno.Notas.Add(5);
-
-
-                Console.WriteLine();
-                Console.WriteLine("NOTAS");
-                Console.WriteLine("=====");
-
-                foreach (var nota in aluno.Notas)
-                {
-                    Console.WriteLine(nota);
-                }
-            }
-            catch (Exception exc)
-            {
-                Console.WriteLine(exc.ToString());
-            }
+            Console.WriteLine(marty.Nome);
+            Console.WriteLine(marty.Sobrenome);
         }
     }
 
-    public enum Ano
-    {
-        Primeiro,
-        Segundo,
-        Terceiro,
-        Quarto
-    }
+    ////1. voltamos à propriedades getter-only:
+    //class Aluno
+    //{
+    //    public string Nome { get; }
+    //    public string Sobrenome { get; }
+    //    public DateTime DataNascimento { get; }
 
-    public class Aluno
+    //    public Aluno(string nome, string sobrenome, DateTime dataNascimento)
+    //    {
+    //        this.Nome = nome;
+    //        this.Sobrenome = sobrenome;
+    //        this.DataNascimento = dataNascimento;
+    //    }
+    //}
+
+    ////2. E se tivermos construtor com somente alguns dos parâmetros? 
+    //class Aluno
+    //{
+    //    public string Nome { get; }
+    //    public string Sobrenome { get; }
+    //    public DateTime DataNascimento { get; }
+
+    //    public Aluno(string nome, string sobrenome)
+    //    {
+    //        this.Nome = nome;
+    //        this.Sobrenome = sobrenome;
+    //    }
+
+    //    public Aluno(string nome, string sobrenome, DateTime dataNascimento) : this(nome, sobrenome)
+    //    {
+    //        this.DataNascimento = dataNascimento;
+    //    }
+    //}
+
+    //3. Nesse caso podemos inicializar as propriedades não definidas no construtor.
+    //A partir do C#6 podemos trabalhar com INICIALIZADORES de propriedades
+    //automáticas (que na verdade são inicializadores dos campos privados readonly):
+    class Aluno
     {
-        public string Prenome { get; }
+        public string Nome { get; }
         public string Sobrenome { get; }
-        public ICollection<double> Notas { get; } = new List<double>();
-        public Ano AnoNaEscola { get; set; } = Ano.Primeiro;
+        public DateTime DataNascimento { get; } = new DateTime(1990, 1, 1);
 
-        public Aluno(string prenome, string sobrenome)
+        public Aluno(string nome, string sobrenome)
         {
-            if (string.IsNullOrWhiteSpace(sobrenome))
-                throw new ArgumentException(message: "Não pode ser vazio", paramName: "sobrenome");
-
-            Prenome = prenome;
-            Sobrenome = sobrenome;
+            this.Nome = nome;
+            this.Sobrenome = sobrenome;
         }
 
-        public void MudarNome(string novoSobrenome)
+        public Aluno(string nome, string sobrenome, DateTime dataNascimento) : this(nome, sobrenome)
         {
-            // Produz erro: CS0200: Property or indexer cannot be assigned to -- it is read only
-            //Sobrenome = novoSobrenome;
+            this.DataNascimento = dataNascimento;
         }
     }
 }

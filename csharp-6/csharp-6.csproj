@@ -56,7 +56,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Aula1\R01.PropriedadesAutomaticasSomenteLeitura\csharp-6.cs" />
     <Compile Include="Aula1\R02.InicializadoresDePropriedadeAutomatica\csharp-6.cs" />
-    <Compile Include="Aula1\R03.MembrosComExpressaoLambda\csharp-6.cs" />
+    <Compile Include="Aula1\R03.MembrosComSintaxeDeExpressao\csharp-6.cs" />
     <Compile Include="Aula2\R04.UsingStatic\csharp-6.cs" />
     <Compile Include="Aula2\R05.OperadoresNullCondicionais\csharp-6.cs" />
     <Compile Include="Aula3\R06.InterpolacaoDeCadeiaDeCaracteres\csharp-6.cs" />
@@ -71,7 +71,7 @@
     <None Include="App.config" />
     <None Include="Aula1\R01.PropriedadesAutomaticasSomenteLeitura\Roteiro.md" />
     <None Include="Aula1\R02.InicializadoresDePropriedadeAutomatica\Roteiro.md" />
-    <None Include="Aula1\R03.MembrosComExpressaoLambda\Roteiro.md" />
+    <None Include="Aula1\R03.MembrosComSintaxeDeExpressao\Roteiro.md" />
     <None Include="Aula2\R04.UsingStatic\Roteiro.md" />
     <None Include="Aula2\R05.OperadoresNullCondicionais\Roteiro.md" />
     <None Include="Aula3\R06.InterpolacaoDeCadeiaDeCaracteres\Roteiro.md" />
@@ -85,7 +85,7 @@
   <ItemGroup>
     <Content Include="Aula1\R01.PropriedadesAutomaticasSomenteLeitura\diff.htm" />
     <Content Include="Aula1\R02.InicializadoresDePropriedadeAutomatica\diff.htm" />
-    <Content Include="Aula1\R03.MembrosComExpressaoLambda\diff.htm" />
+    <Content Include="Aula1\R03.MembrosComSintaxeDeExpressao\diff.htm" />
     <Content Include="Aula2\R04.UsingStatic\diff.htm" />
     <Content Include="Aula2\R05.OperadoresNullCondicionais\diff.htm" />
     <Content Include="Aula3\R06.InterpolacaoDeCadeiaDeCaracteres\diff.htm" />
