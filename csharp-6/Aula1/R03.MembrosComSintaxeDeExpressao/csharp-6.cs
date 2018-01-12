@@ -12,66 +12,88 @@ namespace CSharp6.R03
         {
             Console.WriteLine("3. Membros Com Corpo De Expressão");
 
-            try
-            {
-                var aluno = new Aluno("Ferris", "Bueller");
-                Console.WriteLine(aluno.Prenome);
-                Console.WriteLine(aluno.Sobrenome);
+            Aluno marty = new Aluno("Marty", "McFly", new DateTime(1968, 06, 12));
+            //{ Nome = "Biff", Sobrenome = "Tannen" };
 
-                aluno.Notas.Add(3.5);
-                aluno.Notas.Add(4.5);
-                aluno.Notas.Add(3);
-                aluno.Notas.Add(5);
-
-                Console.WriteLine();
-                Console.WriteLine("NOTAS");
-                Console.WriteLine("=====");
-
-                foreach (var nota in aluno.Notas)
-                {
-                    Console.WriteLine(nota);
-                }
-            }
-            catch (Exception exc)
-            {
-                Console.WriteLine(exc.ToString());
-            }
+            Console.WriteLine(marty.Nome);
+            Console.WriteLine(marty.Sobrenome);
         }
     }
 
-    public enum Ano
-    {
-        Primeiro,
-        Segundo,
-        Terceiro,
-        Quarto
-    }
+    //1. vamos adicionar uma propriedade para obter o nome completo:
+    //class Aluno
+    //{
+    //    public string Nome { get; }
+    //    public string Sobrenome { get; }
+    //    public DateTime DataNascimento { get; } = new DateTime(1990, 1, 1);
 
-    public class Aluno
+    //    public Aluno(string nome, string sobrenome)
+    //    {
+    //        this.Nome = nome;
+    //        this.Sobrenome = sobrenome;
+    //    }
+
+    //    public Aluno(string nome, string sobrenome, DateTime dataNascimento) : this(nome, sobrenome)
+    //    {
+    //        this.DataNascimento = dataNascimento;
+    //    }
+
+    //    public string NomeCompleto
+    //    {
+    //        get { return string.Format("{0}, {1}", Nome, Sobrenome); }
+    //    }
+    //}
+
+    //2. Agora vamos criar um método para obter a idade do aluno:
+    //class Aluno
+    //{
+    //    public string Nome { get; }
+    //    public string Sobrenome { get; }
+    //    public DateTime DataNascimento { get; } = new DateTime(1990, 1, 1);
+
+    //    public Aluno(string nome, string sobrenome)
+    //    {
+    //        this.Nome = nome;
+    //        this.Sobrenome = sobrenome;
+    //    }
+
+    //    public Aluno(string nome, string sobrenome, DateTime dataNascimento) : this(nome, sobrenome)
+    //    {
+    //        this.DataNascimento = dataNascimento;
+    //    }
+
+    //    public string NomeCompleto
+    //    {
+    //        get { return string.Format("{0}, {1}", Nome, Sobrenome); }
+    //    }
+
+    //    public int GetIdade()
+    //    {
+    //        return (int)((DateTime.Now - DataNascimento).TotalDays / 365.242199);
+    //    }
+    //}
+
+    //3. C# 6 permite escrever propriedades e métodos com sintaxe de expressão: 
+    class Aluno
     {
-        public string Prenome { get; }
+        public string Nome { get; }
         public string Sobrenome { get; }
+        public DateTime DataNascimento { get; } = new DateTime(1990, 1, 1);
 
-        public ICollection<double> Notas { get; } = new List<double>();
-        public Ano AnoNaEscola { get; set; } = Ano.Primeiro;
-
-        public string NomeCompleto => string.Format("{0} {1}", Prenome, Sobrenome);
-
-        public Aluno(string prenome, string sobrenome)
+        public Aluno(string nome, string sobrenome)
         {
-            if (string.IsNullOrWhiteSpace(sobrenome))
-                throw new ArgumentException(message: "Não pode ser vazio", paramName: "sobrenome");
-
-            Prenome = prenome;
-            Sobrenome = sobrenome;
+            this.Nome = nome;
+            this.Sobrenome = sobrenome;
         }
 
-        public void MudarNome(string novoSobrenome)
+        public Aluno(string nome, string sobrenome, DateTime dataNascimento) : this(nome, sobrenome)
         {
-            // Produz erro: CS0200: Property or indexer cannot be assigned to -- it is read only
-            //Sobrenome = novoSobrenome;
+            this.DataNascimento = dataNascimento;
         }
 
-        public override string ToString() => string.Format("{0}, {1}", Sobrenome, Prenome);
+        public string NomeCompleto => string.Format("{0}, {1}", Nome, Sobrenome);
+
+        public int GetIdade()
+            => (int)((DateTime.Now - DataNascimento).TotalDays / 365.242199);
     }
 }
