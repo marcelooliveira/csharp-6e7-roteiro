@@ -13,77 +13,45 @@ namespace CSharp6.R04
         {
             Console.WriteLine("4. Using Static");
 
-            try
-            {
-                var aluno = new Aluno("Ferris", "Bueller");
-                Console.WriteLine(aluno.Prenome);
-                Console.WriteLine(aluno.Sobrenome);
+            Aluno marty = new Aluno("Marty", "McFly", new DateTime(1968, 06, 12));
+            //{ Nome = "Biff", Sobrenome = "Tannen" };
+            marty.Endereco = "9303 Lyon Drive Hill Valley CA";
+            marty.Telefone = "555-4385";
 
-                aluno.Notas.Add(3.5);
-                aluno.Notas.Add(4.5);
-                aluno.Notas.Add(3);
-                aluno.Notas.Add(5);
-
-                Console.WriteLine();
-                Console.WriteLine("NOTAS");
-                Console.WriteLine("=====");
-
-                foreach (var nota in aluno.Notas)
-                {
-                    Console.WriteLine(nota);
-                }
-
-                Console.WriteLine();
-                Console.WriteLine(Format("Entrou na lista de honra? {0}", aluno.EntrouNaListaDeHonra()));
-            }
-            catch (Exception exc)
-            {
-                Console.WriteLine(exc.ToString());
-            }
+            Console.WriteLine(marty.Nome);
+            Console.WriteLine(marty.Sobrenome);
+            Console.WriteLine(marty.DadosPessoais);
         }
     }
 
-    public enum Ano
+    class Aluno
     {
-        Primeiro,
-        Segundo,
-        Terceiro,
-        Quarto
-    }
-
-    public class Aluno
-    {
-        public string Prenome { get; }
+        public string Nome { get; }
         public string Sobrenome { get; }
+        public string Endereco { get; set; }
+        public string Telefone { get; set; }
 
-        public ICollection<double> Notas { get; } = new List<double>();
-        public Ano AnoNaEscola { get; set; } = Ano.Primeiro;
+        public DateTime DataNascimento { get; } = new DateTime(1990, 1, 1);
 
-        public string NomeCompleto => Format("{0} {1}", Prenome, Sobrenome);
-
-        public Aluno(string prenome, string sobrenome)
+        public Aluno(string nome, string sobrenome)
         {
-            if (IsNullOrWhiteSpace(sobrenome))
-                throw new ArgumentException(message: "Não pode ser vazio", paramName: "sobrenome");
-
-            Prenome = prenome;
-            Sobrenome = sobrenome;
+            this.Nome = nome;
+            this.Sobrenome = sobrenome;
         }
 
-        public void MudarNome(string novoSobrenome)
+        public Aluno(string nome, string sobrenome, DateTime dataNascimento) : this(nome, sobrenome)
         {
-            // Produz erro: CS0200: Property or indexer cannot be assigned to -- it is read only
-            //Sobrenome = novoSobrenome;
+            this.DataNascimento = dataNascimento;
         }
 
-        public override string ToString() => Format("{0}, {1}", Sobrenome, Prenome);
+        public string NomeCompleto => string.Format("{0} {1}", Nome, Sobrenome);
 
-        public bool EntrouNaListaDeHonra()
-        {
-            return Notas.All(g => g > 3.5) && Notas.Any();
-            // Code below generates CS0103: 
-            // The name 'All' does not exist in the current context.
-            //All(Notas, g => g > 3.5) && Notas.Any();
-        }
+        public int GetIdade()
+            => (int)((DateTime.Now - DataNascimento).TotalDays / 365.242199);
+
+        public string DadosPessoais =>
+            string.Format("Nome: {0}, " +
+                "Endereço: {1}, " +
+                "Telefone: {2}", NomeCompleto, Endereco, Telefone);
     }
 }
