@@ -4,6 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.String;
+using static System.DateTime;
+using static CSharp6.R07.Ano;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace CSharp6.R07
 {
@@ -13,40 +18,40 @@ namespace CSharp6.R07
         {
             Console.WriteLine("7. Expressões nameOf");
 
-            try
+            Aluno marty = new Aluno("Marty", "McFly", new DateTime(1968, 06, 12))
             {
-                var aluno = new Aluno("Ferris", "Bueller");
-                Console.WriteLine(aluno.Prenome);
-                Console.WriteLine(aluno.Sobrenome);
+                Endereco = "9303 Lyon Drive Hill Valley CA",
+                Telefone = "555-4385"
+            };
 
-                aluno.Notas.Add(3.5);
-                aluno.Notas.Add(4.5);
-                aluno.Notas.Add(3);
-                aluno.Notas.Add(5);
+            Console.WriteLine(marty.Nome);
+            Console.WriteLine(marty.Sobrenome);
+            Console.WriteLine(marty.DadosPessoais);
+            Avaliacao melhorAvaliacao = GetMelhorNota(marty);
 
-                Console.WriteLine();
-                Console.WriteLine("NOTAS");
-                Console.WriteLine("=====");
+            Console.WriteLine("Melhor Nota: {0}", melhorAvaliacao?.Nota);
 
-                foreach (var nota in aluno.Notas)
-                {
-                    Console.WriteLine(nota);
-                }
+            marty.AdicionarAvaliacao(new Avaliacao(1, "Geografia", 8));
+            marty.AdicionarAvaliacao(new Avaliacao(1, "Matemática", 6));
+            marty.AdicionarAvaliacao(new Avaliacao(1, "História", 7));
 
-                Console.WriteLine();
-                Console.WriteLine($"Entrou na lista de honra? {aluno.EntrouNaListaDeHonra()}");
+            melhorAvaliacao = GetMelhorNota(marty);
 
-                List<Aluno> alunos = new List<Aluno>();
-                var student = alunos.FirstOrDefault();
+            Console.WriteLine("Melhor Nota: {0}", melhorAvaliacao?.Nota);
 
-                var primeiro = student?.Prenome;
-                Console.WriteLine();
-                Console.WriteLine($"Primeiro aluno: {primeiro}");
-            }
-            catch (Exception exc)
+            marty.PropertyChanged += (sender, eventArgs) =>
             {
-                Console.WriteLine(exc.ToString());
-            }
+                Console.WriteLine($"Propriedade {eventArgs.PropertyName} mudou!");
+            };
+            marty.Endereco = "novo endereço";
+            marty.Telefone = "7777777";
+        }
+
+        private static Avaliacao GetMelhorNota(Aluno marty)
+        {
+            return marty.Avaliacoes
+                .OrderByDescending(a => a.Nota)
+                .FirstOrDefault();
         }
     }
 
@@ -58,53 +63,496 @@ namespace CSharp6.R07
         Quarto
     }
 
-    public class Aluno
+    //1. Vamos criar um sistema de notificação na classe Aluno, para
+    //notificar o cliente sempre que as propriedade Endereco e Telefone forem modificadas.
+    //Para isso, é necessário implementar a interface INotifyPropertyChanged
+
+    //class Aluno : INotifyPropertyChanged
+    //{
+    //    public string Nome { get; }
+    //    public string Sobrenome { get; }
+    //    public string Endereco { get; set; }
+    //    public string Telefone { get; set; }
+
+    //    public DateTime DataNascimento { get; } = new DateTime(1990, 1, 1);
+
+    //    public Ano AnoNaEscola { get; set; } = Primeiro;
+
+    //    public int PontosDeExperiencia()
+    //    {
+    //        switch (AnoNaEscola)
+    //        {
+    //            case Primeiro:
+    //                return 0;
+    //            case Segundo:
+    //                return 15;
+    //            case Terceiro:
+    //                return 65;
+    //            case Quarto:
+    //                return 80;
+    //            default:
+    //                return 0;
+    //        }
+    //    }
+
+    //    public Aluno(string nome, string sobrenome)
+    //    {
+    //        this.Nome = nome;
+    //        this.Sobrenome = sobrenome;
+    //    }
+
+    //    public Aluno(string nome, string sobrenome, DateTime dataNascimento) : this(nome, sobrenome)
+    //    {
+    //        this.DataNascimento = dataNascimento;
+    //    }
+
+    //    public string NomeCompleto => $"{Nome} {Sobrenome}";
+
+    //    public int GetIdade()
+    //        => (int)((Now - DataNascimento).TotalDays / 365.242199);
+
+    //    public string DadosPessoais =>
+    //        $"Nome: {NomeCompleto}, " +
+    //        $"Nascimento: {DataNascimento:dd/MM/yyyy}, " +
+    //        $"Endereço: {Endereco}, " +
+    //        $"Telefone: {Telefone}";
+
+    //    private IList<Avaliacao> avaliacoes = new List<Avaliacao>();
+
+    //    public event PropertyChangedEventHandler PropertyChanged;
+
+    //    public IReadOnlyCollection<Avaliacao> Avaliacoes
+    //        => new ReadOnlyCollection<Avaliacao>(avaliacoes);
+
+    //    public void AdicionarAvaliacao(Avaliacao avaliacao)
+    //    {
+    //        avaliacoes.Add(avaliacao);
+    //    }
+    //}
+
+
+
+
+
+    //2. Agora vamos usar os setters das propriedades para notificar
+    //os clientes sempre que o endereço ou o telefone forem modificados
+    //class Aluno : INotifyPropertyChanged
+    //{
+    //    public string Nome { get; }
+    //    public string Sobrenome { get; }
+
+    //    private string endereco;
+    //    public string Endereco
+    //    {
+    //        get { return endereco; }
+    //        set
+    //        {
+    //            if (endereco != value)
+    //            {
+    //                endereco = value;
+
+    //                //if (PropertyChanged != null)
+    //                //{
+    //                //    PropertyChanged(this, new PropertyChangedEventArgs("Endereco"));
+    //                //}
+
+    //                //
+    //                //refatorado para a linha abaixo!
+    //                //
+    //                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Endereco"));
+
+    //            }
+    //        }
+    //    }
+
+    //    private string telefone;
+    //    public string Telefone
+    //    {
+    //        get { return telefone; }
+    //        set
+    //        {
+    //            telefone = value;
+    //            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Telefone"));
+    //        }
+    //    }
+
+    //    public DateTime DataNascimento { get; } = new DateTime(1990, 1, 1);
+
+    //    public Ano AnoNaEscola { get; set; } = Primeiro;
+
+    //    public int PontosDeExperiencia()
+    //    {
+    //        switch (AnoNaEscola)
+    //        {
+    //            case Primeiro:
+    //                return 0;
+    //            case Segundo:
+    //                return 15;
+    //            case Terceiro:
+    //                return 65;
+    //            case Quarto:
+    //                return 80;
+    //            default:
+    //                return 0;
+    //        }
+    //    }
+
+    //    public Aluno(string nome, string sobrenome)
+    //    {
+    //        this.Nome = nome;
+    //        this.Sobrenome = sobrenome;
+    //    }
+
+    //    public Aluno(string nome, string sobrenome, DateTime dataNascimento) : this(nome, sobrenome)
+    //    {
+    //        this.DataNascimento = dataNascimento;
+    //    }
+
+    //    public string NomeCompleto => $"{Nome} {Sobrenome}";
+
+    //    public int GetIdade()
+    //        => (int)((Now - DataNascimento).TotalDays / 365.242199);
+
+    //    public string DadosPessoais =>
+    //        $"Nome: {NomeCompleto}, " +
+    //        $"Nascimento: {DataNascimento:dd/MM/yyyy}, " +
+    //        $"Endereço: {Endereco}, " +
+    //        $"Telefone: {Telefone}";
+
+    //    private IList<Avaliacao> avaliacoes = new List<Avaliacao>();
+
+    //    public event PropertyChangedEventHandler PropertyChanged;
+
+    //    public IReadOnlyCollection<Avaliacao> Avaliacoes
+    //        => new ReadOnlyCollection<Avaliacao>(avaliacoes);
+
+    //    public void AdicionarAvaliacao(Avaliacao avaliacao)
+    //    {
+    //        avaliacoes.Add(avaliacao);
+    //    }
+    //}
+
+
+
+
+
+
+    //3. C# permite acessar diretamente o nome do campo através do operador nameof
+    //class Aluno : INotifyPropertyChanged
+    //{
+    //    public string Nome { get; }
+    //    public string Sobrenome { get; }
+
+    //    private string endereco;
+    //    public string Endereco
+    //    {
+    //        get { return endereco; }
+    //        set
+    //        {
+    //            if (endereco != value)
+    //            {
+    //                endereco = value;
+
+    //                //if (PropertyChanged != null)
+    //                //{
+    //                //    PropertyChanged(this, new PropertyChangedEventArgs("Endereco"));
+    //                //}
+
+    //                //
+    //                //refatorado para a linha abaixo!
+    //                //
+    //                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Endereco)));
+
+    //            }
+    //        }
+    //    }
+
+    //    private string telefone;
+    //    public string Telefone
+    //    {
+    //        get { return telefone; }
+    //        set
+    //        {
+    //            telefone = value;
+    //            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Telefone)));
+    //        }
+    //    }
+
+    //    public DateTime DataNascimento { get; } = new DateTime(1990, 1, 1);
+
+    //    public Ano AnoNaEscola { get; set; } = Primeiro;
+
+    //    public int PontosDeExperiencia()
+    //    {
+    //        switch (AnoNaEscola)
+    //        {
+    //            case Primeiro:
+    //                return 0;
+    //            case Segundo:
+    //                return 15;
+    //            case Terceiro:
+    //                return 65;
+    //            case Quarto:
+    //                return 80;
+    //            default:
+    //                return 0;
+    //        }
+    //    }
+
+    //    public Aluno(string nome, string sobrenome)
+    //    {
+    //        this.Nome = nome;
+    //        this.Sobrenome = sobrenome;
+    //    }
+
+    //    public Aluno(string nome, string sobrenome, DateTime dataNascimento) : this(nome, sobrenome)
+    //    {
+    //        this.DataNascimento = dataNascimento;
+    //    }
+
+    //    public string NomeCompleto => $"{Nome} {Sobrenome}";
+
+    //    public int GetIdade()
+    //        => (int)((Now - DataNascimento).TotalDays / 365.242199);
+
+    //    public string DadosPessoais =>
+    //        $"Nome: {NomeCompleto}, " +
+    //        $"Nascimento: {DataNascimento:dd/MM/yyyy}, " +
+    //        $"Endereço: {Endereco}, " +
+    //        $"Telefone: {Telefone}";
+
+    //    private IList<Avaliacao> avaliacoes = new List<Avaliacao>();
+
+    //    public event PropertyChangedEventHandler PropertyChanged;
+
+    //    public IReadOnlyCollection<Avaliacao> Avaliacoes
+    //        => new ReadOnlyCollection<Avaliacao>(avaliacoes);
+
+    //    public void AdicionarAvaliacao(Avaliacao avaliacao)
+    //    {
+    //        avaliacoes.Add(avaliacao);
+    //    }
+    //}
+
+
+
+
+
+
+    //4. Podemos simplificar os eventos do INotifyPropertyChanged
+    //Criando uma classe de extensão, sem nem precisar chamar o operador nameof,
+    //usando CallerMemberName
+    //class Aluno : INotifyPropertyChanged
+    //{
+    //    public string Nome { get; }
+    //    public string Sobrenome { get; }
+
+    //    private string endereco;
+    //    public string Endereco
+    //    {
+    //        get { return endereco; }
+    //        set
+    //        {
+    //            if (endereco != value)
+    //            {
+    //                endereco = value;
+    //                PropertyChanged.Call(this);
+    //            }
+    //        }
+    //    }
+
+    //    private string telefone;
+    //    public string Telefone
+    //    {
+    //        get { return telefone; }
+    //        set
+    //        {
+    //            if (endereco != value)
+    //            {
+    //                telefone = value;
+    //                PropertyChanged.Call(this);
+    //            }
+    //        }
+    //    }
+
+    //    public DateTime DataNascimento { get; } = new DateTime(1990, 1, 1);
+
+    //    public Ano AnoNaEscola { get; set; } = Primeiro;
+
+    //    public int PontosDeExperiencia()
+    //    {
+    //        switch (AnoNaEscola)
+    //        {
+    //            case Primeiro:
+    //                return 0;
+    //            case Segundo:
+    //                return 15;
+    //            case Terceiro:
+    //                return 65;
+    //            case Quarto:
+    //                return 80;
+    //            default:
+    //                return 0;
+    //        }
+    //    }
+
+    //    public Aluno(string nome, string sobrenome)
+    //    {
+    //        this.Nome = nome;
+    //        this.Sobrenome = sobrenome;
+    //    }
+
+    //    public Aluno(string nome, string sobrenome, DateTime dataNascimento) : this(nome, sobrenome)
+    //    {
+    //        this.DataNascimento = dataNascimento;
+    //    }
+
+    //    public string NomeCompleto => $"{Nome} {Sobrenome}";
+
+    //    public int GetIdade()
+    //        => (int)((Now - DataNascimento).TotalDays / 365.242199);
+
+    //    public string DadosPessoais =>
+    //        $"Nome: {NomeCompleto}, " +
+    //        $"Nascimento: {DataNascimento:dd/MM/yyyy}, " +
+    //        $"Endereço: {Endereco}, " +
+    //        $"Telefone: {Telefone}";
+
+    //    private IList<Avaliacao> avaliacoes = new List<Avaliacao>();
+
+    //    public event PropertyChangedEventHandler PropertyChanged;
+
+    //    public IReadOnlyCollection<Avaliacao> Avaliacoes
+    //        => new ReadOnlyCollection<Avaliacao>(avaliacoes);
+
+    //    public void AdicionarAvaliacao(Avaliacao avaliacao)
+    //    {
+    //        avaliacoes.Add(avaliacao);
+    //    }
+    //}
+
+
+
+
+
+
+    //5. Agora vamos também notificar quando a propriedade DadosPessoais
+    //for modificada:
+    class Aluno : INotifyPropertyChanged
     {
-        public string Prenome { get; }
+        public string Nome { get; }
         public string Sobrenome { get; }
 
-        public ICollection<double> Notas { get; } = new List<double>();
-        public Ano AnoNaEscola { get; set; } = Ano.Primeiro;
-
-        public string NomeCompleto => $"{Prenome} {Sobrenome}";
-
-
-        public Aluno(string prenome, string sobrenome)
+        private string endereco;
+        public string Endereco
         {
-            if (IsNullOrWhiteSpace(sobrenome))
-                throw new ArgumentException(message: "Não pode ser vazio", paramName: nameof(sobrenome));
-
-            Prenome = prenome;
-            Sobrenome = sobrenome;
+            get { return endereco; }
+            set
+            {
+                if (endereco != value)
+                {
+                    endereco = value;
+                    PropertyChanged.Call(this);
+                    PropertyChanged.Call(this, nameof(DadosPessoais));
+                }
+            }
         }
 
-        public void MudarNome(string novoSobrenome)
+        private string telefone;
+        public string Telefone
         {
-            // Produz erro: CS0200: Property or indexer cannot be assigned to -- it is read only
-            //Sobrenome = novoSobrenome;
+            get { return telefone; }
+            set
+            {
+                if (endereco != value)
+                {
+                    telefone = value;
+                    PropertyChanged.Call(this);
+                    PropertyChanged.Call(this, nameof(DadosPessoais));
+                }
+            }
         }
 
-        public override string ToString() => $"{Sobrenome}, {Prenome}";
+        public DateTime DataNascimento { get; } = new DateTime(1990, 1, 1);
 
-        public string GetNotaMedia() =>
-            $"Name: {Sobrenome}, {Prenome}. G.P.A: {Notas.Average()}";
+        public Ano AnoNaEscola { get; set; } = Primeiro;
 
-        public string GetPorcentagemNotaMedia() =>
-            $"Name: {Sobrenome}, {Prenome}. G.P.A: {Notas.Average():F2}";
-
-        public string GetPorcentagemNotaMedias() =>
-            $"Name: {Sobrenome}, {Prenome}. G.P.A: {(Notas.Any() ? Notas.Average() : double.NaN):F2}";
-
-        public string GetTodasNotas() =>
-            $@"All Notas: {Notas.OrderByDescending(g => g)
-            .Select(s => s.ToString("F2")).Aggregate((parcial, elemento) => $"{parcial}, {elemento}")}";
-
-        public bool EntrouNaListaDeHonra()
+        public int PontosDeExperiencia()
         {
-            return Notas.All(g => g > 3.5) && Notas.Any();
-            // Code below generates CS0103: 
-            // The name 'All' does not exist in the current context.
-            //All(Notas, g => g > 3.5) && Notas.Any();
+            switch (AnoNaEscola)
+            {
+                case Primeiro:
+                    return 0;
+                case Segundo:
+                    return 15;
+                case Terceiro:
+                    return 65;
+                case Quarto:
+                    return 80;
+                default:
+                    return 0;
+            }
         }
+
+        public Aluno(string nome, string sobrenome)
+        {
+            this.Nome = nome;
+            this.Sobrenome = sobrenome;
+        }
+
+        public Aluno(string nome, string sobrenome, DateTime dataNascimento) : this(nome, sobrenome)
+        {
+            this.DataNascimento = dataNascimento;
+        }
+
+        public string NomeCompleto => $"{Nome} {Sobrenome}";
+
+        public int GetIdade()
+            => (int)((Now - DataNascimento).TotalDays / 365.242199);
+
+        public string DadosPessoais =>
+            $"Nome: {NomeCompleto}, " +
+            $"Nascimento: {DataNascimento:dd/MM/yyyy}, " +
+            $"Endereço: {Endereco}, " +
+            $"Telefone: {Telefone}";
+
+        private IList<Avaliacao> avaliacoes = new List<Avaliacao>();
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public IReadOnlyCollection<Avaliacao> Avaliacoes
+            => new ReadOnlyCollection<Avaliacao>(avaliacoes);
+
+        public void AdicionarAvaliacao(Avaliacao avaliacao)
+        {
+            avaliacoes.Add(avaliacao);
+        }
+    }
+
+
+    static class PropertyChangedExtensions
+    {
+        public static void Call(this PropertyChangedEventHandler handler,
+            object sender, [CallerMemberName] string propertyName = null)
+        {
+            if (handler != null)
+            {
+                handler.Invoke(sender, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+
+    class Avaliacao
+    {
+        public Avaliacao(int bimestre, string materia, double nota)
+        {
+            Bimestre = bimestre;
+            Materia = materia;
+            Nota = nota;
+        }
+
+        public int Bimestre { get; }
+        public string Materia { get; }
+        public double Nota { get; }
     }
 }
