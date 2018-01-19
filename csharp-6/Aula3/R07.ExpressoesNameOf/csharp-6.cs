@@ -43,7 +43,7 @@ namespace CSharp6.R07
             {
                 Console.WriteLine($"Propriedade {eventArgs.PropertyName} mudou!");
             };
-            marty.Endereco = "novo endereço";
+            marty.Endereco = "Rua Vergueiro, 3185";
             marty.Telefone = "7777777";
         }
 

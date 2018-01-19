@@ -25,25 +25,18 @@ namespace CSharp6.R05
             Console.WriteLine(marty.Nome);
             Console.WriteLine(marty.Sobrenome);
             Console.WriteLine(marty.DadosPessoais);
-            Avaliacao melhorAvaliacao = GetMelhorNota(marty);
 
-            Console.WriteLine("Melhor Nota: {0}", melhorAvaliacao?.Nota);
+            //marty = null;
+
+            Console.WriteLine("Melhor Nota: {0}", marty?.MelhorAvaliacao?.Nota);
 
             marty.AdicionarAvaliacao(new Avaliacao(1, "Geografia", 8));
             marty.AdicionarAvaliacao(new Avaliacao(1, "Matemática", 6));
             marty.AdicionarAvaliacao(new Avaliacao(1, "História", 7));
 
-            melhorAvaliacao = GetMelhorNota(marty);
+            Console.WriteLine("Melhor Nota: {0}", marty.MelhorAvaliacao.Nota);
 
-            Console.WriteLine("Melhor Nota: {0}", melhorAvaliacao?.Nota);
 
-        }
-
-        private static Avaliacao GetMelhorNota(Aluno marty)
-        {
-            return marty.Avaliacoes
-                .OrderByDescending(a => a.Nota)
-                .FirstOrDefault();
         }
     }
 
@@ -108,6 +101,11 @@ namespace CSharp6.R05
         private IList<Avaliacao> avaliacoes = new List<Avaliacao>();
         public IReadOnlyCollection<Avaliacao> Avaliacoes 
             => new ReadOnlyCollection<Avaliacao>(avaliacoes);
+
+        public Avaliacao MelhorAvaliacao =>
+               this.Avaliacoes
+                .OrderBy(a => a.Nota)
+                .LastOrDefault();
 
         public void AdicionarAvaliacao(Avaliacao avaliacao)
         {

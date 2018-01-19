@@ -1,14 +1,16 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+using static System.String;
 using static System.DateTime;
 using static CSharp6.R11.Ano;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.IO;
+using System.Collections;
 
 //1. Vamos criar uma classe para armazenar a lista de matrícula
 //2. C# 6 permite criar uma extensão para inicialização de coleções
