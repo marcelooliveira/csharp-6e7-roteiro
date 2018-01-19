@@ -73,7 +73,6 @@
     <None Include="Aula2\exercicios\Ex1.md" />
     <None Include="Aula2\exercicios\Ex2.md" />
     <None Include="Aula2\exercicios\Ex3.md" />
-    <None Include="Aula2\exercicios\Ex4.md" />
     <None Include="Aula2\R04.UsingStatic\Roteiro.md" />
     <None Include="Aula2\R05.OperadoresNullCondicionais\Roteiro.md" />
     <None Include="Aula3\R06.InterpolacaoDeCadeiaDeCaracteres\Roteiro.md" />
