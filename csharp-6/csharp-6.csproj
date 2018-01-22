@@ -79,6 +79,9 @@
     <None Include="Aula3\exercicios\Ex2.md" />
     <None Include="Aula3\exercicios\Ex3.md" />
     <None Include="Aula3\R06.InterpolacaoDeCadeiaDeCaracteres\Roteiro.md" />
+    <None Include="Aula4\exercicios\Ex1.md" />
+    <None Include="Aula4\exercicios\Ex2.md" />
+    <None Include="Aula4\exercicios\Ex3.md" />
     <None Include="Aula4\R08.FiltrosDeExcecao\Roteiro.md" />
     <None Include="Aula3\R07.ExpressoesNameOf\Roteiro.md" />
     <None Include="Aula4\R09.AwaitEmBlocosCatchEFinally\Roteiro.md" />
