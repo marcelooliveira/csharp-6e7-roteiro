@@ -38,6 +38,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -88,6 +91,7 @@
     <None Include="Aula5\R10.InicializadoresDeIndice\Roteiro.md" />
     <None Include="Aula5\R11.MetodosDeExtensaoParaInicializadoresDeColecao\Roteiro.md" />
     <None Include="Aula5\R12.ResolucaoDeSobrecargaAprimorada\Roteiro.md" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Aula1\R01.PropriedadesAutomaticasSomenteLeitura\diff.htm" />

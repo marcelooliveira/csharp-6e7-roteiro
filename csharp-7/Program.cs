@@ -7,7 +7,8 @@ namespace CSharp7
     class Program
     {
         static string[] menus = new string[] {
-            "1. Variáveis out"
+            "1. Variáveis out",
+            "2. Tuplas"
         };
 
         static void Main(string[] args)
@@ -30,21 +31,9 @@ namespace CSharp7
 
                 line = ReadLine();
 
-
                 Int32.TryParse(line, out int programa);
 
-                WriteLine();
-                WriteLine(menus[programa - 1]);
-                WriteLine();
-
-                switch (programa)
-                {
-                    case 1:
-                        Executar(programa);
-                        break;
-                    default:
-                        break;
-                }
+                Executar(programa);
 
                 WriteLine();
                 WriteLine("PRESSIONE UMA TECLA PARA CONTINUAR...");
@@ -55,10 +44,22 @@ namespace CSharp7
 
         private static void Executar(int programa)
         {
-            ForegroundColor = ConsoleColor.Yellow;
-            ExecutarPasso(programa, "antes");
-            ForegroundColor = ConsoleColor.Green;
-            ExecutarPasso(programa, "depois");
+            if (programa > 0)
+            {
+                ImprimirTitulo(programa);
+                ForegroundColor = ConsoleColor.Yellow;
+                ExecutarPasso(programa, "antes");
+                ForegroundColor = ConsoleColor.Green;
+                ExecutarPasso(programa, "depois");
+                ForegroundColor = ConsoleColor.White;
+            }
+        }
+
+        private static void ImprimirTitulo(int programa)
+        {
+            WriteLine();
+            WriteLine(menus[programa - 1]);
+            WriteLine();
         }
 
         private static void ExecutarPasso(int programa, string step)
