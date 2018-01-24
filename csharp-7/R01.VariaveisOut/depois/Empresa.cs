@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
+using static System.Console;
 
 namespace csharp7.R01.depois
 {
-    public class Programa
+    public class MenuItem : csharp7.MenuItem
     {
-        public void Main()
+        public override void Main()
         {
             using (var streamReader = File.OpenText("clientes.csv"))
             {
@@ -20,13 +19,13 @@ namespace csharp7.R01.depois
                     {
                         Cliente cliente = new Cliente(id, campos[1], campos[2], campos[3]);
 
-                        Console.WriteLine("Dados do Cliente");
-                        Console.WriteLine("================");
-                        Console.WriteLine("ID: " + cliente.Id);
-                        Console.WriteLine("Nome: " + cliente.Nome);
-                        Console.WriteLine("Telefone: " + cliente.Telefone);
-                        Console.WriteLine("Website: " + cliente.Website);
-                        Console.WriteLine("================");
+                        WriteLine("Dados do Cliente");
+                        WriteLine("================");
+                        WriteLine("ID: " + cliente.Id);
+                        WriteLine("Nome: " + cliente.Nome);
+                        WriteLine("Telefone: " + cliente.Telefone);
+                        WriteLine("Website: " + cliente.Website);
+                        WriteLine("================");
                     }
                 }
             }
