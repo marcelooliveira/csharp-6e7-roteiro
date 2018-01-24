@@ -55,6 +55,8 @@
     <Compile Include="R02.Tuplas\depois\Cidades.cs" />
     <Compile Include="R03.Descartes\antes\Cidades.cs" />
     <Compile Include="R03.Descartes\depois\Cidades.cs" />
+    <Compile Include="R04.CorrespondenciaDePadroes\antes\Calculadora.cs" />
+    <Compile Include="R04.CorrespondenciaDePadroes\depois\Calculadora.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -68,7 +70,7 @@
     <None Include="R01.VariaveisOut\Roteiro.md" />
     <None Include="R02.Tuplas\Roteiro.md" />
     <None Include="R03.Descartes\Roteiro.md" />
-    <None Include="R04.CorrespondenciaPadrao\Roteiro.md" />
+    <None Include="R04.CorrespondenciaDePadroes\Roteiro.md" />
     <None Include="R05.LocaisERetornosDeRef\Roteiro.md" />
     <None Include="R06.FuncoesLocais\Roteiro.md" />
     <None Include="R07.MaisMembrosComCorpoDeExpressao\Roteiro.md" />
