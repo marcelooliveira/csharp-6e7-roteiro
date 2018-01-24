@@ -32,7 +32,7 @@ namespace csharp7.R02.depois
                 while ((linha = streamReader.ReadLine()) != null)
                 {
                     var (estado, nome, latitude, longitude, capital) = LerLinha(linha);
-                    cidades.Add(new Cidade(estado, nome, latitude, longitude, capital));
+                    cidades.Add(new Cidade(estado, nome, capital));
                 }
             }
 
@@ -57,16 +57,12 @@ namespace csharp7.R02.depois
         {
             public string Estado { get; }
             public string Nome { get; }
-            public double Latitude { get; }
-            public double Longitude { get; }
             public bool Capital { get; }
 
-            public Cidade(string estado, string nome, double latitude, double longitude, bool capital)
+            public Cidade(string estado, string nome, bool capital)
             {
                 Estado = estado;
                 Nome = nome;
-                Latitude = latitude;
-                Longitude = longitude;
                 Capital = capital;
             }
         }

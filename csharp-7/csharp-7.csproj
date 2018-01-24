@@ -53,6 +53,8 @@
     <Compile Include="R01.VariaveisOut\antes\Empresa.cs" />
     <Compile Include="R02.Tuplas\antes\Cidades.cs" />
     <Compile Include="R02.Tuplas\depois\Cidades.cs" />
+    <Compile Include="R03.Descartes\antes\Cidades.cs" />
+    <Compile Include="R03.Descartes\depois\Cidades.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

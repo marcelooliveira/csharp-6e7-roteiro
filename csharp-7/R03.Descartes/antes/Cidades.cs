@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using static System.Console;
 
-namespace csharp7.R02.antes
+namespace csharp7.R03.antes
 {
     class MenuItem : csharp7.MenuItem
     {
@@ -31,14 +31,16 @@ namespace csharp7.R02.antes
                 string linha;
                 while ((linha = streamReader.ReadLine()) != null)
                 {
-                    Tuple<string, string, double, double, bool> tupla = LerLinha(linha);
-                    cidades.Add(new Cidade(tupla.Item1, tupla.Item2, tupla.Item5));
+                    var (estado, nome, latitude, longitude, capital) = LerLinha(linha);
+                    cidades.Add(new Cidade(estado, nome, capital));
                 }
             }
+
             return cidades;
         }
 
-        private static Tuple<string, string, double, double, bool> LerLinha(string linha)
+        private static (string estado, string nome, double latitude, double longitude, bool capital)
+            LerLinha(string linha)
         {
             string[] campos = linha.Split(',');
 
@@ -48,8 +50,7 @@ namespace csharp7.R02.antes
             var longitude = double.Parse(campos[3]);
             var capital = campos[4] == "true";
 
-            return new Tuple<string, string, double, double, bool>
-                (estado, nome, latitude, longitude, capital);
+            return (estado, nome, latitude, longitude, capital);
         }
 
         class Cidade
