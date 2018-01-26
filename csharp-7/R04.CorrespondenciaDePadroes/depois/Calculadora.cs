@@ -35,20 +35,18 @@ namespace csharp7.R04.depois
 
         public void Somar(object parametro)
         {
-            CultureInfo cultura = CultureInfo.CurrentCulture;
-
-
             switch (parametro)
             {
-                case string str:
-                    if (double.TryParse(str, NumberStyles.Currency, cultura.NumberFormat, out double val)) Somar(val);
-                    break;
                 case double valor:
                     Console.WriteLine($"Total anterior: {Soma}");
                     Console.WriteLine($"Somando: {valor}");
                     Soma += valor;
                     Console.WriteLine($"Total atual: {Soma}");
                     Console.WriteLine();
+                    break;
+                case string str:
+                    if (double.TryParse(str, NumberStyles.Currency, ((CultureInfo)CultureInfo.CurrentCulture).NumberFormat, out double val))
+                        Somar(val);
                     break;
                 case decimal valor:
                     Somar((double)valor);
