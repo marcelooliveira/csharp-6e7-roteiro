@@ -98,7 +98,7 @@ namespace csharp7.R07.antes
     {
         public NotaFiscal(Pedido pedido)
         {
-            this.itens.AddRange(pedido.Itens);
+            itens.AddRange(pedido.Itens);
         }
 
         public decimal ValorDosImpostos()
