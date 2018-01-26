@@ -10,7 +10,10 @@ namespace CSharp7
             "1. Variáveis out",
             "2. Tuplas",
             "3. Descartes",
-            "4. Correspondência de Padrões"
+            "4. Correspondência de Padrões",
+            "5. Locais e retornos de Ref",
+            "6. Funções Locais",
+            "7. Mais Membros com Corpo de Expressão"
         };
 
         static void Main(string[] args)
