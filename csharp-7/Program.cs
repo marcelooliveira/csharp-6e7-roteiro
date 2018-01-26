@@ -9,7 +9,8 @@ namespace CSharp7
         static string[] menus = new string[] {
             "1. Variáveis out",
             "2. Tuplas",
-            "3. Descartes"
+            "3. Descartes",
+            "4. Correspondência de Padrões"
         };
 
         static void Main(string[] args)
