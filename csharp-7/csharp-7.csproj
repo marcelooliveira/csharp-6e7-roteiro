@@ -58,7 +58,7 @@
     <Compile Include="R04.CorrespondenciaDePadroes\antes\Calculadora.cs" />
     <Compile Include="R04.CorrespondenciaDePadroes\depois\Calculadora.cs" />
     <Compile Include="R07.MaisMembrosComCorpoDeExpressao\antes\AluraMovies.cs" />
-    <Compile Include="R07.MaisMembrosComCorpoDeExpressao\depois\NotasFiscais.cs" />
+    <Compile Include="R07.MaisMembrosComCorpoDeExpressao\depois\AluraMovies.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

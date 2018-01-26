@@ -52,9 +52,9 @@ namespace CSharp7
             if (programa > 0)
             {
                 ImprimirTitulo(programa);
-                ForegroundColor = ConsoleColor.Yellow;
-                ExecutarPasso(programa, "antes");
                 ForegroundColor = ConsoleColor.Green;
+                ExecutarPasso(programa, "antes");
+                ForegroundColor = ConsoleColor.Yellow;
                 ExecutarPasso(programa, "depois");
                 ForegroundColor = ConsoleColor.White;
             }
