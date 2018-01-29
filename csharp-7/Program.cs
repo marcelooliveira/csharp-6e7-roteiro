@@ -14,7 +14,9 @@ namespace CSharp7
             "5. Locais e retornos de Ref",
             "6. Funções Locais",
             "7. Mais Membros com Corpo de Expressão",
-            "8. Expressões Throw"
+            "8. Expressões Throw",
+            "9. Tipos de Retorno Assíncrono Generalizado",
+            "10. Aprimoramentos da Sintaxe de Literais Numéricos"
         };
 
         static void Main(string[] args)

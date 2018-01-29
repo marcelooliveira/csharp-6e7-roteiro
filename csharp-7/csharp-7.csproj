@@ -57,10 +57,16 @@
     <Compile Include="R03.Descartes\depois\Cidades.cs" />
     <Compile Include="R04.CorrespondenciaDePadroes\antes\Calculadora.cs" />
     <Compile Include="R04.CorrespondenciaDePadroes\depois\Calculadora.cs" />
+    <Compile Include="R05.LocaisERetornosDeRef\antes\MenuItem.cs" />
+    <Compile Include="R05.LocaisERetornosDeRef\depois\MenuItem.cs" />
     <Compile Include="R07.MaisMembrosComCorpoDeExpressao\antes\AluraMovies.cs" />
     <Compile Include="R07.MaisMembrosComCorpoDeExpressao\depois\AluraMovies.cs" />
     <Compile Include="R08.ExpressoesThrow\antes\AluraMovies.cs" />
     <Compile Include="R08.ExpressoesThrow\depois\AluraMovies.cs" />
+    <Compile Include="R09.TiposDeRetornoAssincronoGeneralizado\antes\MenuItem.cs" />
+    <Compile Include="R09.TiposDeRetornoAssincronoGeneralizado\depois\MenuItem.cs" />
+    <Compile Include="R10.AprimoramentosDaSintaxeDeLiteraisNuméricos\antes\MenuItem.cs" />
+    <Compile Include="R10.AprimoramentosDaSintaxeDeLiteraisNuméricos\depois\MenuItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
