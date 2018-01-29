@@ -59,6 +59,8 @@
     <Compile Include="R04.CorrespondenciaDePadroes\depois\Calculadora.cs" />
     <Compile Include="R05.LocaisERetornosDeRef\antes\MenuItem.cs" />
     <Compile Include="R05.LocaisERetornosDeRef\depois\MenuItem.cs" />
+    <Compile Include="R06.FuncoesLocais\antes\MenuItem.cs" />
+    <Compile Include="R06.FuncoesLocais\depois\MenuItem.cs" />
     <Compile Include="R07.MaisMembrosComCorpoDeExpressao\antes\AluraMovies.cs" />
     <Compile Include="R07.MaisMembrosComCorpoDeExpressao\depois\AluraMovies.cs" />
     <Compile Include="R08.ExpressoesThrow\antes\AluraMovies.cs" />
