@@ -13,7 +13,8 @@ namespace CSharp7
             "4. Correspondência de Padrões",
             "5. Locais e retornos de Ref",
             "6. Funções Locais",
-            "7. Mais Membros com Corpo de Expressão"
+            "7. Mais Membros com Corpo de Expressão",
+            "8. Expressões Throw"
         };
 
         static void Main(string[] args)
