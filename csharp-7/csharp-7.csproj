@@ -59,11 +59,8 @@
     <Compile Include="R04.CorrespondenciaDePadroes\depois\Calculadora.cs" />
     <Compile Include="R07.MaisMembrosComCorpoDeExpressao\antes\AluraMovies.cs" />
     <Compile Include="R07.MaisMembrosComCorpoDeExpressao\depois\AluraMovies.cs" />
-    <Compile Include="R08.ExpressoesThrow\antes\FormatadorCNPJ.cs" />
-    <Compile Include="R08.ExpressoesThrow\antes\FormatadorCPF.cs" />
-    <Compile Include="R08.ExpressoesThrow\antes\IFormatador.cs" />
-    <Compile Include="R08.ExpressoesThrow\antes\MenuItem.cs" />
-    <Compile Include="R08.ExpressoesThrow\depois\MenuItem.cs" />
+    <Compile Include="R08.ExpressoesThrow\antes\AluraMovies.cs" />
+    <Compile Include="R08.ExpressoesThrow\depois\AluraMovies.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
