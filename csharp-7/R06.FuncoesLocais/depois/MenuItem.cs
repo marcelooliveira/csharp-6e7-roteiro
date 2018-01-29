@@ -10,6 +10,34 @@ namespace csharp7.R06.depois
     {
         public override void Main()
         {
+            var caracteres = Alfabeto.SubconjuntoDoAlfabeto('c', 'o');
+
+            foreach (var caracter in caracteres)
+            {
+                Console.WriteLine(caracter);
+            }
+        }
+    }
+
+    class Alfabeto
+    {
+        public static IEnumerable<char> SubconjuntoDoAlfabeto(char inicio, char fim)
+        {
+            if (inicio < 'a' || inicio > 'z')
+                throw new ArgumentOutOfRangeException(paramName: nameof(inicio), message: "início deve ser uma letra");
+            if (fim < 'a' || fim > 'z')
+                throw new ArgumentOutOfRangeException(paramName: nameof(fim), message: "final deve ser uma letra");
+
+            if (fim <= inicio)
+                throw new ArgumentException($"{nameof(fim)} deve ser maior que {nameof(inicio)}");
+
+            return implementacaoSubconjuntoDoAlfabeto();
+
+            IEnumerable<char> implementacaoSubconjuntoDoAlfabeto()
+            {
+                for (var c = inicio; c < fim; c++)
+                    yield return c;
+            }
         }
     }
 }
