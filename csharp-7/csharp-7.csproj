@@ -71,6 +71,15 @@
     <Compile Include="R10.AprimoramentosDaSintaxeDeLiteraisNuméricos\depois\MenuItem.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="R01.VariaveisOut\depois\VariaveisOut.htm" />
+    <Content Include="R02.Tuplas\depois\Tuplas.htm" />
+    <Content Include="R03.Descartes\depois\Descartes.htm" />
+    <Content Include="R04.CorrespondenciaDePadroes\depois\CorrespondenciaDePadroes.htm" />
+    <Content Include="R05.LocaisERetornosDeRef\depois\LocaisERetornosDeRef.htm" />
+    <Content Include="R06.FuncoesLocais\depois\FuncoesLocais.htm" />
+    <Content Include="R07.MaisMembrosComCorpoDeExpressao\depois\MaisMembrosComCorpoDeExpressao.htm" />
+    <Content Include="R08.ExpressoesThrow\depois\ExpressoesThrow.htm" />
+    <Content Include="R10.AprimoramentosDaSintaxeDeLiteraisNuméricos\depois\AprimoramentosDaSintaxeDeLiteraisNuméricos.htm" />
     <None Include="App.config" />
     <Content Include="clientes.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
