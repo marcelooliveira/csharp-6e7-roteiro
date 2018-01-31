@@ -21,7 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>7.2</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -67,6 +67,8 @@
     <Compile Include="R08.ExpressoesThrow\depois\AluraMovies.cs" />
     <Compile Include="R09.TiposDeRetornoAssincronoGeneralizado\antes\MenuItem.cs" />
     <Compile Include="R09.TiposDeRetornoAssincronoGeneralizado\depois\MenuItem.cs" />
+    <Compile Include="R14.ArgumentosNomeados\antes\MenuItem.cs" />
+    <Compile Include="R14.ArgumentosNomeados\depois\MenuItem.cs" />
     <Compile Include="R13.ParametrosIn\antes\MenuItem.cs" />
     <Compile Include="R13.ParametrosIn\depois\MenuItem.cs" />
     <Compile Include="R12.ExpressaoLiteralPadrao\antes\MenuItem.cs" />
@@ -106,6 +108,7 @@
     <None Include="R07.MaisMembrosComCorpoDeExpressao\Roteiro.md" />
     <None Include="R08.ExpressoesThrow\Roteiro.md" />
     <None Include="R09.TiposDeRetornoAssincronoGeneralizado\Roteiro.md" />
+    <None Include="R14.ArgumentosNomeados\Roteiro.md" />
     <None Include="R13.ParametrosIn\Roteiro.md" />
     <None Include="R12.ExpressaoLiteralPadrao\Roteiro.md" />
     <None Include="R11.AsyncMain\Roteiro.md" />
