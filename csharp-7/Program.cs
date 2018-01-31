@@ -17,7 +17,9 @@ namespace CSharp7
             "8. Expressões Throw",
             "9. Tipos de Retorno Assíncrono Generalizado",
             "10. Aprimoramentos da Sintaxe de Literais Numéricos",
-            "11. Async Main"
+            "11. Async Main",
+            "12. Expressão Literal Padrão",
+            "13. Parâmetros in"
         };
 
         static void Main(string[] args)
