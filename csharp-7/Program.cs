@@ -16,7 +16,8 @@ namespace CSharp7
             "7. Mais Membros com Corpo de Expressão",
             "8. Expressões Throw",
             "9. Tipos de Retorno Assíncrono Generalizado",
-            "10. Aprimoramentos da Sintaxe de Literais Numéricos"
+            "10. Aprimoramentos da Sintaxe de Literais Numéricos",
+            "11. Async Main"
         };
 
         static void Main(string[] args)

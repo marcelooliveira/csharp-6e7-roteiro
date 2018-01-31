@@ -67,6 +67,8 @@
     <Compile Include="R08.ExpressoesThrow\depois\AluraMovies.cs" />
     <Compile Include="R09.TiposDeRetornoAssincronoGeneralizado\antes\MenuItem.cs" />
     <Compile Include="R09.TiposDeRetornoAssincronoGeneralizado\depois\MenuItem.cs" />
+    <Compile Include="R11.AsyncMain\antes\MenuItem.cs" />
+    <Compile Include="R11.AsyncMain\depois\MenuItem.cs" />
     <Compile Include="R10.AprimoramentosDaSintaxeDeLiteraisNuméricos\antes\MenuItem.cs" />
     <Compile Include="R10.AprimoramentosDaSintaxeDeLiteraisNuméricos\depois\MenuItem.cs" />
   </ItemGroup>
@@ -100,6 +102,7 @@
     <None Include="R07.MaisMembrosComCorpoDeExpressao\Roteiro.md" />
     <None Include="R08.ExpressoesThrow\Roteiro.md" />
     <None Include="R09.TiposDeRetornoAssincronoGeneralizado\Roteiro.md" />
+    <None Include="R11.AsyncMain\Roteiro.md" />
     <None Include="R10.AprimoramentosDaSintaxeDeLiteraisNuméricos\Roteiro.md" />
   </ItemGroup>
   <ItemGroup />
