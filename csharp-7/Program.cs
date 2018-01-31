@@ -19,7 +19,9 @@ namespace CSharp7
             "10. Aprimoramentos da Sintaxe de Literais Numéricos",
             "11. Async Main",
             "12. Expressão Literal Padrão",
-            "13. Parâmetros in"
+            "13. Parâmetros in",
+            "14. Argumentos Nomeados",
+            "15. Argumentos Opcionais"
         };
 
         static void Main(string[] args)
