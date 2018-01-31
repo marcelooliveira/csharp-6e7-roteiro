@@ -50,6 +50,9 @@ namespace csharp7.R02.depois
             var longitude = double.Parse(campos[3]);
             var capital = campos[4] == "true";
 
+            //return (estado: estado, nome: nome, latitude: latitude, longitude: longitude, capital: capital);
+            //a linha acima pode ser reescrita como: 
+
             return (estado, nome, latitude, longitude, capital);
         }
 
