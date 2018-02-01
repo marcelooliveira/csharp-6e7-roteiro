@@ -14,8 +14,42 @@ namespace csharp7.R01.depois
                 while ((linha = streamReader.ReadLine()) != null)
                 {
                     string[] campos = linha.Split(',');
-                    int.TryParse(campos[0], out int id);
-                    if (id > 0)
+
+                    //1) Primeiro exemplo de out int
+
+                    //int.TryParse(campos[0], out int id);
+                    //if (id > 0)
+                    //{
+                    //    Cliente cliente = new Cliente(id, campos[1], campos[2], campos[3]);
+
+                    //    WriteLine("Dados do Cliente");
+                    //    WriteLine("================");
+                    //    WriteLine("ID: " + cliente.Id);
+                    //    WriteLine("Nome: " + cliente.Nome);
+                    //    WriteLine("Telefone: " + cliente.Telefone);
+                    //    WriteLine("Website: " + cliente.Website);
+                    //    WriteLine("================");
+                    //}
+
+                    //2) Também podemos usar out var id:
+
+                    //int.TryParse(campos[0], out var id);
+                    //if (id > 0)
+                    //{
+                    //    Cliente cliente = new Cliente(id, campos[1], campos[2], campos[3]);
+
+                    //    WriteLine("Dados do Cliente");
+                    //    WriteLine("================");
+                    //    WriteLine("ID: " + cliente.Id);
+                    //    WriteLine("Nome: " + cliente.Nome);
+                    //    WriteLine("Telefone: " + cliente.Telefone);
+                    //    WriteLine("Website: " + cliente.Website);
+                    //    WriteLine("================");
+                    //}
+
+                    //3) neste outro exemplo, int "vaza" para fora da instrução int
+
+                    if (int.TryParse(campos[0], out int id))
                     {
                         Cliente cliente = new Cliente(id, campos[1], campos[2], campos[3]);
 
@@ -26,6 +60,11 @@ namespace csharp7.R01.depois
                         WriteLine("Telefone: " + cliente.Telefone);
                         WriteLine("Website: " + cliente.Website);
                         WriteLine("================");
+                    }
+
+                    if (id > 0)
+                    {
+                        Console.WriteLine($"Valor de ID vaza para fora do if: {id}");
                     }
                 }
             }
