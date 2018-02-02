@@ -52,7 +52,7 @@ namespace csharp7.R12.antes
             if (string.IsNullOrWhiteSpace(nome))
                 throw new ArgumentException(message: "Nome obrigatório", paramName: nameof(nome));
 
-            return ImplementacaoTrabalhoDemorado("Rua Vergueiro", 10, "Caelum");
+            return ImplementacaoTrabalhoDemorado(endereco, indice, nome);
         }
 
         private static async Task<string> ImplementacaoTrabalhoDemorado(string endereco, int indice, string nome)

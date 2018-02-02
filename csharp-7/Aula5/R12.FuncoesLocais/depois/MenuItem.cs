@@ -40,4 +40,36 @@ namespace csharp7.R12.depois
             }
         }
     }
+
+    class Tarefas
+    {
+        public Task<string> ExecutarTrabalhoDemorado(string endereco, int indice, string nome)
+        {
+            if (string.IsNullOrWhiteSpace(endereco))
+                throw new ArgumentException(message: "Endereço obrigatório", paramName: nameof(endereco));
+            if (indice < 0)
+                throw new ArgumentOutOfRangeException(paramName: nameof(indice), message: "Índice não pode ser negativo");
+            if (string.IsNullOrWhiteSpace(nome))
+                throw new ArgumentException(message: "Nome obrigatório", paramName: nameof(nome));
+
+            return ImplementacaoTrabalhoDemorado();
+
+            async Task<string> ImplementacaoTrabalhoDemorado()
+            {
+                var primeiroResultado = await PrimeiroPasso(endereco);
+                var segundoResultado = await SegundoPasso(indice, nome);
+                return $"Os resultados são {primeiroResultado} e {segundoResultado}.";
+            }
+        }
+
+        private static Task<int> SegundoPasso(int index, string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        private static Task<int> PrimeiroPasso(string address)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
