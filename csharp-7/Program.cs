@@ -7,21 +7,24 @@ namespace CSharp7
     class Program
     {
         static string[] menus = new string[] {
+            //AULA 1 - MELHORIAS EM PARÂMETROS
             "1. Variáveis out",
-            "2. Tuplas",
-            "3. Descartes",
-            "4. Correspondência de Padrões",
-            "5. Locais e retornos de Ref",
-            "6. Funções Locais",
-            "7. Mais Membros com Corpo de Expressão",
+            "2. Locais e retornos de Ref",
+            "3. Parâmetros in",
+            "4. Argumentos Nomeados",
+            //AULA 2 - TUPLAS
+            "5. Tuplas",
+            "6. Descartes",
+            //AULA 3 - MELHORIAS EM CONDICIONAIS
+            "7. Correspondência de Padrões",
             "8. Expressões Throw",
-            "9. Tipos de Retorno Assíncrono Generalizado",
-            "10. Aprimoramentos da Sintaxe de Literais Numéricos",
-            "11. Async Main",
-            "12. Expressão Literal Padrão",
-            "13. Parâmetros in",
-            "14. Argumentos Nomeados",
-            "15. Argumentos Opcionais"
+            //AULA 4 - LITERAIS E VALORES PADRÃO
+            "9. Aprimoramentos da Sintaxe de Literais Numéricos",
+            "10. Async Main",
+            "11. Expressão Literal Padrão",
+            //AULA 5 - ESTILO DE CÓDIGO
+            "12. Funções Locais",
+            "13. Mais Membros com Corpo de Expressão"
         };
 
         static void Main(string[] args)
@@ -29,7 +32,6 @@ namespace CSharp7
 
             WriteLine("ÍNDICE DE PROGRAMAS");
             WriteLine("===================");
-
 
             string line;
             do
