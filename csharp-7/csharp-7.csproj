@@ -78,6 +78,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <Content Include="Aula1\R01.VariaveisOut\depois\R01.VariaveisOut.htm" />
+    <Content Include="Aula1\R02.LocaisERetornosDeRef\depois\R02.LocaisERetornosDeRef.htm" />
+    <Content Include="Aula1\R03.ParametrosIn\depois\R03.ParametrosIn.htm" />
+    <Content Include="Aula1\R04.ArgumentosNomeados\depois\R04.ArgumentosNomeados.htm" />
+    <Content Include="Aula2\R05.Tuplas\depois\R05.Tuplas.htm" />
+    <Content Include="Aula2\R06.Descartes\depois\R06.Descartes.htm" />
+    <Content Include="Aula3\R07.CorrespondenciaDePadroes\depois\R07.CorrespondenciaDePadroes.htm" />
+    <Content Include="Aula3\R08.ExpressoesThrow\depois\R08.ExpressoesThrow.htm" />
+    <Content Include="Aula4\R09.AprimoramentosDaSintaxeDeLiteraisNuméricos\depois\R09.AprimoramentosDaSintaxeDeLiteraisNuméricos.htm" />
+    <Content Include="Aula4\R10.AsyncMain\depois\R10.AsyncMain.htm" />
+    <Content Include="Aula4\R11.ExpressaoLiteralPadrao\depois\R11.ExpressaoLiteralPadrao.htm" />
+    <Content Include="Aula5\R12.FuncoesLocais\depois\R12.FuncoesLocais.htm" />
+    <Content Include="Aula5\R13.MaisMembrosComCorpoDeExpressao\depois\R13.MaisMembrosComCorpoDeExpressao.htm" />
     <Content Include="clientes.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
