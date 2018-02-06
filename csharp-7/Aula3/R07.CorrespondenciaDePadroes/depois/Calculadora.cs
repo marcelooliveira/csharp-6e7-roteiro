@@ -4,6 +4,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using static System.Console;
 
 namespace csharp7.R07.depois
@@ -25,12 +26,15 @@ namespace csharp7.R07.depois
             calculadora.Somar(new double[] { 4.1, 5.2, 6.3 });
             calculadora.Somar("20");
             calculadora.Somar("R$ 20");
+            calculadora.Somar("[20]");
             calculadora.Somar(new object[] { "20", 100, 150m, 24.0, "R$ 12,34" });
         }
     }
 
     class Calculadora
     {
+        private const string NUMERO_ENTRE_COLCHETES = @"\[(\d+)\]";
+
         public double Soma { get; private set; } = 0d;
 
         public void Somar(object parametro)
@@ -43,6 +47,9 @@ namespace csharp7.R07.depois
                     Soma += valor;
                     Console.WriteLine($"Total atual: {Soma}");
                     Console.WriteLine();
+                    break;
+                case string str when Regex.Match(str, NUMERO_ENTRE_COLCHETES).Success:
+                    Somar(Regex.Match(str, NUMERO_ENTRE_COLCHETES).Groups[1].Value);
                     break;
                 case string str:
                     if (double.TryParse(str, NumberStyles.Currency, ((CultureInfo)CultureInfo.CurrentCulture).NumberFormat, out double val))

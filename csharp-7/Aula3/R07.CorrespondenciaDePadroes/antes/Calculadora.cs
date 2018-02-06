@@ -4,6 +4,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using static System.Console;
 
 namespace csharp7.R07.antes
@@ -25,12 +26,15 @@ namespace csharp7.R07.antes
             calculadora.Somar(new double[] { 4.1, 5.2, 6.3 });
             calculadora.Somar("20");
             calculadora.Somar("R$ 20");
+            calculadora.Somar("[20]");
             calculadora.Somar(new object[] { "20", 100, 150m, 24.0, "R$ 12,34" });
         }
     }
 
     class Calculadora
     {
+        private const string NUMERO_ENTRE_COLCHETES = @"\[(\d+)\]";
+
         public double Soma { get; private set; } = 0d;
 
         public void Somar(object parametro)
@@ -47,56 +51,69 @@ namespace csharp7.R07.antes
                 Soma += valorDouble;
                 Console.WriteLine($"Total atual: {Soma}");
                 Console.WriteLine();
+                return;
             }
-            else if (int.TryParse(parametro.ToString(), out valorInt))
+
+            if (parametro is string)
+            {
+                var str = parametro as string;
+                if (Regex.Match(str, NUMERO_ENTRE_COLCHETES).Success)
+                {
+                    Somar(Regex.Match(str, NUMERO_ENTRE_COLCHETES).Groups[1].Value);
+                    return;
+                }
+            }
+
+            if (int.TryParse(parametro.ToString(), out valorInt))
             {
                 Somar(valorInt);
+                return;
             }
-            else if (decimal.TryParse(parametro.ToString(), out valorDecimal))
+
+            if (decimal.TryParse(parametro.ToString(), out valorDecimal))
             {
                 Somar(valorDecimal);
+                return;
             }
-            else
+
+            var colecao = parametro as IEnumerable<object>;
+            if (colecao != null)
             {
-                var colecao = parametro as IEnumerable<object>;
-                if (colecao != null)
+                foreach (var item in colecao)
                 {
-                    foreach (var item in colecao)
-                    {
-                        Somar(item);
-                    }
-                    return;
+                    Somar(item);
                 }
+                return;
+            }
 
-                var colecaoInt = parametro as IEnumerable<int>;
-                if (colecaoInt != null)
+            var colecaoInt = parametro as IEnumerable<int>;
+            if (colecaoInt != null)
+            {
+                foreach (var item in colecaoInt)
                 {
-                    foreach (var item in colecaoInt)
-                    {
-                        Somar(item);
-                    }
-                    return;
+                    Somar(item);
                 }
+                return;
+            }
 
-                var colecaoDecimal = parametro as IEnumerable<decimal>;
-                if (colecaoDecimal != null)
+            var colecaoDecimal = parametro as IEnumerable<decimal>;
+            if (colecaoDecimal != null)
+            {
+                foreach (var item in colecaoDecimal)
                 {
-                    foreach (var item in colecaoDecimal)
-                    {
-                        Somar(item);
-                    }
-                    return;
+                    Somar(item);
                 }
+                return;
+            }
 
-                var colecaoDouble = parametro as IEnumerable<double>;
-                if (colecaoDouble != null)
+            var colecaoDouble = parametro as IEnumerable<double>;
+            if (colecaoDouble != null)
+            {
+                foreach (var item in colecaoDouble)
                 {
-                    foreach (var item in colecaoDouble)
-                    {
-                        Somar(item);
-                    }
-                    return;
+                    Somar(item);
                 }
+                return;
             }
         }
     }
