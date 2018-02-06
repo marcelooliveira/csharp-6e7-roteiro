@@ -31,6 +31,9 @@ namespace csharp7.R05.depois
                 string linha;
                 while ((linha = streamReader.ReadLine()) != null)
                 {
+                    //var tupla = LerLinha(linha);
+                    //cidades.Add(new Cidade(tupla.estado, tupla.nome, tupla.capital));
+
                     var (estado, nome, latitude, longitude, capital) = LerLinha(linha);
                     cidades.Add(new Cidade(estado, nome, capital));
                 }
