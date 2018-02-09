@@ -34,7 +34,9 @@ namespace csharp7.R05.depois
                     //var tupla = LerLinha(linha);
                     //cidades.Add(new Cidade(tupla.estado, tupla.nome, tupla.capital));
 
-                    var (estado, nome, latitude, longitude, capital) = LerLinha(linha);
+                    //var (estado, nome, latitude, longitude, capital) = LerLinha(linha);
+                    (var estado, var nome, var latitude, var longitude, var capital) = LerLinha(linha);
+
                     cidades.Add(new Cidade(estado, nome, capital));
                 }
             }
