@@ -48,7 +48,14 @@ namespace csharp7.R13.depois
 
         public Cliente(string nome) => Nome = nome;
 
-        public string Nome { get; }
+        private string nome;
+        //public string Nome => nome;
+
+        public string Nome
+        {
+            get => nome;
+            set => nome = value;
+        }
 
         public IList<Locacao> Locacoes { get; } = new List<Locacao>();
 

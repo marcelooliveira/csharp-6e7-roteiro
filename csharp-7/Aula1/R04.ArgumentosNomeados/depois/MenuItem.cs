@@ -29,27 +29,15 @@ namespace csharp7.R04.depois
             //se estiverem fora da ordem.
             // As 3 linhas abaixo geram erro de compilação:
 
-            //Error CS8323  Named argument 'nomeProduto' is used out-of - position but is followed by an unnamed argument
-            ImprimirDetalhesDoPedido(nomeProduto: "Caneca Vermelha", 31, "Maria de Fátima");
-            //Error   CS8323 Named argument 'vendedor' is used out-of - position but is followed by an unnamed argument
-            ImprimirDetalhesDoPedido(31, vendedor: "Maria de Fátima", "Caneca Vermelha");
-            //Error   CS1744 Named argument 'vendedor' specifies a parameter for which a positional argument has already been given
-            ImprimirDetalhesDoPedido(31, "Caneca Vermelha", vendedor: "Maria de Fátima");
-
-            Metodo("azul", 123, 34.32);
-
-            Metodo(cor: "azul", numero: 123, valor: 34.32);
-
-            Metodo(valor: 34.32, numero: 123, cor: "azul");
-
-            Metodo(valor: 34.32, 123, cor: "azul");
+            ////Error CS8323  Named argument 'nomeProduto' is used out-of - position but is followed by an unnamed argument
+            //ImprimirDetalhesDoPedido(nomeProduto: "Caneca Vermelha", 31, "Maria de Fátima");
+            ////Error   CS8323 Named argument 'vendedor' is used out-of - position but is followed by an unnamed argument
+            //ImprimirDetalhesDoPedido(31, vendedor: "Maria de Fátima", "Caneca Vermelha");
+            ////Error   CS1744 Named argument 'vendedor' specifies a parameter for which a positional argument has already been given
+            //ImprimirDetalhesDoPedido(31, "Caneca Vermelha", vendedor: "Maria de Fátima");
         }
 
-        void Metodo(string cor, int numero, double valor)
-        {
-        }
-
-            void ImprimirDetalhesDoPedido(string vendedor, int numeroPedido, string nomeProduto)
+        void ImprimirDetalhesDoPedido(string vendedor, int numeroPedido, string nomeProduto)
         {
             if (string.IsNullOrWhiteSpace(vendedor))
             {
